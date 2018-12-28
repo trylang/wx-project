@@ -1,0 +1,34 @@
+<!--memdetail/components/addcard.wxml-->
+<view hidden='{{!isShow}}' catchtouchmove='start'>
+  <view class='wx-mask' bindtap='hideAlert'></view>
+  <view class="{{isShow?'wx-dialog show':'wx-dialog hide'}}">
+    <view class='dialog-title'>
+      <view class='dialog-title-content' style="{{isImage?'justify-content: center;padding:0 40rpx; border-top-left-radius: 10px;border-top-right-radius: 10px;':''}}">
+
+        <text style="{{isImage?'':'margin-top:110rpx;'}}">{{convertData.title}}</text>
+        <text style='margin-top:30rpx;' hidden='{{!convertData.content}}'>{{convertData.content}}</text>
+
+        <view class='dialog-convert' hidden='{{!convertData.convert}}'>
+          <text><text style='font-size:30rpx;'>+</text>{{convertData.convert}}
+          <text style='font-size:30rpx;color:#000;'>积分</text></text>
+        </view>
+      </view>
+
+      <view class='dialog-title-ok' hidden='{{!convertData.leftText}}'>
+        <view class='btn-left' bindtap='hideAlert'>
+          <text>{{convertData.leftText}}</text>
+        </view>
+
+        <view style='flex:1;' bindtap='onRightClick'>
+          <text>{{convertData.rightText}}</text>
+        </view>
+      </view>
+
+      <view class='dialog-title-ok' bindtap='_onOkClick' hidden='{{convertData.leftText}}'>
+        <text>{{convertData.btnText}}</text>
+      </view>
+
+      <image src='{{convertData.titleImg}}' hidden='{{isImage}}'></image>
+    </view>
+  </view>
+</view>

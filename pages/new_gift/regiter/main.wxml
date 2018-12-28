@@ -1,0 +1,31 @@
+<view class="container">
+	<view class="name">
+		<view class="label">姓名：</view>
+		<view>
+			<input value="{{name}}"  bindchange="bindNameChange" class='write-name' placeholder="请输入姓名" />
+		</view>
+	</view>
+	<view class="name">
+		<view class="label">性别：</view>
+		<view>
+			<picker
+			    value="{{sex}}"
+			    range="{{sexArr}}"
+			    bindchange="bindSexChange"
+			  >
+			  <button class="choose" type="default">{{sex?sex:'请选择性别'}}</button>
+			</picker>
+
+		</view>
+	</view>
+	<view class="name">
+		<view class="label">生日：</view>
+		<view>
+			<picker mode="date" value="date" start="1900-09-01" end="2100-09-01"  bindchange="bindDateChange">
+	          	<button type="default"  class="choose">{{date?date:'请选择出生日期'}}</button>
+	        </picker>
+		</view>
+	</view>
+	<button class="submit" bindtap='handleCreateMember'>提交</button>
+	<include src="../../components/modal_btn/modal.wxml" /> 
+</view>

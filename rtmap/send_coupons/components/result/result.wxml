@@ -1,0 +1,10 @@
+<view class="dialog">
+    <view class="dialog_content">
+        <image class="img" src="http://res.rtmap.com/wx/couponM/smile.png"></image>
+        <!-- <image src="http://res.rtmap.com/wx/couponM/purchase_fail.png"></image> -->
+        <view class="info">
+            <text class="info_detail">领取成功</text>
+            <button class="see_btn" bindtap="goList">查看</button>
+        </view>
+    </view>
+</view>

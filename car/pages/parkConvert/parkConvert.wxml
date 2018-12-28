@@ -1,0 +1,21 @@
+<view class='coupon_container'>
+ <view class='tips'>
+        <view class='tips_titck' wx:if='{{scoreType==2}}'>您当前拥有<text>{{userScore}}积分</text>可用，每天最多可用<text>{{maxConv}}积分</text>进行停车缴费，每<text>{{everyScore}}积分</text>可抵扣<text>15分钟</text>停车时长</view>
+        <view class='tips_titck' wx:else>您当前拥有<text>{{userScore}}积分</text>可用，每天最多可用<text>{{maxConv}}积分</text>进行停车缴费，每<text>{{everyScore}}积分</text>可抵扣<text>1元</text>停车费</view>
+    </view>
+
+    <view class='line'></view>
+
+    <view class='coupon_list'>
+        <view class='coupon_input'>
+            <button class='minus' disabled="{{convobj.isSub}}" bindtap="onSubClick">-</button>
+            <input disabled="{{inputDisabled}}" value="{{maxScore}}"></input>
+            <button class='plus' disabled="{{convobj.isAdd}}" bindtap="onAddClick">+</button>
+        </view> 
+       <view class='subtract' wx:if='{{scoreType==2}}'>当前可减<text>{{convobj.minConv}}分钟时长</text></view>
+       <view class='subtract' wx:else>当前可减<text>{{maxScore/everyScore}}元</text></view>
+       <view class='btn' bindtap="onOkClick">
+            <image src='http://res.rtmap.com/wx/parking/sure.png'></image>
+       </view>
+    </view>
+</view>

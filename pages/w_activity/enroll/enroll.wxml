@@ -1,0 +1,87 @@
+<view class="enroll-container">
+	<view class="enroll-date">
+		<view class="section">
+		  <image class="date-image" src='../../../images/w_activity/date.png'></image>
+		 <!--  <picker mode="date" value="{{date}}" class='picker-item' start="2015-09-01" end="2020-09-01" bindchange="bindDateChange"> -->
+		    <view bindtap="bindDateChange" class="picker">
+		       {{date?date:'请选择活动日期'}}
+		    </view>
+		 <!--  </picker> -->
+		</view>
+		<view class="section">
+		  <image class="time-image" src='../../../images/w_activity/time.png'></image>
+		  <picker mode="time" value="{{time}}" start="{{startTime}}" end="{{endTime}}" bindchange="bindTimeChange">
+		    <view class="picker">
+		       {{showTime?showTime:'请选择活动时间'}}
+		    </view>
+		  </picker>
+		</view>
+	</view>
+	<view class="choice-condition">
+		<view class="choice-ticket">
+			<view class="choice-title">
+				选择门票
+			</view>
+			<view class="ticket-item {{isTicket==index?'ticket-item-active':''}}" data-index='{{index}}' bindtap='handleGetActiveTicket' wx:for='{{ticketlist}}' wx:key='{{index}}'>
+				<view class="ticket-title">
+					{{item.ticketTitle}}
+					<text class="buy-ticket">(每人限购{{item.partmax}}张)</text>
+				</view>
+				<view class="small-title">{{item.remark}}</view>
+				<view class="price-number">
+					<view class="pre-price" wx:if='{{item.chargeType==0}}'>免费</view>
+					<view class="pre-price" wx:else>
+						<view>
+							<text wx:if='{{limit.money>0}}'>￥<text class="price">{{limit.money}}</text></text>
+							<text wx:if='{{limit.money>0&&limit.score>0}}'>/</text>
+							<text wx:if='{{limit.score>0}}'>￥<text class="price">{{limit.score}}</text>积分</text>
+						</view>
+						<!-- <text class="buy-ticket"  wx:if='{{isTicket==index}}'>(余票{{yp}}张)</text> -->
+					</view>
+					<view class="add-number" wx:if='{{isTicket==index}}'>
+						<view wx:if='{{item.number==0}}' class="add-image-content">
+							<image class="reduce-image" src='../../../images/w_activity/reduce_dis.png'></image>
+						</view>
+						<view bindtap='changeReduceNum' class="add-image-content"  data-number='{{index}}' wx:else>
+							<image class="reduce-image" src='../../../images/w_activity/reduce.png'></image>
+						</view>
+						<input type="text" disabled="true" class="number-input" data-number='{{index}}' value="{{item.number}}"/>
+						<view bindtap='changeAddNum' class="add-image-content" data-number='{{index}}'>
+							<image class="add-image"  src='../../../images/w_activity/add.png'></image>
+						</view>
+					</view>
+				</view>	
+			</view>
+			
+		</view>
+		<view class="enroll-info" wx:if='{{infolistAll.length}}'>
+			<view class="choice-title">
+				请填写报名人信息
+			</view>
+			<view class="enroll-item" wx:for='{{infolistAll}}'  wx:for-item="itemSmall" wx:for-index="sdx" wx:key='{{sdx}}'>
+				<view class="enroll-label">
+					请输入{{itemSmall.infoname}}
+				</view>
+				<input type="text" value='{{itemSmall.value}}' data-index='{{sdx}}' data-item='{{itemSmall}}' bindinput='handleGetInfo' class="enroll-input" />
+			</view>
+		</view>
+	</view>
+	<view class="cover-modal" catchtap='hiddenModal'  wx:if='{{isShowCalendar}}' catchtouchmove="preventScroll">
+		<view class="comment-write">
+			<view class="dialog-calendar" wx:if='{{isShowCalendar}}'>	
+				 <include src="../../components/calendar/index.wxml" />
+			</view>
+		</view>
+	</view>
+	
+	
+	<view class="bottom-btn">
+		<view class="bottom-price" wx:if='{{chargeType==1}}'>
+			<text class="bottom-num-price" wx:if='{{money>0}}'>￥{{money}}</text>
+			<text class="bottom-num-price" wx:if='{{money>0&&score>0}}'>/</text>
+			<text class="bottom-num-price" wx:if='{{score>0}}'>{{score}}积分</text>
+		</view>
+		<view class="bottom-price" wx:if='{{chargeType==0}}'><text class="bottom-num-price">免费</text></view>
+		<view class="bottom-enroll" bindtap='{{ifclick? "handleJoinActivity": ""}}'>报名</view>
+	</view>
+</view>

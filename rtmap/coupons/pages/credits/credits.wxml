@@ -1,0 +1,21 @@
+<!--rtmap/coupons/pages/credits/credits.wxml-->
+<view class='container'>
+    <view class='list-header'>
+        <image style='width: 16rpx;height:18rpx;margin-right: 8rpx;' src='../../static/images/mine_credits_small.png' mode='widthFix'></image>
+        <text>{{credits}}</text>
+    </view>
+    <view class='list'>
+        <view class='section-header'>
+            <view class='h-line'></view>
+            <text>积分变更记录</text>
+            <view class='h-line'></view>
+        </view>
+        <view class='cell' wx:for='{{records}}' wx:key='{{index}}'>
+            <view class='cell-detail'>
+                <text class='title'>{{item.comment}}</text>
+                <text class='time'>{{item.bizTime}}</text>
+            </view>
+            <text class='cell-point'>{{item.adjustValue > 0?'+':''}}{{item.adjustValue}}</text>
+        </view>
+    </view>
+</view>

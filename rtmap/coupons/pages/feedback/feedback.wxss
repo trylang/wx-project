@@ -1,0 +1,93 @@
+/* rtmap/coupons/pages/feedback/feedback.wxss */
+
+.container {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 750rpx;
+}
+
+.cell {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 32rpx;
+}
+
+.title {
+    color: black;
+    font-size: 30rpx;
+    line-height: 72rpx;
+    text-align: center;
+}
+
+.operation {
+    background: #F5F5F5;
+    width: 610rpx;
+    margin-left: 16rpx;
+    box-sizing: border-box;
+}
+
+.name {
+    height: 72rpx;
+    margin-top: 16rpx;
+}
+
+.content {
+    height: 388rpx;
+    margin-top: 32rpx;
+    position: relative;
+}
+
+.input {
+    color: black;
+    font-size: 30rpx;
+    height: 100%;
+    width: 100%;
+}
+
+.textarea {
+    padding: 2rpx 0 0 0;
+}
+
+.ios-textarea {
+    padding-top: 2rpx;
+    padding-left: 8rpx;
+    padding-right: 8rpx;
+}
+
+.placeholder {
+    color: #999;
+    font-size: 30rpx;
+}
+
+.characters-counter {
+    position: absolute;
+    bottom: 16rpx;
+    right: 48rpx;
+    color: black;
+    font-size: 24rpx;
+}
+
+.submit-button {
+    background: #F21B7B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 36rpx;
+
+    width: 372rpx;
+    height: 80rpx;
+    border-radius: 40rpx;
+    margin-top: 234rpx;
+}
+
+.images-picker {
+    margin-top: 32rpx;
+}
+
+images-picker {
+    margin-left: 16rpx;
+}

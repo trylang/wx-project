@@ -1,0 +1,110 @@
+<view class='detailWrapper'>
+    <image class='banner' src='{{detailInfo.imgLogoUrl}}' mode='aspectFill' lazy-load></image>
+    <view class='detailTitle'>
+        <view class='leftTitle'>
+            <view class='mainInfo'>{{detailInfo.mainInfo}}</view>
+            <view class='extendInfo'>{{detailInfo.extendInfo}}</view>
+            <view class='limit'><text>限购 {{detailInfo.getLimit}} 张</text></view>
+        </view>
+        <view class='iconBtn'>
+            <view class='collectTion' wx:if='{{!collected}}'>
+                <image src='http://res.rtmap.com/wx/integral_mall/collect.png' bindtap='collectHandler'></image>
+                <text>收藏</text>
+            </view>
+            <view class='collectTion' wx:else>
+                <image src='http://res.rtmap.com/wx/integral_mall/collected.png' bindtap='collectHandler'></image>
+                <text>已收藏</text>
+            </view>
+            <view style='display:inline-block;text-align:right;'>
+                <button open-type="share" class='share'>
+                    <image src='http://res.rtmap.com/wx/seckill/share.png' bindtap="sharePage" mode='aspectFill'></image>
+                </button>
+                <text>分享</text>
+            </view>
+            
+        </view>
+
+
+
+    </view>
+    
+    <view class='back'></view>
+    <view class='exchangeNote' wx:if='{{detailInfo.type == 2}}'>
+        <view class='title'>兑换说明</view>
+        <view class='imgList'>
+            <view class='imgItem' wx:for='{{detailInfo.gradePrice}}' data-data='{{item}}' wx:key="{{index}}">
+                <image src='{{item.imageUrl}}' mode='aspectFill' lazy-load></image>
+                <text>{{item.price}}积分可兑</text>
+            </view>
+        </view>
+    </view>
+    <view class='back'></view>
+    <view class='useKnow'>
+        <view class='title'>使用须知</view>
+        <view class='desc'>{{detailInfo.descClause}}</view>
+    </view>
+    <view class='back'></view>
+    <view class='imgTxtBox'>
+        <view class='title'>优惠详情</view>
+        <view class='imgTxt' wx:for='{{detailInfo.imgtxtInfo}}' data-data='{{item}}' wx:key='{{unique}}' wx:if='{{item}}'>
+        </view>
+        <block wx:for="{{detailInfo.imgtxtInfo}}" wx:key="index">
+            <rich-text wx:if='{{item}}' nodes='{{item}}' class="message_content"></rich-text>
+        </block>
+    </view>
+    <view class='btnStyle'>
+        <view class='paymsg'>
+            <text>{{detailInfo.price}}积分</text>
+            <text>￥{{detailInfo.originalPrice}}</text>
+        </view>
+        <view class='payBtn {{detailInfo.isGray==true?"gray":""}}' bindtap='{{detailInfo.isGray == false?"showPayDialog":""}}' wx:if='{{detailInfo.validateStatus == 1}}'>
+            <text wx:if="{{detailInfo.isGray==false}}">兑换</text>
+            <text wx:else="{{detailInfo.isGray==true}}">等级不足</text>
+        </view>
+        <view class='payBtn gray' wx:elif='{{detailInfo.validateStatus == 6}}'>
+            <text>已领光</text>
+        </view>
+        <view class='payBtn gray' wx:else>
+            <text>不可兑换</text>
+        </view>
+        <!-- <view class='payBtn gray' wx:if='{{detailInfo.validateStatus == 1 && detailInfo.isGray==true}}'>
+            <text>等级不足</text> 
+        </view> -->
+    </view>
+
+    <view hidden="{{!isDialogShow}}" catchtouchmove='start'>
+        <view class='mask'></view>
+        <view class='burial'>
+            <view class='burial-title'>
+                <text class='title'>使用<text style='color:#F21B7B;margin:0 10rpx;'>{{detailInfo.price}}</text>积分</text>
+                <text class='content'>兑换{{detailInfo.mainInfo}}</text>
+                <view class='btnrow'>
+                    <view class='cancle' bindtap='onCancleClick'>取消</view>
+                    <view class='ok' bindtap='onExcellClick'>兑换</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view hidden="{{!isDialogSucess}}" catchtouchmove='start'>
+        <view class='mask'></view>
+        <view class='burial'>
+            <view class='burial-title'>
+                <image src='http://res.rtmap.com/wx/integral_mall/success.png' class='diaImg' wx:if='{{lookList==false}}'></image>
+            <image src='http://res.rtmap.com/wx/integral_mall/failed.png' class='diaImg' wx:if='{{lookList==true}}'></image>
+                <text class='showText'>{{showText}}</text>
+                <view class='btnrow' wx:if='{{lookList==false}}'>
+                    <view class='cancle' bindtap='enterListHandler'>查看其他</view>
+                    <view class='ok' bindtap='enterUseHandler'>去使用</view>
+                </view>
+                <view class='btnrow' wx:if='{{lookList==true}}' style='margin-left:46%;'>
+                    <view class='ok' bindtap='enterListHandler'>查看其他</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <dialog id='dialog' payResult='{{payResult}}' bind:cancelEvent='onLeftClick' bind:confirmEvent='onRightClick'></dialog>
+    <!-- 分享以后 返回首页 -->
+     <navigator url="/pages/index/index" open-type="switchTab" wx:if="{{isFromShare == 'true'}}">
+    <image class="{{isMove?'go-home-hide':'go-home'}}" src='http://res.rtmap.com/wx/couponM/go_home.png' mode='widthFix'></image>
+  </navigator>
+</view>

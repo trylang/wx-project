@@ -1,0 +1,49 @@
+/* rtmap/miaosha/page/success/success.wxss */
+.img{
+	margin:188rpx auto 0rpx;
+	width: 192rpx;
+	height: 264rpx;
+	display: block;
+}
+.img_w,.img_w_f{
+	width:120rpx;
+	height:38rpx;
+	margin:32rpx auto 0rpx;
+	font-size:30rpx;
+	font-family:PingFangSC-Medium;
+	font-weight:500;
+	color:#F21B7B;
+	line-height:38rpx;
+}
+.img_w_f{
+	color:#999999;
+}
+.bt_full{
+	width:440rpx;
+	height:88rpx;
+	line-height:88rpx;
+	background:#F21B7B;
+	color:white;
+	border-radius:50rpx;
+	font-size:36rpx;
+	text-align: center;
+}
+.bt_empty{
+	border:2rpx solid #F21B7B;
+	width:436rpx;
+	height:84rpx;
+	line-height:84rpx;
+	background:white;
+	color: #F21B7B;
+	border-radius:50rpx;
+	font-size:36rpx;
+	text-align: center;
+}
+.nav_link{
+	text-align: center;
+	color:black;
+	font-size:30rpx;
+	line-height:38rpx;
+	height:38rpx;
+	text-decoration: underline;
+}

@@ -1,0 +1,21 @@
+<!--rtmap/miaosha/page/orderresult/orderresult.wxml-->
+<view>
+	<block wx:if="{{status}}" >
+		<image class="img" src="http://res.rtmap.com/wx/seckill/success.png" mode="scaleToFill"/>
+		<view class="img_w">秒杀成功</view>
+		<navigator open-type="redirect" url="../use/use?orderId={{orderId}}&qrCode={{qrCode}}" style="margin-top:166rpx;">
+			<view style="margin:0rpx auto;" class="bt_full">使用秒杀券</view>
+		</navigator>
+		<view open-type="reLaunch" bindtap='backList' url="../list/list" style="margin-top:40rpx;">
+			<view style="margin:0rpx auto;" class="bt_empty">继续秒杀</view>
+		</view>
+	</block>
+	<block wx:else >
+		<image class="img" src="http://res.rtmap.com/wx/seckill/fail.png"/>		
+		<view class="img_w_f">秒杀失败</view>
+		<navigator open-type="reLaunch" url="../list/list" style="margin-top:166rpx;">
+			<view style="margin:0rpx auto;" class="bt_full">看看其他</view>
+		</navigator>
+	</block>
+	<navigator open-type="redirect" url="../order/order?orderId={{orderId}}&qrCode={{qrCode}}" style="margin-top:80rpx;" class="nav_link">查看订单</navigator>
+</view>

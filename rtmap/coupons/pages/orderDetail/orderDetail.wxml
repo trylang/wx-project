@@ -1,0 +1,148 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<view class='orderDetail'>
+  <view class='head'>
+    <view class='status'>
+      <image class='icon' src='../../images/time.png'></image>
+      <text>{{mapStatus[group? 'group': orderDetail.order.state].text}}</text>
+    </view>
+    <view class='tip'>{{mapStatus[group? 'group':orderDetail.order.state].tip}}</view>
+  </view>
+  <view class='body'>
+    <view class="timeScheduleCon" wx:if="{{orderDetail.order.refundOrderCode}}">
+      <view class="timeScheduleText">
+        <view class="">
+          发起退款
+        </view>
+        <view class="between {{orderDetail.order.status==3?'activity':''}}">
+          退款中
+        </view>
+        <view class="{{orderDetail.order.status==4?'activity':''}}">
+          退款成功
+        </view>
+      </view>
+      <view class='timeSchedule'>
+        <view class="first">
+          <text class="left"></text>
+          <text class="center {{orderDetail.order.status==3?'activited':''}}"></text>
+        </view>
+        <view class="second">
+          <text class="{{orderDetail.order.status==4?'activited':''}}"></text>
+        </view>
+      </view>
+    </view>
+
+    <block wx:for="{{orderDetail.products}}" wx:key="index">
+      <view class='shop' data-index="{{index}}" bindtap='shop'>
+        <text class='shop_label'>适用店铺</text>
+        <text class='shop_name'>{{orderDetail.coupon.shops[0].shopName}}</text>
+        <image class="arrow" src="../../static/images/arrow.png" mode="scaleToFill" binderror="" bindload=""></image>
+      </view>
+
+      <view class="maininfo">
+        <view class='image'>
+          <image class="img" src="{{item.couponInfo.couponImageList?item.couponInfo.couponImageList[0]?item.couponInfo.couponImageList[0].imgUrl:item.couponInfo.imgLogoUrl:item.couponInfo.imgLogoUrl}}" mode="aspectFill" binderror="" bindload=""></image>
+        </view>
+        <view class='describe'>
+          <view class='describe_head'>
+            <text class='name'>{{item.couponInfo.mainInfo}}</text>
+            <text class='num'>x1</text>
+          </view>
+          <view class='describe_foot'>
+            <text class='price'>{{orderDetail.order.buyType == '1'?'免费':'￥' +(item.totalFee/100 || 0) }}</text>
+            <text class='discount'>￥{{item.couponInfo.cost/100||'0'}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="hascode" wx:if="{{item.qrCode &&orderDetail.order.state!=5}}">
+        <view class="exchange" bindtap='toDetail' id="{{item.qrCode}}" data-extendInfo="{{item.couponInfo.extendInfo}}">
+          <view class="couponCode">
+            <text class='exchange_label'>兑换码</text>
+            <text class='exchange_code'>{{item.qrCode||''}}</text>
+
+          </view>
+          <image class="qr_img" src="../../images/qr_img.png" mode="scaleToFill" binderror="" bindload=""></image>
+          <image class="arrow" src="../../static/images/arrow.png" mode="scaleToFill" binderror="" bindload=""></image>
+        </view>
+        <view class="info_item">
+          <text class="info_label">有效期</text>
+          <text class="info_value">{{item.epTime}}</text>
+        </view>
+      </view>
+    </block>
+    <view class="refundstatus {{mapStatus[orderDetail.order.status].en}}" wx:if="{{(orderDetail.order.status==3||orderDetail.order.status==4) && orderDetail.order.orderNo}}">
+      <button size="mini">{{mapStatus[orderDetail.order.status].btncontent}}</button>
+    </view>
+    <view class="foot">
+      <!-- <view class="hascode" wx:if="{{true}}">
+                <view class="exchange" bindtap='toDetail'>
+                    <view class="couponCode">
+                        <text class='exchange_label'>兑换码</text>
+                        <text class='exchange_code'>{{orderDetail.order.couponCode||''}}</text>
+
+                    </view>
+                    <image class="qr_img" src="../../images/qr_img.png" mode="scaleToFill" binderror="" bindload=""></image>
+                    <image class="arrow" src="../../static/images/arrow.png" mode="scaleToFill" binderror="" bindload=""></image>
+                </view>
+                <view class="info_item">
+                    <text class="info_label">有效期</text>
+                    <text class="info_value">{{orderDetail.coupon.effectiveStartTime+' 至 '+orderDetail.coupon.effectiveEndTime}}</text>
+                </view>
+            </view> -->
+      <view class="refunds" wx:if="{{orderDetail.order.refundOrderCode}}">
+        <view class="info_item">
+          <text class="info_label">申请时间</text>
+          <text class="info_value">{{orderDetail.order.createTime}}</text>
+        </view>
+        <view class="info_item">
+          <text class="info_label">退款编号</text>
+          <text class="info_value">{{orderDetail.order.refundOrderCode}}</text>
+        </view>
+        <view class="info_item" wx:if="{{orderDetail.order.status==4}}">
+          <text class="info_label">退款时间</text>
+          <text class="info_value">{{orderDetail.order.finishTime}}</text>
+        </view>
+      </view>
+      <view class="normal" wx:else>
+        <view class="info_item">
+          <text class="info_label">下单时间</text>
+          <text class="info_value">{{orderDetail.order.orderTime||orderDetail.order.createTime}}</text>
+        </view>
+        <view class="info_item">
+          <text class="info_label">订单编号</text>
+          <text class="info_value">{{orderDetail.order.orderNo||orderDetail.order.refundOrderCode}}</text>
+        </view>
+        <view class="info_item">
+          <text class="info_label">订单金额</text>
+          <text class="info_value">¥{{orderDetail.order.buyType=="1"?0:orderDetail.order.totalFee/100}}</text>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <view class="operation" wx:if="{{orderDetail.order.state==1}}">
+    <view class="cancel">
+      <button class='cancel-btn' bindtap="cancel">取消订单</button>
+    </view>
+    <view class="payment">
+      <button bindtap="payment">立即支付</button>
+      <!-- <radio color="yellow"value="苹果"checked=""></radio> -->
+    </view>
+  </view>
+  <view class="operation" wx:elif="{{(orderDetail.order.state==2 &&orderDetail.products.length==1)}}">
+    <view class="cancel {{orderDetail.order.status==3?'ing':''}}">
+      <button bindtap="refund" disabled="{{orderDetail.order.status==3}}">申请退款</button>
+    </view>
+  </view>
+
+  <view class="operation" wx:elif="{{orderDetail.order.state==5||orderDetail.order.state==7}}">
+    <view class="cancel {{orderDetail.order.status==5||orderDetail.order.status==1?'ing':''}}">
+      <button bindtap="showOhter">查看其他</button>
+    </view>
+  </view>
+
+  <view class="operation" wx:else hidden='{{isMiao}}'>
+    <view class="payment">
+      <navigator wx:if="{{order.status==3||order.status==5||order.status==7}}" open-type="navigate" url="../couponDetail/couponDetail?Id={{order.batchId}}&couponId={{order.couponId}}">再次购买</navigator>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,10 @@
+<view class='add-car-container'>
+    <car-input bind:onCityClick='onCityClick' bind:onInputClick='onInputClick' carNumber='{{carNumber}}'></car-input>
+    <view class='add-car-bind'style="{{isInput?'background-color:#EE4C75;':'background-color:#BCBCBC;'}}" 
+     bindtap='onBindClick'>
+        <text>绑定车牌</text>
+    </view>
+   <key-board carList='{{carList}}' bind:onInputChange='onInputChange'></key-board>
+
+    <dialog id='dialog' payResult='{{payResult}}' bind:cancelEvent='onLeftClick' bind:confirmEvent='onRightClick'></dialog>
+</view>

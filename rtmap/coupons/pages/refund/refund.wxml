@@ -1,0 +1,45 @@
+<!--pages/refund/refund.wxml-->
+<view class="refund">
+<block wx:for="{{orderDetail.products}}" wx:key="index">
+<view class='body' bindtap="tolink">
+  <view class='image'>
+    <image class="img" src="{{item.couponInfo.couponImageList?item.couponInfo.couponImageList[0]?item.couponInfo.couponImageList[0].imgUrl:item.couponInfo.imgLogoUrl:item.couponInfo.imgLogoUrl}}" mode="aspectFill" binderror="" bindload=""></image>
+  </view>
+  <view class='describe'>
+    <view class='describe_head'>
+      <text class='name'>{{item.couponInfo.mainInfo}}</text>
+      <text class='num'>x1</text>
+    </view>
+    <view class='describe_foot'>
+      <text class='price'>￥{{item.totalFee/100 || 0}}</text>
+      <text class='discount'>￥{{item.couponInfo.cost/100||'0'}}</text>
+    </view>
+  </view>
+</view>
+<view class="foot">
+  <view class="foot_head">
+    <view class="total">
+      <text class="total_label">退款金额</text>
+      <text class="total_num">￥{{orderDetail.order.totalFee/100}}</text>
+    </view>
+  </view>
+</view>
+</block>
+<view class="reason">
+<view class="reason_title">
+<text>退款原因</text><text>（必填）</text>
+</view>
+<view>
+<radio-group class="radio-group" bindchange="radioChange">
+  <label class="radio" wx:for="{{items}}" wx:key="{{item}}">
+    <radio color="#FF6559" value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+  </label>
+</radio-group>
+</view>
+</view>
+</view>
+<view class="operation">
+<view class="cancel">
+  <button bindtap="refund">申请退款</button>
+</view>
+</view>

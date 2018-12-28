@@ -1,0 +1,47 @@
+<template name="certificationKit">
+  <view class="ckitTemplate {{echossData.ckitInit === true && echossData.ckitClose === false ? 'on' : ''}}">
+    <view class="ckit_template_background" style="background-color:{{echossData.ckitBackgroundColor}}; opacity:{{echossData.ckitOpacity}};">
+    </view>
+
+    <view class="ckit_template_center_view {{echossData.ckitLoading === true || echossData.ckitSuccess === true ? 'off' : ''}}">
+      <image class="ckit_template_close_img" src="{{echossData.ckitImage01 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.ckitImage01}}" catchtap="echossCkitEvent" data-event="1" />
+
+      <view class="ckit_template_center_view_img_frame">
+        <image class="ckit_template_center_view_img_fr" mode="aspectFit" src="{{echossData.ckitImage02 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.ckitImage02}}" />
+        <image class="ckit_template_center_view_img {{echossData.ckitCenterNumber == 1 ? 'on' : ''}}" mode="aspectFit" src="{{echossData.ckitImage03 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.ckitImage03}}" />
+        <image class="ckit_template_center_view_img {{echossData.ckitCenterNumber == 2 ? 'on' : ''}}" mode="aspectFit" src="{{echossData.ckitImage04 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.ckitImage04}}" />
+        <image class="ckit_template_center_view_img {{echossData.ckitCenterNumber == 3 ? 'on' : ''}}" mode="aspectFit" src="{{echossData.ckitImage05 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.ckitImage05}}" />
+        <image class="ckit_template_center_view_img {{echossData.ckitCenterNumber == 4 ? 'on' : ''}}" mode="aspectFit" src="{{echossData.ckitImage06 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.ckitImage06}}" />
+      </view>
+      <text class="ckit_template_center_view_text">{{echossData.ckitDescription}}</text>
+    </view>
+
+    <view class="ckit_template_loading_view {{echossData.ckitLoading === true ? 'on' : ''}}">
+      <view class="ckit_template_loading_dim_view"></view>
+      <view class="ckit_template_loading_frame_wrap">
+        <view class="ckit_template_loading_frame">
+          <image class="ckit_template_loading_img_fr" mode="aspectFit" src="{{echossData.ckitImage02 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.ckitImage02}}" />
+          <image class="ckit_template_loading_gif" mode="aspectFit" src="{{echossData.ckitImage07 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.ckitImage07}}" />
+          <image class="ckit_template_loading_img_01" mode="aspectFit" src="{{echossData.ckitImage09 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.ckitImage09}}" />
+          <image class="ckit_template_loading_img_02" mode="aspectFit" src="{{echossData.ckitImage10 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.ckitImage10}}" />
+          <image class="ckit_template_loading_img_03" mode="aspectFit" src="{{echossData.ckitImage11 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.ckitImage11}}" />
+        </view>
+      </view>
+    </view>
+
+    <view class="ckit_template_success_view {{echossData.ckitSuccess === true ? 'on' : ''}}">
+      <view class="ckit_template_success_frame_wrap">
+        <view class="ckit_template_success_frame" style="background-color:{{echossData.echossIconColor}};">
+          <image class="ckit_template_success_img_fr" mode="aspectFit" src="{{echossData.ckitImage02 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.ckitImage02}}" />
+          <image class="ckit_template_success_img" mode="aspectFit" src="{{echossData.ckitImage08 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.ckitImage08}}" />
+          <image class="ckit_template_success_img_01" mode="aspectFit" src="{{echossData.ckitImage09 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.ckitImage09}}" />
+          <image class="ckit_template_success_img_02" mode="aspectFit" src="{{echossData.ckitImage10 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.ckitImage10}}" />
+          <image class="ckit_template_success_img_03" mode="aspectFit" src="{{echossData.ckitImage11 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.ckitImage11}}" />
+        </view>
+      </view>
+    </view>
+
+    <import src="echoss/echossIcon.wxml" />
+    <template is="echossIcon" data="{{echossData: echossData}}"></template>
+  </view>
+</template>

@@ -1,0 +1,15 @@
+<!--components/couponitem/couponitem.wxml-->
+<scroll-view 
+  bindscroll="scroll"
+  scroll-y="{{true}}"
+  class="detail"
+>
+    <view class='banner_c'>
+        <image
+            style="height:{{height}}rpx"
+            class='banner' 
+            src='{{img}}' 
+            mode='aspectFill' lazy-load></image>
+    </view>
+    <slot></slot>
+</scroll-view>

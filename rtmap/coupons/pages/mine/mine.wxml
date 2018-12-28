@@ -1,0 +1,91 @@
+<view class='container'>
+    <block wx:if='{{ userInfo }}'>
+        <view class='banner'>
+            <image class='banner-bg' src='{{memberHandbook.backgroundImg}}'></image>
+            <view class='banner-head-login'>
+                <image class='head-image login-head' src='{{avatar}}' binderror='headLoadFail' bindtap='editInfo'></image>
+                <view class='membership-info'>
+                    <view class='membership-info-top'>
+                        <text>{{name}}</text>
+                        <view class='membership-level'>
+                            <!-- <block wx:if='{{ userInfo.grade == 3 }}'>
+                                <image src='../../../../images/index/vip.png'></image>
+                                <text style='color: #CDA25D'>钻石会员</text>
+                            </block>
+                            <block wx:elif='{{ userInfo.grade == 2 }}'>
+                                <image src='../../../../images/index/vip.png'></image>
+                                <text style='color: #CDA25D'>金卡会员</text>
+                            </block>
+                            <block wx:else>
+                                <image src='../../../../images/index/vip.png'></image>
+                                <text style='color: #CDA25D'>银卡会员</text>
+                            </block> -->
+                            <image src='../../../../images/index/vip.png'></image>
+                            <text style='color: #CDA25D'>{{userInfo.cardName}}</text>
+                        </view>
+                    </view>
+                    <view class='membership-editInfo'>
+                        <image src='../../static/images/mine_edit_bg.png'></image>
+                        <text>点击头像编辑资料</text>
+                    </view>
+                </view>
+            </view>
+            <image class='membership-accessory' src='../../static/images/mine_membership_qr.png' bindtap='displayMembershipQR'></image>
+            <dialog id='dialog' cardDetail="{{userInfo.cardNo}}" bind:cancelEvent="cancelEvent" cardName='{{cardName}}'></dialog>
+        </view>
+        <view class='userInfo-overview'>
+            <view class='overview' bindtap='checkCredits'>
+                <image class='overview-icon' src='../../static/images/mine_credits_small.png' mode='widthFix'></image>
+                <text class='overview-title'>积分</text>
+                <text class='overview-content'>{{credits || 0}}</text>
+            </view>
+            <view class='v-line'></view>
+            <view class='overview' bindtap='checkCoupons'>
+                <image class='overview-icon' style='width: 14rpx;' src='../../static/images/mine_coupon_small.png' mode='widthFix'></image>
+                <text class='overview-title'>优惠券</text>
+                <text class='overview-content'>{{couponsCount || 0}}</text>
+            </view>
+        </view>
+        <view class='membership-benefit' wx:if="{{benefits.length>0}}">
+            <view class='benefit-top'>
+                <text>当前等级会员权益</text>
+                <view class='benefit-top-button' bindtap='upgrade'>
+                    <text>我要升级</text>
+                </view>
+            </view>
+            <view class='benefit-list'>
+                <view class='benefit-cell' wx:for='{{benefits}}' wx:key='{{index}}' data-index='{{index}}' bindtap='onClickBenefits'>
+                    <image src='{{item.icon}}' mode='aspectFit'></image>
+                    <text>{{item.name}}</text>
+                </view>
+            </view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class='banner'>
+            <image class='banner-bg' src='{{memberHandbook.backgroundImg}}'></image>
+            <label class='banner-head'>
+                <!-- <button open-type='getUserInfo' bindgetuserinfo='getUserInfo'></button> -->
+                <view class="head_tolog" bindtap="login">
+                    <image class='head-image' src='{{avatar}}' binderror='headLoadFail'></image>
+                    <text>点击登录</text>
+                </view>
+            </label>
+            <!-- <view class='banner-head' bindtap='login'>
+                <image class='head-image' src='{{avatar}}' binderror='headLoadFail'></image>
+                <text>点击登录</text>
+            </view> -->
+        </view>
+    </block>
+    <view class='list'>
+        <view class='list-cell' wx:for='{{applications}}' wx:key='{{index}}' data-index='{{index}}' bindtap='onClickApplication'>
+            <view class='cell-content'>
+                <view class='cell-info'>
+                    <image src='{{item.icon}}' mode='aspectFit'></image>
+                    <text>{{item.title}}</text>
+                </view>
+                <image class='cell-accessory-icon' src='../../static/images/mine_apps_arrow.png'></image>
+            </view>
+        </view>
+    </view>
+</view>

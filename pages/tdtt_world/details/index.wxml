@@ -1,0 +1,29 @@
+
+<view class="body">
+    <view class="detail-con">
+        <view class="detail-title" wx:if="{{detailCon.detailTitle!=null}}">{{detailCon.detailTitle}}</view>
+        <view class="detail-bot">
+            <view class="sotre_img">
+                <image src="{{detailCon.storeImg}}"></image>
+                <view wx:if="{{detailCon.publishers!=null}}">@{{detailCon.publishers}}</view>
+                <view wx:elif="{{detailCon.storeNom!=null}}">@{{detailCon.storeNom}}</view>
+            </view>
+            <view class="details_time">{{detailCon.addDay}}</view>
+        </view>
+    </view>
+    <view class="detail-html">
+        <view wx:if="{{detailCon.isUrl==0}}">
+          <web-view src="{{detailCon.detailUrl}}">
+        </web-view>
+        </view>
+        <view wx:elif="{{detailCon.isUrl==1}}">
+            <import src="../../components/wxparse/wxparse.wxml"/>
+            <view class="ql-editor">
+                <template  class="details-p" is="wxParse" data="{{wxParseData:poiDescribe.nodes}}"/>
+            </view>
+        </view>
+    </view>
+            
+</view>
+<!--pages/tdtt_world/details/index.wxml-->
+

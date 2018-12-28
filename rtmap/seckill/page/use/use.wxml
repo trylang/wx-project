@@ -1,0 +1,39 @@
+<view>
+	<view class="title">
+		{{info.mainInfo}}
+	</view>
+	<view wx:if="{{info.extendInfo}}" class="title_sub">
+		{{info.extendInfo}}
+	</view>
+	<view class="img_c">
+		<canvas canvas-id="code_icon" class="canvas_img" style="width:420rpx; height: 420rpx; margin:0px auto;"></canvas>
+		<view class="img_fl" wx:if="{{info.status==4}}">			
+			<text class="img_fl_w">已退券</text>
+		</view>
+	</view>
+	<view class="code">{{info.qrCode}}</view>
+	<view style="margin-top:32rpx;" class="gray_line"></view>
+	<view class="shop">
+		<image class="shop_img" src="{{info.coupon.couponApplyShopList[0].imgLogoUrl}}"></image>
+		<view class="shop_i">
+			<view class="shop_t">
+				{{info.coupon.couponApplyShopList[0].shopName}}
+			</view>
+			<view class="shop_f">
+				{{info.coupon.couponApplyShopList[0].floor}}
+			</view>
+		</view>
+		<view class="shop_phone">
+			<image bindtap="onCallClick" src="http://res.rtmap.com/wx/seckill/phone2.png"></image>
+		</view>
+		<view class="shop_address">
+			<image bindtap="navigationToShop" src="http://res.rtmap.com/wx/seckill/go2.png"></image>			
+		</view>
+	</view>
+	<navigator class="shop_more" open-type="navigate" url="/rtmap/coupons/pages/shopsList/shopsList?couponId={{info.couponId}}">查看全部适用店铺</navigator>
+	<view style="margin-top:32rpx;" class="gray_line"></view>
+	<view class='message'>
+        <text class="message_t">使用须知</text>
+        <rich-text nodes='{{info.coupon.descClause}}' style='font-size:28rpx;white-space:pre-wrap;'></rich-text>
+    </view>
+</view>

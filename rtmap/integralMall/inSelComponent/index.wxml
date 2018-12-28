@@ -1,0 +1,6 @@
+<view class='select'>
+    <view class='select-item' wx:for='{{titleList}}' wx:key='item' data-index='{{index}}' bindtap='_onSelClick'>
+        <text style="{{clickIndex==index?'color:#F21B7B;':'color:#000;'}}">{{item}}</text>
+        <image src="{{clickIndex==index?'../images/arrow-top.png':'../images/arrow-down.png'}}" class='arrow' ></image>
+    </view>
+</view>

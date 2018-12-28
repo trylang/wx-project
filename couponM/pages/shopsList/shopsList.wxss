@@ -1,0 +1,94 @@
+/* pages/shops/shops.wxss */
+.shop-container {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.shops {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.shoplast{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 750rpx;
+    padding: 32rpx 0;
+}
+
+.shop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 750rpx;
+    padding: 32rpx 0;
+    border-bottom: 16rpx #f5f5f5 solid;
+}
+
+.shop-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 686rpx;
+    justify-content: space-between;
+    padding: 0 32rpx;
+}
+
+.shop-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.shop-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 142rpx;
+}
+
+.logo {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.call {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.call text {
+    color: #999;
+    font-size: 24rpx;
+    margin-top: 5rpx;
+}
+
+.call image {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.msg {
+   display: flex;
+    flex-direction: column;
+    margin-left: 16rpx;
+    width: 360rpx;
+    overflow: hidden;
+}
+
+.msg .title {
+    color: #000;
+    font-size: 30rpx;
+}
+
+.msg .floor {
+    color: #999;
+    font-size: 24rpx;
+    margin-top: 8rpx;
+}

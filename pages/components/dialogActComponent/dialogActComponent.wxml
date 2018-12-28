@@ -1,0 +1,19 @@
+<!--dialogComponent.wxml-->
+<view class='wx_dialog_container' hidden="{{!isShow}}">
+    <view class='wx-mask' bindtap='_cancelEvent'></view>
+    <view class='wx-dialog'>
+        <image hidden='{{!iconUrl}}' class='dialog-icon' src="{{iconUrl}}" mode='widthFix'></image>
+
+        <text class='wx-dialog-msg' style="{{iconUrl?'margin-top:40rpx;':'margin-top:96rpx;'}}">{{title}}</text>
+
+        <view class='wx-dialog-btn' style="{{iconUrl?'justify-content: center;':'justify-content: space-between;'}}">
+            <view hidden='{{iconUrl}}' class='wx-dialog-cancle' bindtap='_cancelEvent'>
+                <text>取消</text>
+            </view>
+
+            <view class='wx-dialog-ok' bindtap='_confirmEvent'>
+                <text>确定</text>
+            </view>
+        </view>
+    </view>
+</view>

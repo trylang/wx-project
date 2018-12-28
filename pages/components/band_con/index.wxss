@@ -1,0 +1,78 @@
+.contents{
+	background:rgba(245,245,245,1);
+	border-radius:4px;
+	font-family:PingFangSC;
+}
+.con-all{
+	display: -webkit-flex;
+    flex-direction: row;
+    padding: 32rpx;
+    margin-bottom:16rpx;
+    background:#fff;
+}
+.garden-yellow{
+	height: 38rpx;
+	width: 50rpx;
+	background: #F8C71D;
+	border-bottom-left-radius:50rpx;
+	font-size: 20rpx;
+	text-align:center;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.con-img{
+	width: 160rpx;
+	height: 160rpx;
+    position: relative;
+}
+.con-img img{
+	width: 100%;
+	height: 100%;
+}
+.con-text{
+	padding-left: 32rpx;
+	flex: 1;
+	font-size: 24rpx;
+}
+.text-tit{
+	color: #000;
+	font-size: 36rpx;
+	font-weight: bold;
+}
+.text-describe{
+	color: #000;
+	/* font-weight: bold; */
+	font-size: 12px;
+	 margin:16rpx 0 32rpx;
+}
+.bor-prant{
+	display: -webkit-flex;
+    flex-direction: row;
+    margin:16rpx 0 ;
+}
+.bor-icon{
+	width: 30rpx;
+	height: 32rpx;
+	text-align: center;
+	line-height: 32rpx;
+	font-size: 20rpx;
+}
+
+.bor-red{
+	color: #F21B7B;
+	border:2rpx solid rgba(242,27,123,1);
+	opacity:0.5;
+}
+.bor-yellow{
+	color: #F8C71D;
+	border:2rpx solid rgba(248,199,29,1);
+	opacity:0.5;
+}
+.bor-con{
+	color: #999999;
+}
+.conHide{
+	display: none;
+}
+

@@ -1,0 +1,158 @@
+page{
+	background: #fff;
+	width: 100%;
+	height: 100%;
+}
+.container{
+	background: #f5f5f5;
+	height: auto;
+	display: block;
+}
+.activity-info{
+	background: #fff;
+	display: flex;
+	height: 216rpx;
+	padding: 32rpx;
+	width: 100%;
+	box-sizing: border-box;
+	margin-bottom: 16rpx;
+	justify-content: space-between;
+}
+.image-info{
+	width: 144rpx;
+	height: 144rpx;
+	margin-right: 32rpx;
+}
+.activity-title .title{
+	font-size: 30rpx;
+	font-weight: bold;
+	line-height: 42rpx;
+}
+.date-icon{
+	width: 20rpx;
+	height: 20rpx;
+	vertical-align: middle;
+	padding-right: 10rpx;
+}
+.date-info{
+	font-size: 24rpx;
+	color: #ccc;
+	line-height: 34rpx;
+}
+.order-info{
+	width: 100%;
+	padding: 40rpx 32rpx;
+	background: #fff;
+	margin-bottom: 16rpx;
+	color: #999;
+	font-size: 30rpx;
+	line-height: 42rpx;
+	box-sizing: border-box;
+}
+.order-status{
+	display: flex;
+	font-size: 30rpx;
+	line-height: 62rpx;
+	justify-content: space-between;
+}
+.sponsor-date{
+	display: flex;
+}
+.date-icon{
+	width: 16rpx;
+	height: 20rpx;
+	margin-top: 5rpx;
+	vertical-align: middle;
+}
+.date-info{
+	font-size: 24rpx;
+	color: #999;
+	line-height: 34rpx;
+}
+.enroll-info{
+	background: #fff;
+	font-size: 30rpx;
+	padding: 0 32rpx;
+	padding-top: 56rpx;
+	padding-bottom: 80rpx;
+}
+.enroll-title{
+	font-size: 30rpx;
+	line-height: 42rpx;
+}
+.enroll-item{
+	margin-top: 40rpx;
+}
+.enroll-item .label{
+	display: flex;
+	color: #999;
+	font-size: 30rpx;
+	justify-content: space-between;
+	padding-bottom: 16rpx;
+}
+.cover-modal{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 10;
+	left: 0;top: 0;
+	background: rgba(0,0,0,.2);
+}
+
+.order-btn{
+	position: fixed;
+	bottom: 32rpx;
+	left: 50%;
+	width: 644rpx;
+	flex:1;
+	height: 88rpx;
+	text-align: center;
+	line-height: 88rpx;
+	display: flex;
+	background: #F21B7B;
+	margin-left: -322rpx;
+	border-radius: 44rpx;
+	color: #fff;
+}
+.code-btn{
+	text-align: center;
+	font-size: 32rpx;
+}
+.pay-score-btn{
+	background: #F21B7B;
+}
+.pay-money-btn{
+	background: #473D3F;
+}
+.pay-money{
+	flex: 1;
+	text-align: center;
+	font-size: 24rpx;
+}
+.right-btn{
+	border-radius: 0 44rpx 44rpx 0;
+}
+.left-btn{
+	border-radius: 44rpx 0 0 44rpx;
+}
+.activity-title{
+	flex: 1;
+	text-align: left;
+}
+.code{
+	width: 500rpx;
+	height: 600rpx;
+	position: absolute;
+	left: 50%;
+	margin-left: -250rpx;
+}
+.comment-write{
+	width: 100%;
+	position: relative;
+	height: 800rpx;
+}
+swiper{
+	height: 700rpx;
+	text-align: center;
+	margin-top: 200rpx;
+}

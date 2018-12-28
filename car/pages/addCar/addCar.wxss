@@ -1,0 +1,23 @@
+.add-car-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.add-car-bind{
+  width: 520rpx;
+  height: 88rpx;
+  margin-top: 60rpx;
+  border-radius: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-car-bind text{
+  font-size: 36rpx;
+  color:#fff;
+  font-weight: 500;
+}

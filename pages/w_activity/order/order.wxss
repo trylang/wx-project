@@ -1,0 +1,104 @@
+@import "/pages/w_activity/index/index.wxss";
+.order-notice{
+	background: #FFFAC5;
+	height: 60rpx;
+	line-height: 60rpx;
+	width: 100%;
+	display: flex;
+}
+.mine-activity-list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.notice-order{
+	width: 20rpx;
+	height: 28rpx;
+	margin-left: 32rpx;
+	vertical-align: middle;
+	margin-top: 16rpx;
+	margin-right: 8rpx;
+}
+.notice{
+	font-size: 24rpx;
+	color: #DD5F65;
+}
+.mine-tab{
+	height: 74rpx;
+    width: 100%;
+    display: flex;
+}
+.tab-item{
+	flex: 1;
+	text-align: center;
+	line-height: 74rpx;
+	position: relative;
+	font-size: 30rpx; 
+}
+.tab-left-border{
+	width: 60rpx;
+	height: 4rpx;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	margin-left: -30rpx;
+	background: #F21B7B;
+}
+.active-tab{
+	color: #F21B7B;
+}
+.mine-activity-list{
+	padding-bottom: 40rpx;
+}
+.mine-activity-order{
+	padding: 0 32rpx;
+	box-sizing: border-box;
+	padding-bottom: 40rpx;
+}
+.mine-activity-item{
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 40rpx;
+	border-bottom: 1px solid #f5f5f5;
+}
+.mine-order-title{
+	font-size: 30rpx;
+	line-height: 38rpx;
+	padding-top: 32rpx;
+	padding-bottom: 8rpx;
+}
+.mine-order-data{
+	font-size: 24rpx;
+	line-height: 32rpx;
+	color: #ccc;
+}
+.status-logo{
+	width: 104rpx;
+	height: 82rpx;
+
+}
+.mine-activity-left1{
+	
+}
+.eyes-left{
+	display: flex;
+	padding-bottom: 20rpx;
+	justify-content: space-between;
+}
+.icon-item{
+	display: flex;
+}
+.eyes-btn:after{
+	border: none;
+}
+.eyes-btn{
+	width: 160rpx;
+	height: 56rpx;
+	line-height: 56rpx;
+	text-align: center;
+	background: #F21B7B;
+	color: #fff;
+	font-size: 24rpx;
+	border-radius: 40rpx;
+	margin: 20rpx 0;
+}

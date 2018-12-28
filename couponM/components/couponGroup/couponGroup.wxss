@@ -1,0 +1,403 @@
+.group-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 23%;
+}
+
+.group-container .tips {
+    width: 100%;
+    background: #fffac5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 64rpx;
+    margin-bottom: 36rpx;
+}
+
+.tips image {
+    width: 28rpx;
+    height: 28rpx;
+    margin-left: 32rpx;
+}
+
+.tips text {
+    color: #dd5f65;
+    font-size: 24rpx;
+    margin-left: 8rpx;
+}
+
+.coupons-list-cell {
+    position: relative;
+    display: flex;
+    width: 710rpx;
+    height: 220rpx;
+    background: #f8f8f8;
+    margin-bottom: 16rpx;
+    align-items: center;
+    overflow: hidden;
+}
+
+.coupon-image {
+    position: relative;
+    width: 220rpx;
+    height: 220rpx;
+}
+
+.coupon-icon {
+    width: 220rpx;
+    height: 220rpx;
+}
+
+.fourCircle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50rpx;
+    height: 40rpx;
+    border-radius: 0 0 0 100%;
+    background: #f21b7b;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.fourCircle text {
+    color: #fff;
+    font-size: 20rpx;
+    padding: 4rpx 8rpx 0 0;
+}
+
+.coupon-info {
+    width: 520rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.coupon-info-titles {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin-left: 16rpx;
+    margin-right: 32rpx;
+}
+
+.coupon-info-title {
+    font-weight: 500;
+    font-size: 30rpx;
+    color: black;
+    line-height: 38rpx;
+}
+
+.coupon-info-description {
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    color: #666;
+    line-height: 32rpx;
+}
+
+.coupon-info-shopv {
+    display: flex;
+    align-items: center;
+}
+
+.coupon-info-shop {
+    padding: 3rpx 7rpx;
+    background: #dcc4af;
+    margin-top: 8rpx;
+    color: #fff;
+    font-size: 24rpx;
+    text-align: center;
+    font-weight: 500;
+}
+
+.coupon-payment-info {
+    height: 50rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 16rpx;
+    margin-right: 32rpx;
+}
+
+.coupon-info-price {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+.coupon-info-discount {
+    font-weight: 500;
+    font-size: 30rpx;
+    color: #f21b7b;
+}
+
+.coupon-info-orginprice {
+    margin-left: 8rpx;
+    font-size: 24rpx;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.coupon-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.coupon-buy {
+    display: flex;
+    flex-direction: column;
+    padding-top: 40rpx;
+    margin-top: 40rpx;
+    width: 686rpx;
+    border-top: 2rpx #eee solid;
+}
+
+.buy-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 60rpx;
+}
+
+.buy-title text {
+    color: #000;
+    font-size: 30rpx;
+    font-weight: 500;
+}
+
+.buy-title-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.buy-title-right .line {
+    height: 60rpx;
+    width: 2rpx;
+    background: #eee;
+    margin-right: 40rpx;
+}
+
+.buy-title-right image {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.excell {
+    position: fixed;
+    left: auto;
+    bottom: 56rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    display: flex;
+    flex-direction: row;
+    z-index: 10;
+    width: 625rpx;
+    visibility: hidden;
+}
+
+.paymsg {
+    flex: 1;
+    height: 100%;
+    background: #000;
+    padding-left: 30rpx;
+    border-top-left-radius: 50rpx;
+    border-bottom-left-radius: 50rpx;
+}
+
+.pay-table {
+    display: table-row;
+    vertical-align: bottom;
+}
+
+.paymsg .conv {
+    color: #fff;
+    font-size: 36rpx;
+}
+
+.paymsg .convend {
+    color: #fff;
+    font-size: 24rpx;
+    margin-left: 4rpx;
+}
+
+.paymsg .money {
+    color: #999;
+    font-size: 24rpx;
+    margin-left: 16rpx;
+}
+
+.pay {
+    width: 240rpx;
+    height: 100%;
+    background: #ccc;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 50rpx;
+    border-bottom-right-radius: 50rpx;
+}
+
+.pay text {
+    color: #fff;
+    font-size: 36rpx;
+    font-weight: 500;
+}
+
+@keyframes dialogSlipToUp {
+    0% {
+        top: 100%;
+        opacity: 0.3;
+    }
+
+    100% {
+        top: 88%;
+        opacity: 1;
+    }
+}
+
+.show {
+    visibility: visible;
+    animation: dialogSlipToUp 0.3s linear both;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+/* 弹框 */
+.modal-dialog {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 9000;
+    color: #fff;
+}
+
+.modal-mask {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.modal-content {
+    width: 560rpx;
+    height: 540rpx;
+    background-color: white;
+    border-radius: 16rpx;
+    /* overflow: hidden;  */
+    position: absolute;
+    top: 25%;
+    left: 96rpx;
+}
+
+.modal-content.coupon {
+    height: 440rpx;
+    top: 31.8%;
+}
+
+
+/*领取优惠券*/
+
+.modal-dialog-coupon-top-image {
+    width: 144rpx;
+    height: 210rpx;
+    margin: -100rpx auto 0 auto;
+    display: block;
+}
+
+.modal-dialog-coupon-title {
+    color: #333;
+    font-size: 36rpx;
+    font-weight: bold;
+    margin-top: 60rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-dialog-coupon-button {
+    color: white;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200rpx;
+    height: 72rpx;
+    border-radius: 36rpx;
+}
+
+.modal-dialog-coupon-buttons {
+    margin-top: 56rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 成功 */
+
+.modal-dialog-coupon-button.other {
+    margin-right: 40rpx;
+    border-color: #f21b7b;
+    border-width: 2rpx;
+    border-style: solid;
+    color: #f21b7b;
+}
+
+.modal-dialog-coupon-button.use {
+    background: #f21b7b;
+}
+
+/* 失败 领取上限 */
+
+.modal-dialog-coupon-button.fail-other {
+    background: #f21b7b;
+}
+
+.go-home {
+    position: fixed;
+    right: 15rpx;
+    top: 60%;
+    width: 100rpx;
+    height: 103rpx;
+}
+
+.go-home-hide {
+    position: fixed;
+    right: 0;
+    top: 60%;
+    transform: translate(50%, 0);
+    width: 100rpx;
+    height: 103rpx;
+    opacity: 0.5;
+}
+
+@keyframes dialogSlipToUp {
+    0% {
+        top: 100%;
+        opacity: 0.3;
+    }
+
+    100% {
+        top: 88%;
+        opacity: 1;
+    }
+}
+
+.show {
+    visibility: visible;
+    animation: dialogSlipToUp 0.3s linear both;
+}

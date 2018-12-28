@@ -1,0 +1,107 @@
+.body {
+    width:750rpx;
+    overflow-x: hidden;
+}
+.bg {
+    width:750rpx;
+    height:468rpx;
+    background:rgba(216,216,216,1); 
+}
+
+.conent {
+    padding: 22rpx;
+}
+
+.item {
+    display: flex;
+    height: 240rpx;
+}
+
+.coupon_bg {
+    position: absolute;
+    z-index: -1;
+    width: 710rpx;
+    height: 224rpx;
+}
+
+.right {
+    width: 100%;
+    padding: 18rpx 40rpx;
+}
+
+.title {
+    height:50rpx;
+    font-size:36rpx;
+    font-family:PingFangSC-Medium;
+    font-weight:500;
+    color:rgba(74,74,74,1);
+    line-height:50rpx;
+}
+
+.detail {
+    display: flex;
+    margin-top: 18rpx;
+    flex-direction: column;
+    flex: 2;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 30rpx;
+}
+
+.mask {
+    font-size:24rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(102,102,102,1);
+    line-height:40rpx;
+}
+
+.btn {
+    width:200rpx;
+    height:60rpx;
+    line-height: 60rpx;
+    background:rgba(242,27,123,1);
+    border-radius:25px;
+    color: #fff;
+    font-size: 32rpx;
+}
+
+.go-home {
+    position: fixed;
+    right: 15rpx;
+    top: 60%;
+    width: 100rpx;
+    height: 103rpx;
+}
+
+
+.go-home-hide {
+    position: fixed;
+    left:100%;
+    top: 60%;
+    transform: translate(50%, 0);
+    width: 100rpx;
+    height: 103rpx;
+    opacity: 0.5;
+}
+
+@keyframes dialogSlipToUp {
+    0% {
+        top: 100%;
+        opacity: 0.3;
+    }
+
+    100% {
+        top: 88%;
+        opacity: 1;
+    }
+}
+
+.show {
+    visibility: visible;
+    animation: dialogSlipToUp 0.3s linear both;
+}

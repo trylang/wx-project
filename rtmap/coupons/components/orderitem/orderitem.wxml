@@ -1,0 +1,38 @@
+<!--components/orderitem/orderitem.wxml-->
+<view class='order_item {{mapStatus[data.order.status].en}}'>
+    <view class='head'>
+        <text class='time'>{{data.orderTime||data.createTime}}</text>
+        <text wx:if="{{!data.group}}" class='status'>{{mapStatus[data.status].text}}</text>
+        <text wx:else class='status' style="color: #999">未完成|拼团中</text>
+    </view>
+    <view class='body' bindtap="tolink" id="{{index}}">
+        <view class='image'>
+            <image class="img" src="{{data.url}}" mode="aspectFill" binderror="" bindload=""></image>
+        </view>
+        <view class='describe'>
+            <view class='describe_head'>
+                <text class='name'>{{data.name}}</text>
+                <text class='num'>x{{1}}</text>
+            </view>
+            <view class='describe_foot'>
+                <text class='price'>{{data.payType == '1'?'免费':'￥' +data.total/100 }}</text>
+                <text class='discount'>￥{{data.totalFace/100}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="foot" >
+        <view class="foot_head">
+            <view class="total" wx:if="{{data.payType == '1'}}">
+                <text class="total_label">合计</text>
+                <text class="total_num">￥{{0}}</text>
+            </view>
+             <view class="total" wx:else>
+                <text class="total_label">合计</text>
+                <text class="total_num">￥{{data.total/100}}</text>
+            </view>
+            <view class="operation" wx:if="{{data.group}}">
+              <button class='payment' size="mini" bindtap='invite' group="{{data.group}}">邀请好友</button>
+            </view>
+        </view>
+    </view>
+</view>

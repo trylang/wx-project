@@ -1,0 +1,135 @@
+/* components/keyboardComponent/keyboardComponent.wxss */
+@keyframes dialogSlipToUp {
+  0% {
+    top: 100%;
+    opacity: 0.3;
+  }
+
+  100% {
+    top: 50%;
+    opacity: 1;
+  }
+}
+
+@keyframes action_skew {
+  0% {
+    transform: skew(-40deg);
+    opacity: 0;
+  }
+
+  50% {
+    transform: skew(40deg);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: skew(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes action_translateY {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.car-bottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    background-color: #eee;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    -webkit-animation: action_translateY 0.5s both;
+    animation: action_translateY 0.5s both;
+}
+.car-input-bottom {
+    width: 740rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.car-input-bottom-content {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    width: 740rpx;
+}
+
+.car-input-bottom-content image{
+    width:138rpx;
+    height: 86rpx;
+}
+
+.car-input-bottom-item {
+    width: 64rpx;
+    height: 84rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    margin: 10rpx 5rpx;
+    border-radius: 10rpx;
+    -moz-box-shadow:0px 2rpx 2rpx #A9A9A9; 
+    -webkit-box-shadow:0px 2rpx 2rpx #A9A9A9; 
+    box-shadow:0px 2rpx 2rpx #A9A9A9;
+}
+
+.car-input-bottom-item-sel {
+    width: 64rpx;
+    height: 84rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #EE4C75;
+    margin: 10rpx 5rpx;
+    border-radius: 10rpx;
+    -moz-box-shadow:0px 2rpx 2rpx #A9A9A9; 
+    -webkit-box-shadow:0px 2rpx 2rpx #A9A9A9; 
+    box-shadow:0px 2rpx 2rpx #A9A9A9;
+}
+
+.car-input-bottom-item text {
+    color: #000;
+    font-size: 28rpx;
+    font-weight: 500;
+}
+
+.car-input-bottom-item-sel text {
+    color: #fff;
+    font-size: 28rpx;
+    font-weight: 500;
+}
+
+.delete {
+    width: 100rpx;
+    height: 86rpx;
+    margin: 10rpx 4rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 10rpx;
+    -moz-box-shadow:0px 2rpx 2rpx #A9A9A9; 
+    -webkit-box-shadow:0px 2rpx 2rpx #A9A9A9; 
+    box-shadow:0px 2rpx 2rpx #A9A9A9;
+}
+
+.delete image {
+    width: 52rpx;
+    height: 36rpx;
+}

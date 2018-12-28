@@ -1,0 +1,14 @@
+/* components/VerificationCode/VerificationCode.wxss */
+
+.common {
+    font-size: 28rpx;
+    white-space:nowrap;
+}
+
+.normal {
+    color: #F21B7B;
+}
+
+.disable {
+    color: #aaa;
+}

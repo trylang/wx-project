@@ -1,0 +1,28 @@
+<!--index.wxml-->
+<view class="body">
+	<view wx:if="{{conRecord.length>0}}" class="heand-con">
+		<view class="con-record" wx:for="{{conRecord}}" wx:key="{{index}}">
+			<view class="con-details">您的积分申请已提交成功</view>
+			<view class="con-time">提交时间:{{item.createTime}} </view>
+			<view class="con-check">
+				<view  wx:if="{{item.state!=''}}">
+					<image src="../../../images/photo/{{item.state}}.png"></image>
+					<view	wx:if="{{item.state=='not'}}"	data-reason="{{item.reason}}" bindtap="lookReason" class="look-reason">查看原因</view>
+				</view>
+				<view wx:if="{{item.state==''}}" class="con-ntegral">+{{item.integral}}</view>
+			</view>
+		</view>
+	</view>
+    <view style="padding: 20rpx;" wx:else>暂无记录</view>
+
+ <!-- 弹窗  -->
+ 	<view class="pop-up {{upHide}}" catchtouchmove='handleclick'>
+ 		<image src="../../../images/photo/lower.png"></image>
+ 		<view class="fff-up">
+ 			<view class="up-tit">审核不通过原因</view>
+ 			<view class="up-con">{{reason}}</view>
+ 			<button bindtap="hideUp">确定</button>
+ 		</view>
+ 		<view class="black-up" bindtap="hideUp"></view>
+ 	</view>
+</view>

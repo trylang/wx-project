@@ -1,0 +1,66 @@
+<!--index.wxml-->
+<view class="body  {{scrollfixed}}">
+    <view class='integral_header'>
+        <view class='integral_top'>
+            <image src='http://res.rtmap.com/wx/integral_mall/integral.png' mode="aspectFit"></image>
+            <text> {{integralNum}}</text>
+            <view class='exchange_record' bindtap='goHistory'>兑换记录 ></view>
+        </view>
+
+        <view class="integral_nav">
+            <view class="{{typeC}} triangleParent" bindtap="typeHandler">
+                <view class="top_title">{{typeName}}</view>
+                <view  class="triangle {{typeCtriangleRotate}}"></view>
+            </view>
+            <view class="{{integralC}} triangleParent" bindtap="integralHandler">
+                <view class="top_title">{{integralName}}</view>
+                <view class="triangle {{integralCtriangleRotate}}"></view>
+            </view>
+            <view class="{{collectC}} triangleParent" bindtap="collectHandler">
+                <view class="top_title">{{collectName}}</view>
+                <view class="triangle {{collectCtriangleRotate}}"></view>
+            </view>
+        </view>
+    </view>
+    
+    
+    <view class="integral_list">
+        <scroll-view scroll-y="{{false}}" >
+            <view class="list_item" wx:for="{{couponList}}" wx:key="{{item}}" data-index='{{index}}' data-data="{{item}}" bindtap='enterDetail'>
+                <image src='{{item.logoUrl}}'></image>
+                <view class='title'>{{item.mainInfo}}</view>
+                <view class="integralNum"><text>{{item.minPrice}}</text> 积分</view>
+                <view class='collection'>{{item.collectionNum}}人收藏</view>
+            </view>
+            <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+            <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+        </scroll-view>  
+        <view class='noData' wx:if='{{couponList.length<=0}}'>
+            <image src='http://res.rtmap.com/wx/integral_mall/fail.png' mode='widthFix'></image>
+            <text>暂无数据</text>
+        </view>
+    </view>
+
+    <!-- 导航栏start -->
+    <view class="{{navigatorBrand}}">
+        <view class="{{navigatorOld}}">
+            <view class="navigator-brand">
+                <scroll-view scroll-y="false">
+                    <view class="navigator-brand-list">
+                        <view  class="navigator-content" data-text="{{navigatorId}}+{{navigatorName}}+{{item.name}}+{{item.value}}" bindtap="navigatorHideName" wx:if="{{navigatorName}}">{{navigatorName}}</view>
+                        <view class="navigator-content {{bindCont==item.value?'navigator-name':''}}"  data-text="{{navigatorId}}+{{navigatorName}}+{{item.name}}+{{item.value}}" bindtap="getItems" wx:key="{{index}}" wx:for="{{navList}}">{{item.name}}</view>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+        <view class="opacityNavigator" bindtap="navigatorHide"></view>
+    </view>
+    <!-- 导航栏end -->
+    <view class='myCollection' bindtap='enterMyCollect'>
+        <image class="{{isMove?'myCollection_side':'myCollection_center'}}" src='http://res.rtmap.com/wx/integral_mall/myCollect.png' mode='widthFix'></image>
+    </view>
+    <!-- 分享以后 返回首页 -->
+     <navigator url="/pages/index/index" open-type="switchTab" wx:if="{{isFromShare == 'true'}}">
+    <image class="{{isMove?'go-home-hide':'go-home'}}" src='http://res.rtmap.com/wx/couponM/go_home.png' mode='widthFix'></image>
+  </navigator>
+</view>

@@ -1,0 +1,9 @@
+{
+    "navigationBarBackgroundColor": "#EE4C75",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "停车场",
+    "usingComponents": {
+        "dialog-act": "../components/dialogActComponent/dialogActComponent",
+        "dialog": "../components/dialogComponent/dialogComponent"
+    }
+}

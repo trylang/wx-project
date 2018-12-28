@@ -1,0 +1,74 @@
+<view class="contaner" style='background-color:{{bg_color}}'>
+	<view class='content'>
+		<image class="bg-image" src='{{homePageImage}}' mode="widthFix"></image>
+        
+        <!-- <view class='titleLogo'>
+            <image class="" src='http://res.rtmap.com/wx/turntable/title.png' mode="widthFix"></image>
+        </view> -->
+
+        <view class='change_join'>
+            <image class="" src='http://res.rtmap.com/wx/turntable/change.png' mode="widthFix"></image>
+            <view>还有 <text>{{chanceNum}}</text> 次机会</view>
+        </view>
+
+		<view class="turn-table">
+			<image class="bg-turntable" style="-webkit-transform:rotate({{isRotate}}deg);transform:rotate({{isRotate}}deg);display: block;" src='{{turntableImage}}'  mode="widthFix"></image>
+		  	<view>
+		  		<view class='canvas-container'>
+		  			<canvas style="position:fixed;left: -10000rpx;" disable-scroll="true" canvas-id='canvasI' id="canvas-one" class='canvasI '></canvas>
+		  			<!-- <view class='canvasI' style="background-image: url({{tempFilePath}});background-size:cover;transform:rotate({{isRotate}}deg)"   class='canvasI-image'></view> -->
+		  			<image src='{{tempFilePath}}' style="-webkit-transform:rotate({{isRotate}}deg);transform:rotate({{isRotate}}deg);display: block;"  class='canvasI-image'></image>
+		  		</view>
+		  	</view>
+		  	<view class="center-bg">
+		  	 	<image class='start' src="http://res.rtmap.com/wx/turntable/start.png" catchtap='{{trunBtn?"getStart":""}}'  mode="widthFix" />
+		  	</view>
+		</view>
+
+		<view class="button-info">已有{{canYuCount}}人参与</view>
+		<view class="share-btn">
+			<button class="get-num-btn" style='background-color:{{left_bg}};color:{{left_color}}' bindtap="{{isLogin?'handleShowScoreModal':'handleLinkLogin'}}">{{loginName}}</button>
+            <button class="get-num-btn" style='background-color:{{right_bg}};color:{{right_color}}' bindtap="showShareHandler" wx:if='{{!isLogin}}'>分享得抽奖机会</button>
+			<button class="get-num-btn" style='background-color:{{right_bg}};color:{{right_color}}' open-type="share" wx:if='{{isLogin}}'>分享得抽奖机会</button>
+		</view>
+		
+        <view class='priceInfo'>
+            <!-- <image class='priceHeader' src='http://res.rtmap.com/wx/turntable/prizeInfo.png' mode="widthFix"></image> -->
+            <view class='priceContent' style='background-image:url({{winningImage}});background-size: cover;'>
+                <view 
+                    class='priceItem' 
+                    hidden='{{!pricelist.length}}' 
+                    wx:for='{{pricelist}}' 
+                    wx:key='{{index}}'>
+                    <image src='{{item.avatarUrl?item.avatarUrl:"http://res.rtmap.com/wx/turntable/logo1.png"}}' mode='widthFix'></image>
+                    <text class='nickName'>{{item.nickName}}</text>
+                    <text class='winPrize'>{{item.mainInfo}}</text>
+                </view>
+                <view class='noPrize' hidden='{{pricelist.length}}'>暂无中奖信息</view>
+                <view class="myPrize" bindtap='handleLinkPrice'></view>
+            </view>
+        </view>
+
+        <view class='ruleInfo'>
+            <view class='ruleHeader'>
+                <image src='http://res.rtmap.com/wx/turntable/rule.png'></image>
+            </view>
+            <view class='ruleContent' style="background-color:{{rule_Bg}}">
+                <view class='ruleTitle'>活动时间</view>
+                <view class='ruleTime'>{{allConfig.activityInfo==0?'长期活动':activityDay}}</view>
+                <view class='ruleList'>
+                    <view class='ruleTitle'>活动介绍</view>
+                    <rich-text class='ruleIn' style="color:{{rule_color}}" nodes='{{allConfig.pageConfig.ruleInfo}}'></rich-text>
+                </view>
+            </view>
+        </view>
+	</view>
+	
+	<include src="../turn_modal/index.wxml" />
+	<include src="../score_modal/index.wxml" />
+	
+     <navigator url="/pages/index/index" open-type="switchTab" wx:if="{{isFromShare == 'true'}}">
+    <image class="{{isMove?'go-home-hide':'go-home'}}" src='http://res.rtmap.com/wx/couponM/go_home.png' mode='widthFix'></image>
+  </navigator>
+
+</view>

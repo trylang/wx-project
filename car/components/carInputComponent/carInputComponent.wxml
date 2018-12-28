@@ -1,0 +1,59 @@
+<!--component/checkboxComponent/checkboxComponent.wxml-->
+<view class="input-container">
+    <view class='top-icon-car'>
+        <image src='http://res.rtmap.com/wx/car/park_add_car.png' mode='widthFix' lazy-load></image>
+        <text>请输入车牌号</text>
+    </view>
+    <view class="input-container-top" bindtap='_onInputClick'>
+        <view class="{{carNumber.length<=0?'input-border':'input-border-hasdata'}}" style='width: 136rpx;margin-left: 0rpx;'>
+            <view class='input-top-car-input' bindtap='_switchCity'>
+                <text>{{carNumber[0]}}</text>
+            </view>
+            <view class='input-top-car-input' bindtap="_switchCar">
+                <text>{{carNumber[1]}}</text>
+            </view>
+        </view>
+        <view style='margin:0 0 0 16rpx;color:#ccc;'>·</view>
+        <view class="{{carNumber.length<=2?'input-border':'input-border-hasdata'}}" bindtap="_switchCar">
+            <text>{{carNumber[2]}}</text>
+        </view>
+        <view class="{{carNumber.length<=3?'input-border':'input-border-hasdata'}}" bindtap="_switchCar">
+            <text>{{carNumber[3]}}</text>
+        </view>
+        <view class="{{carNumber.length<=4?'input-border':'input-border-hasdata'}}" bindtap="_switchCar">
+            <text>{{carNumber[4]}}</text>
+        </view>
+        <view class="{{carNumber.length<=5?'input-border':'input-border-hasdata'}}" bindtap="_switchCar">
+            <text>{{carNumber[5]}}</text>
+        </view>
+        <view class="{{carNumber.length<=6?'input-border':'input-border-hasdata'}}" bindtap="_switchCar">
+            <text>{{carNumber[6]}}</text>
+        </view>
+
+        <view class='input-last' bindtap="_switchCar">
+            <!-- <view class='input-new'>
+        <text>新能源</text>
+      </view> -->
+            <view class='input-border-new' style="{{carNumber[7]?'border: 2rpx #f21b7b solid;':'border: 2rpx #ccc dashed;'}}">
+                <text style="{{carNumber[7]?'font-size:40rpx;color:#000;':'font-size:18rpx;color:#aaa;'}}">{{carNumber[7]?carNumber[7]:'+\n新能源'}}</text>
+            </view>
+        </view>
+
+    </view>
+
+    <!-- <view class='car-input-bottom' hidden='{{isShow}}'>
+    <view class='car-input-bottom-control'>
+      <text style='margin-left:66rpx;' bindtap='onCancleClick'>取消</text>
+      <text style='margin-right:66rpx;'>查询停车费</text>
+    </view>
+
+    <view class='car-input-bottom-content'>
+      <view class="car-input-bottom-item" hover-class='car-input-bottom-item-sel' wx:for='{{carList}}' wx:key='item' wx:for-item='item' data-index='{{index}}' bindtap='_switchIndex'>
+        <text>{{item}}</text>
+      </view>
+
+      <image class='car-input-bottom-content-delete' src='/image/stopCar/car-input-delete.png' bindtap='onInputDelete'></image>
+
+    </view>
+  </view> -->
+</view>

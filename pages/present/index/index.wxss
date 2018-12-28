@@ -1,0 +1,93 @@
+@import "../../components/coupon/index.wxss";
+@import "../../components/modal_btn/modal.wxss";
+.present-container{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 32rpx;
+}
+.header{
+	width: 100%;
+	justify-content: center;
+	height: 120rpx;
+	line-height: 120rpx;
+	display: flex;
+	background: #F8F8F8;
+}
+.head-img{
+	width: 80rpx;
+	margin-top: 20rpx;
+}
+.nick-name{
+	margin-left: 16rpx;
+	max-width: 200rpx;
+	overflow: hidden;
+	white-space: nowrap;
+	font-size: 30rpx;
+	margin-right: 20rpx;
+	text-overflow: ellipsis;
+	color: #666;
+}
+.coupon{
+	line-height: 120rpx;
+	color: #000000;
+	font-weight: bold;
+	font-size: 30rpx;
+}
+.time-limit{
+	margin-top: 80rpx;
+	display: flex;
+	justify-content: center;
+	line-height: 32rpx;
+	font-size: 24rpx;
+}
+.time-limit .time{
+	width: 30rpx;
+	height: 32rpx;
+	text-align: center;
+	line-height: 32rpx;
+	background: #000;
+	color: #fff;
+}
+.hot-buy{
+	color: #999999;
+	margin-right: 22rpx;
+}
+.limit-time{
+	display: flex;
+}
+.coupon-present{
+	margin-top: 32rpx;
+	margin-bottom: 80rpx;
+}
+.get-btn{
+	width: 372rpx;
+	height: 80rpx;
+	text-align: center;
+	line-height: 80rpx;
+	background: #CCCCCC;
+	color: #fff;
+	border: none;
+	border-radius: 40rpx;
+}
+.can-get{
+	background: #F21B7B;
+}
+.title{
+	margin-top: 196rpx;
+	text-align: center;
+	font-size: 36rpx;
+	line-height: 44rpx;
+	color: #333333;
+}
+.back-index{
+	position: fixed;
+	right: 40rpx;
+	bottom: 50rpx;
+	width: 100rpx;
+	height: 100rpx;
+	z-index: -1;
+}
+.back-img{
+	width: 100%;
+	height: 100%;
+}

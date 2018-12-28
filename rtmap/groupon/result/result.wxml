@@ -1,0 +1,68 @@
+<!--rtmap/groupon/result/result.wxml-->
+<view>
+  <view class="head">
+    <image class="img" src="{{couponDetail.data.detail.couponImageList?couponDetail.data.detail.couponImageList[0]?couponDetail.data.detail.couponImageList[0].imgUrl:couponDetail.data.detail.imgLogoUrl:couponDetail.data.detail.imgLogoUrl}}" mode="aspectFill"
+      binderror="" bindload="" lazy-load=''></image>
+  </view>
+  <view class="content">
+    <view class="title">
+      {{couponDetail.data.detail.mainInfo}}
+    </view>
+    <view class="info-price">
+      <text class='price'>￥{{couponDetail.data.product.groupBuyingPrice/100}}</text>
+      <text class='cost'>￥{{couponDetail.data.detail.cost/100}}</text>
+    </view>
+    <view class="warp">
+      <view class="tips" wx:if="{{type=='share' && groupDetail.state==0}}">
+        <text wx:if="{{groupDetail.memberCount-groupDetail.followMemberCount==0}}">已拼成</text>
+        <text wx:else>{{name}}邀请你拼团，还差{{groupDetail.memberCount-groupDetail.followMemberCount}}人拼成</text>
+      </view>
+      <view class="imgList">
+        <view wx:for="{{groupDetail.peopleList}}" wx:key="unique" class="imgItem">
+          <image class="img" src="{{item.img}}" mode="aspectFill" binderror="" bindload=""></image>
+          <view class="master" wx:if="{{item.isSponsor==0}}">拼主</view>
+        </view>
+      </view>
+      <view class="time" wx:if="{{time!=='拼团中'}}">
+        {{time}}
+      </view>
+      <view class='time' wx:if="{{time=='拼团中'}}">
+        <text class="Atime">{{day}}</text>
+        <text class="Atime">{{hour}}</text>:
+        <text class="Atime">{{minute}}</text>:
+        <text class="Atime">{{second}}</text>
+        <text>后结束</text>
+      </view>
+      <view class="btn" wx:if="{{type=='pay' && groupDetail.state==0}}">
+        <button open-type="share" class="share">邀请好友拼团</button>
+      </view>
+      <view class="btn share" wx:if="{{type=='share' && groupDetail.state==0}}" bindtap='join'>
+        参与拼团
+      </view>
+      <view class="btn share" wx:if="{{groupDetail.state!=0}}" bindtap='check'>
+        查看进行中拼团
+      </view>
+
+      <view class="btn" wx:if="{{groupDetail.state!=0 || type!='pay'}}" bindtap='initiator'>
+        我也要拼
+      </view>
+    </view>
+  </view>
+  <view class="rule">
+    <view class="title">
+      拼团规则
+    </view>
+    <view class="rule_content">
+      <text>1.在成团有效期内，未达成相应参团人数，则该团失败</text>
+      <text>2.在成团有效期内，商品已提前售罄，若还未拼团成功，则该团失败</text>
+      <text>3.高峰期间，同时支付的人过多，团人数有限制，则以接收支付信息时间先后为准，超出该团人数限制的部分用户会拼团失败</text>
+      <text class='ruleNum'>4. 拼团失败的订单，系统会在3-5个工作日内处理订单，系统处理后1-7个工作日内退款将原路返回至原支付账户中。</text> 
+      <text class='ruleNum'>5. 拼团成功的订单，不予以退款处理。</text> 
+    </view>
+  </view>
+
+  <navigator url="/pages/index/index" open-type="switchTab" wx:if="{{isFromShare == 'true'}}">
+    <image class="{{isMove?'go-home-hide':'go-home'}}" src='http://res.rtmap.com/wx/couponM/go_home.png' mode='widthFix'></image>
+  </navigator>
+
+</view>

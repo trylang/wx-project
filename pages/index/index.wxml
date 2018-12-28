@@ -1,0 +1,154 @@
+<!--index.wxml-->
+
+<view class="cover-modal" wx:if='{{screenImageBtn}}' bindtap='hiddenModal' catchtouchmove="preventScroll">
+    <view animation="{{animationData}}" class="drawer_box" wx:if='{{screenImageBtn}}'>
+        <view class="Popout-advertising" style="height:{{imgheights[0]}}rpx;transition: height 1s">
+            <block wx:if='{{screenImage.length>1}}'>
+                <swiper autoplay="true" style="height:{{imgheights[0]}}rpx;" circular="true" interval="2000" indicator-dots="true">
+                    <block wx:for="{{screenImage}}" wx:key="{{index}}">
+                        <swiper-item>
+                            <image src="{{item.imageUrl}}" class="slide-image" data-text="{{item.jumpUrl}}" data-type='{{item.jumpType}}' bindtap="getJumpUrl" mode="widthFix" bindload="imageLoad" data-id='{{index}}' />
+                        </swiper-item>
+                    </block>
+                </swiper>
+            </block>
+            <block wx:else>
+                <block wx:for="{{screenImage}}" wx:key="{{index}}">
+                    <image src="{{item.imageUrl}}" data-type='{{item.jumpType}}' class="slide-image" data-text="{{item.jumpUrl}}" bindtap="getJumpUrl" mode="widthFix" bindload="imageLoad" data-id='{{index}}' />
+                </block>
+            </block>
+            <view class="time-out">
+                <text style='padding-right: 5rpx;'>{{time}}s</text>后关闭</view>
+            <view class="popout-line"></view>
+            <view class="popout-close" bindtap='handleCloseModal'>×</view>
+        </view>
+    </view>
+</view>
+<view class="container">
+    <view wx:if='{{topImage.length}}' class="top-container {{hideTop}}">
+        <!-- <image class="top-image" src='{{topImage}}'></image> -->
+        <swiper autoplay="true" circular="true" interval="5000" indicator-dots="true" indicator-active-color="#fff" style="height: 360rpx;">
+            <block wx:for="{{topImage}}" wx:key="{{index}}">
+                <swiper-item>
+                    <image src="{{item.imageUrl}}" class="slide-image top-image" data-text="{{item.jumpUrl}}" data-type='{{item.jumpType}}' bindtap="getJumpUrl" mode="widthFix" />
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view class="list-guide">
+        <view  class="list-item" style="width:{{row}}%" bindtap='handleFunctionLink' data-url='{{item.url}}' data-functionname='{{item.functionName}}' wx:for="{{guide_list}}" wx:key="{{index}}">
+            <block>
+                <image class="item-image" src='{{item.imageUrl}}'></image>
+                <view class="item-title">{{item.functionName}}</view>
+                <view class="eg-title">{{item.miniTitle||''}}</view>
+            </block>
+        </view>
+    </view>
+    <view class="person-info" wx:if='{{!isLogin}}'>
+        <view class="left-avatar">
+            <image class="avatar-image" src='{{headImage}}'></image>
+        </view>
+        <view class="right">
+            <view class="notice">
+                <view>会员尊享特权</view>
+                <view class="member-goods">
+                    <view class="member-score">
+                        <image class='goods-item-image' src='../../images/index/score.png'></image>
+                        <text class="goods-item">积分-</text>
+                    </view>
+                    <view class="member-coupon">
+                        <image class='goods-item-image' src='../../images/index/coupon.png'></image>
+                        <text class="goods-item">优惠券-</text>
+                    </view>
+                </view>
+            </view>
+            <view class="login" bindtap='handleLogin'>登录</view>
+        </view>
+    </view>
+    <view class="person-info" wx:if='{{isLogin}}' bindtap='bindLinkMine'>
+        <view class="left-avatar">
+            <image class="avatar-image" src='{{member&&member.member&&member.member.icon?member.member.icon:userInfo.avatarUrl?userInfo.avatarUrl:headImage}}'></image>
+        </view>
+        <view class="right">
+            <view class="notice">
+                <view>{{member&&member.member&&member.member.name?member.member.name:userInfo.nickName?userInfo.nickName:'游客'}}
+                    <!-- <block wx:if='{{ member.member.grade == 3 }}'>
+                        <image class="memeber-grade" src='../../images/index/vip.png'></image>
+                        <text class='level-gold'>钻石会员</text>
+                    </block>
+                    <block wx:elif='{{ member.member.grade == 2 }}'>
+                        <image class="memeber-grade" src='../../images/index/vip.png'></image>
+                        <text class='level-gold'>金卡会员</text>
+                    </block>
+                    <block wx:else>
+                        <image class="memeber-grade" src='../../images/index/vip.png'></image>
+                        <text class='level-gold'>银卡会员</text>
+                    </block> -->
+                    <image class="memeber-grade" src='../../images/index/vip.png'></image>
+                    <text class='level-gold'>{{member.member.cardName}}</text>
+                </view>
+                <view class="member-goods">
+                    <view class="member-score">
+                        <image class='goods-item-image' src='../../images/index/score.png'></image>
+                        <text class="goods-item">积分<text class="member-num">{{credits || 0}}</text></text>
+                    </view>
+                    <view class="member-coupon" catchtap='handleLinkCoupon'>
+                        <image class='goods-item-image' src='../../images/index/coupon.png'></image>
+                        <text class="goods-item">优惠券 <text class="member-num">{{couponsCount}}</text></text>
+                    </view>
+                </view>
+            </view>
+            <view class="qr-code" catchtap="bindSeeCode">
+                <image class="qr-code-img" src='../../images/index/code.png'></image>
+                <image class="right-arrow" src='../../images/photo/right_arrow.png'></image>
+                <dialog id='dialog' cardDetail="{{member.member.cardNo}}" bind:cancelEvent="cancelEvent" cardName='{{cardName}}'></dialog>
+            </view>
+        </view>
+    </view>
+    <view wx:if='{{application_list.length}}' class="application">
+        <view class="application-item" style="width:{{c_row}}%" wx:for="{{application_list}}" wx:key="{{index}}" data-url='{{item.url}}' bindtap='handleLinkFastFun'>
+            <block>
+                <image class="application-image" src='{{item.imageUrl}}' mode="widthFix"></image>
+            </block>
+        </view>
+    </view>
+    <!-- 限时秒抢 -->
+    <view class="time-limit" wx:if="{{seckill}}">
+        <view class="time-limit-top">
+            <view class="limit-title">
+                <view class="title">限时秒杀</view>
+                <view wx:if="{{countdown.hasstart}}" class='hot-buy'>距离活动结束的时间</view>
+                <view wx:else class='hot-buy'>距离活动开始的时间</view>
+                <view class='limit-time'>
+                    <text class="hour time">{{countdown.remainhour}}</text>:
+                    <text class="minute time">{{countdown.remainminute}}</text>:
+                    <text class="second time">{{countdown.remainsecond}}</text>
+                </view>
+                <navigator url="/rtmap/seckill/page/list/list" class="kill-more">更多</navigator>
+            </view>
+        </view>
+        <view class="seckill">
+            <scroll-view scroll-x style="overflow: auto">
+                <view class="time-limit-list">
+                    <view class="time-list-item" wx:for="{{seckill.coupons}}" wx:key="{{index}}">
+                        <navigator url="/rtmap/seckill/page/detail/detail?Id={{item.id}}&couponId={{item.couponId}}">
+                            <image class="time-limit-image" src='{{item.imgUrl0}}' mode="aspectFill"></image>
+                            <view class="time-limit-title">{{item.mainInfo}}</view>
+                        </navigator>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>
+    </view> 
+    
+    <view class='coupons'>
+        <coupon-collage wx:if="{{couponsisshow}}" bind:isShow="couponsIsShow" id='coupon-collage'></coupon-collage>
+        
+        <view class="tdlist_c" wx:else>
+          <view class="tdlist_t">
+            —  每日推荐  —
+          </view>
+          <tdlist id="tdlist"></tdlist>
+        </view>
+    </view>
+</view>

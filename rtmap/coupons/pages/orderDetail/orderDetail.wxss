@@ -1,0 +1,389 @@
+/* pages/orderDetail/orderDetail.wxss */
+
+page{
+    margin-bottom: 170rpx;
+}
+
+button::after {
+    vertical-align: top;
+    border: none;
+}
+
+.head {
+    background-color: #f21b7b;
+    color: #fff;
+    padding: 46rpx 50rpx;
+}
+
+.icon {
+    height: 40rpx;
+    width: 40rpx;
+    margin-right: 20rpx;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    font-size: 36rpx;
+}
+
+.tip {
+    font-size: 28rpx;
+    padding-left: 60rpx;
+}
+
+.body {
+    padding: 0 30rpx;
+}
+
+.shop {
+    margin-top: 60rpx;
+    display: flex;
+    align-items: center;
+    padding: 0 20rpx;
+}
+
+.shop_label {
+    font-size: 28rpx;
+    color: #333;
+    flex-basis: 0;
+    flex-shrink: 1;
+    flex-grow: 1;
+}
+
+.shop_name {
+    font-size: 28rpx;
+    color: #333;
+    padding-right: 17rpx;
+}
+
+.linkto {
+    padding-right: 13px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.linkto:after {
+    content: " ";
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    border-width: 2px 2px 0 0;
+    border-color: #c8c8cd;
+    border-style: solid;
+    -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    position: relative;
+    top: -2px;
+    position: absolute;
+    top: 50%;
+    margin-top: -4px;
+    right: 2px;
+}
+
+.maininfo {
+    padding: 30rpx 20rpx;
+    background-color: #f9f9f9;
+    border-radius: 10rpx;
+    display: flex;
+    margin: 20rpx 0 40rpx;
+}
+
+.img {
+    width: 144rpx;
+    height: 120rpx;
+    border-radius: 8rpx;
+}
+
+.describe {
+    width: 100%;
+    margin-left: 30rpx;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.describe_head {
+    width: 100%;
+    font-size: 36rpx;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.name {
+    /* display: block; */
+}
+
+.num {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.price {
+    font-size: 36rpx;
+    color: #333;
+    margin-right: 16rpx;
+}
+
+.discount {
+    font-size: 24rpx;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.describe_foot {
+    font-size: 28rpx;
+}
+
+.refundstatus {
+    display: flex;
+}
+
+.refundstatus button {
+    margin-right: 20rpx;
+    background-color: #fff;
+    color: #f21b7b;
+    border-radius: 50rpx;
+    border: solid #f21b7b 1rpx;
+}
+
+.refund button {
+    color: #37c26c;
+    border: solid #37c26c 1rpx;
+}
+
+.foot {
+    padding: 0 20rpx;
+}
+
+.info_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20rpx 0;
+}
+
+.info_item text{
+    font-size: 26rpx;
+    color: #aaa;
+} 
+.foot .info_item:last-child text{
+    color: #333;
+}
+
+.info_value {
+    font-size: 26rpx;
+    color: #333;
+}
+
+.operation {
+    width: 100%;
+    position: fixed;
+    bottom: 60rpx;
+    display: flex;
+    justify-content: space-around;
+}
+
+.operation view {
+    width: 280rpx;
+}
+
+.operation button {
+    line-height: 2;
+    border-radius: 100rpx;
+}
+
+.operation button::after {
+    border: none;
+}
+
+.cancel button {
+    background-color: #f21b7b;
+    color: #fff;
+    border: 1rpx #f21b7b solid;
+}
+
+.cancel .cancel-btn{
+    background-color: #fff;
+    color: #f21b7b;
+}
+
+.cancel.ing button {
+    border: none;
+}
+
+.payment button {
+    background-color: #f21b7b;
+    color: #fff;
+    border: 1rpx #f21b7b solid;
+}
+
+.timeSchedule {
+    text-align: center;
+}
+
+.timeSchedule view {
+    display: inline-block;
+    width: 40%;
+    height: 2rpx;
+    background: #d8d8d8;
+    position: relative;
+}
+
+.timeSchedule .first .left {
+    width: 16rpx;
+    height: 16rpx;
+    border-radius: 50%;
+    background: #d8d8d8;
+    position: absolute;
+    left: 0;
+    top: -7rpx;
+    z-index: 999;
+}
+
+.timeSchedule .first .center {
+    width: 16rpx;
+    height: 16rpx;
+    border-radius: 50%;
+    background: #d8d8d8;
+    position: absolute;
+    right: 0;
+    top: -7rpx;
+    z-index: 999;
+}
+
+.timeSchedule .first .activited {
+    width: 28rpx;
+    height: 28rpx;
+    border-radius: 50%;
+    background: #f21b7b;
+    position: absolute;
+    right: 0;
+    top: -13rpx;
+    z-index: 999;
+}
+
+.timeSchedule .second text {
+    width: 16rpx;
+    height: 16rpx;
+    border-radius: 50%;
+    background: #d8d8d8;
+    position: absolute;
+    right: 0;
+    top: -7rpx;
+    z-index: 999;
+}
+
+.timeSchedule .second .activited {
+    width: 28rpx;
+    height: 28rpx;
+    border-radius: 50%;
+    background: #f21b7b;
+    position: absolute;
+    right: 0;
+    top: -13rpx;
+    z-index: 999;
+}
+
+.timeScheduleText {
+    margin-top: 30rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24rpx;
+    color: #aaa;
+    padding: 0 12rpx;
+}
+
+.timeScheduleText view {
+    background-color: transparent;
+    border-radius: 100rpx;
+    padding: 5rpx 20rpx;
+}
+
+.timeScheduleText .activity {
+    background-color: #f21b7b;
+    border-radius: 100rpx;
+    color: #fff;
+    padding: 5rpx 20rpx;
+}
+
+.timeScheduleText .between {
+    margin-right: 25rpx;
+}
+
+.exchange {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.arrow{
+    width:14rpx;
+    height: 24rpx;
+}
+
+.exchange_label {
+    font-size: 28rpx;
+    color: #aaa;
+}
+
+.exchange_code {
+    font-size: 28rpx;
+    color: #aaa;
+}
+
+.qr_img {
+    width: 34rpx;
+    height: 34rpx;
+    margin: 0 27rpx 0 14rpx;
+}
+
+.linkto {
+    padding-right: 13px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card_num {
+    font-size: 26rpx;
+    color: #999;
+    margin-right: 10rpx;
+}
+
+.linkto:after {
+    content: " ";
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    border-width: 2px 2px 0 0;
+    border-color: #c8c8cd;
+    border-style: solid;
+    -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    position: relative;
+    top: -2px;
+    top: 50%;
+    margin-top: -4px;
+    right: 2px;
+}
+
+.couponCode {
+    flex-basis: 0;
+    flex-shrink: 1;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hascode {
+    margin-top: 40rpx;
+    padding: 0 20rpx;
+}

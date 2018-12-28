@@ -1,0 +1,4 @@
+<view class="page">
+    <rich-text wx:if="{{!ruleLink}}" nodes="{{ruleInfo}}"></rich-text>
+    <web-view wx:else src="{{ruleLink}}"></web-view>
+</view>

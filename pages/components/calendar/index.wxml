@@ -1,0 +1,20 @@
+<view class='date-wrap'>
+    <view>
+        <view class='date-show'>
+            {{year1}}年{{month1}}月
+        </view>
+    </view>
+    <view class='header'>
+        <view wx:for='{{date1}}' wx:key='{{index}}' class='{{item=="日"||item=="六"?"change-color item":"item"}}'>{{item}}<view></view></view>
+    </view>
+    <view class='date-box' bindtouchstart="mytouchstart" bindtouchmove="mytouchmove" bindtouchend="mytouchend">
+        <view wx:for='{{dateArr}}' wx:key='{{index}}' class='{{isToday == item.isToday ? "nowDay normal" : "normal"}}' data-date='{{item.isToday}}' bindtap="{{item.isToday>=startDate&&item.isToday<=endDate?'handleChooseDate':'noChooseDate'}}">            
+            <view class='date-head'>
+                <view class="{{item.isToday>=startDate&&item.isToday<=endDate?'select':'no-select'}}" >{{item.dateNum}}</view>
+                <view wx:if='{{item.isToday>=startDate&&item.isToday<=endDate&&item.yp<=999}}' class="yp-info">剩余:{{item.yp}}</view>
+                <view wx:if='{{item.isToday>=startDate&&item.isToday<=endDate&&item.yp>999}}' class="yp-info">剩余:有</view>
+            </view>
+            
+        </view>
+    </view>
+</view>

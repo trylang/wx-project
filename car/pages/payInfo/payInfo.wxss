@@ -1,0 +1,134 @@
+page {
+    background-color: #F2F3F7;
+}
+
+.parkingPaly{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFFFFF;
+}
+
+.line {
+    width: 100%;
+    height: 20rpx;
+    background: #F2F3F7;
+}
+
+.head {
+    padding-top:60rpx;
+    background-color: #fff;
+    padding-bottom: 60rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.head image {
+    width: 114rpx;
+    height: 114rpx;
+}
+
+.car_num {
+    color: #000;
+    font-weight: 500;
+    font-size: 36rpx;
+    margin-top: 40rpx;
+    margin-bottom: 16rpx;
+}
+
+.car_tip {
+    color: #999;
+    font-size: 30rpx;
+    text-align: center;
+    margin-bottom: 120rpx;
+}
+.car_tip .car_tip_s text{
+    color:#EE4C75;
+}
+.car_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.car_btn image{
+    width: 670rpx;
+    height: 98rpx;
+    margin-bottom: 60rpx;
+}
+
+.body {
+    background-color: #fff;
+    width: 100%;
+    padding-top: 36rpx;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    padding: 30rpx 0;
+    margin: 0 40rpx;
+    border-bottom: 2rpx #f5f5f5 solid;
+}
+
+.cell_icon {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 14rpx;
+}
+
+.cell_name {
+    color: #333;
+    font-size: 30rpx;
+    margin-right: auto;
+    font-weight: 500;
+}
+
+.cell_tip {
+    color: #999;
+    font-size: 24rpx;
+    font-weight: 500;
+}
+
+.cell_val {
+    color: #333;
+    font-size: 30rpx;
+    font-weight: 500;
+}
+
+.cell_tatol {
+    color: #EE4C75;
+}
+
+.cell_big{
+    font-size: 36rpx;
+}
+
+.foot {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 30rpx 40rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.text {
+    margin-right: auto;
+}
+
+.submit {
+    background-color: rgba(52, 47, 29, 1);
+    color: #EE4C75;
+    font: 28rpx;
+}
+
+.fail{
+    height: 114rpx;
+    width: 114rpx;
+    margin-top: 60rpx;
+}

@@ -1,0 +1,81 @@
+<view class="parkingPaly" hidden='{{!isSuccess}}'>
+    <view class="head" hidden='{{isDetail}}'>
+        <image src='http://res.rtmap.com/wx/parking/success.png' mode="scaleToFill" binderror="" bindload=""></image>
+        <view class="car_num">
+            <text>缴费成功</text>
+        </view>
+        <view class="car_tip">
+            <!-- <text class='car_tip_s'>请在<text>{{hhh}}:{{mmm}}:{{sss}}</text>内离场，超时将产生额外费用</text> -->
+            <text class='car_tip_s'>请在<text>15分钟</text>内离场，超时将产生额外费用</text>
+        </view>
+        <view class="car_btn" bindtap='goHome'>
+            <image src='http://res.rtmap.com/wx/parking/pay.png'></image>
+        </view>
+    </view>
+    <view class='line' hidden='{{isDetail}}'></view>
+    <view class="body">
+        <view class="cell">
+            <image class="cell_icon" src='http://res.rtmap.com/wx/parking/car_no.png' mode="aspectFit" binderror="" bindload=""></image>
+            <text class="cell_name">车牌号</text>
+            <text class="cell_val">{{carInfo.carNumber}}</text>
+        </view>
+        <view class="cell">
+            <image class="cell_icon" src='http://res.rtmap.com/wx/parking/park_clock.png' mode="aspectFit" binderror="" bindload=""></image>
+            <text class="cell_name">入场时间</text>
+            <text class="cell_val">{{carInfo.passTime}}</text>
+        </view>
+        <view class="cell">
+            <image class="cell_icon" src='http://res.rtmap.com/wx/parking/park_sa.png' mode="aspectFit" binderror="" bindload=""></image>
+            <text class="cell_name">待缴费时长</text>
+            <text class="cell_val">{{carInfo.parkingLongTime}}</text>
+        </view>
+        <view class="cell">
+            <image class="cell_icon" src='http://res.rtmap.com/wx/parking/park_sa.png' mode="aspectFit" binderror="" bindload=""></image>
+            <text class="cell_name">停车时长</text>
+            <text class="cell_val">{{carInfo.totalLongTime}}</text>
+        </view>
+        <view class="cell">
+            <image class="cell_icon" src='http://res.rtmap.com/wx/parking/park_rmb.png' mode="aspectFit" binderror="" bindload=""></image>
+            <text class="cell_name">应付金额</text>
+            <text class="cell_val">￥{{carInfo.receivable}}</text>
+        </view>
+        <view class="cell">
+            <image class="cell_icon" src='http://res.rtmap.com/wx/parking/park_dollar.png' mode="aspectFit" binderror="" bindload=""></image>
+            <text class="cell_name">积分抵扣</text>
+            <text class="cell_val">-￥{{carInfo.scoreDeductible}}</text>
+        </view>
+        <view class="cell">
+            <image class="cell_icon" src='http://res.rtmap.com/wx/parking/park_all.png' mode="aspectFit" binderror="" bindload=""></image>
+            <text class="cell_name">抵扣合计</text>
+            <text class="cell_val cell_tatol">-￥{{carInfo.freeTotal}}</text>
+        </view>
+        <view class="cell">
+            <image class="cell_icon" src="{{'http://res.rtmap.com/wx/parking/park_rmb.png'}}" mode="aspectFit" binderror="" bindload=""></image>
+            <text class="cell_name">实付金额</text>
+            <text class="cell_tatol cell_big">￥{{carInfo.feeNumber}}</text>
+        </view>
+        <view class="cell">
+            <image class="cell_icon" src="{{'http://res.rtmap.com/wx/parking/park_clock.png'}}" mode="aspectFit" binderror="" bindload=""></image>
+            <text class="cell_name">缴费时间</text>
+            <text class="cell_val">{{carInfo.feeTime}}</text>
+        </view>
+    </view>
+</view>
+
+<view class="parkingPaly" hidden='{{isSuccess}}'>
+    <view class='line'></view>
+    <image class='fail' src='http://res.rtmap.com/wx/parking/fail.png' mode='widthFix'></image>
+
+    <view class="car_num">
+        <text>缴费失败</text>
+    </view>
+
+    <view class="car_tip">
+        <text>系统故障，请稍后使用</text>
+    </view>
+
+    <view class="car_btn"  bindtap='goInput'>
+       <image src='http://res.rtmap.com/wx/parking/again.png'></image>
+    </view>
+</view>
+<dialog id='dialog' payResult='{{payResult}}' bind:cancelEvent='onLeftClick' bind:confirmEvent='onRightClick'></dialog>

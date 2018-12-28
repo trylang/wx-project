@@ -1,0 +1,194 @@
+/* components/orderitem/orderitem.wxss */
+
+view {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+image {
+    vertical-align: top;
+}
+
+button::after {
+    vertical-align: top;
+    border: none;
+}
+
+.order_item {
+    padding-bottom: 24rpx;
+    border-bottom: 2rpx solid #eee;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22rpx 20rpx;
+}
+
+.time {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.status {
+    font-size: 28rpx;
+    color: #f21b7b;
+}
+
+.waitPay .status, .refunding .status {
+    color: #f21b7b;
+}
+
+.payMent .status {
+    color: #666;
+}
+
+.body {
+    padding: 30rpx 20rpx;
+    background-color: #f9f9f9;
+    border-radius: 10rpx;
+    display: flex;
+}
+
+.describe {
+    width: 100%;
+    margin-left: 30rpx;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.describe_head {
+    width: 100%;
+    font-size: 30rpx;
+    color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name {
+    width: 450rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.num {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.price {
+    font-size: 36rpx;
+    color: #333;
+    margin-right: 16rpx;
+}
+
+.discount {
+    font-size: 24rpx;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.describe_foot {
+    font-size: 28rpx;
+}
+
+.img {
+    width: 144rpx;
+    height: 120rpx;
+    border-radius: 8rpx;
+}
+
+.foot {
+    padding: 0 20rpx 0 194rpx;
+}
+
+.foot_head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25rpx 0;
+}
+
+.total_label {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.total_num {
+    font-size: 36rpx;
+    color: #f21b7b;
+}
+
+.payment {
+    border-radius: 65rpx;
+    background-color: #f21b7b;
+    color: #fff;
+    border: solid #f21b7b 1rpx;
+}
+
+.close .payment, .refunding .payment {
+    background-color: #fff;
+    color: #ff6559;
+}
+
+.exchange {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.exchange_label {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.exchange_code {
+    font-size: 28rpx;
+    color: #333;
+}
+
+.qr_img {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.linkto {
+    padding-right: 13px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card_num {
+    font-size: 26rpx;
+    color: #999;
+    margin-right: 10rpx;
+}
+
+.linkto:after {
+    content: " ";
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    border-width: 2px 2px 0 0;
+    border-color: #c8c8cd;
+    border-style: solid;
+    -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    position: relative;
+    top: -2px;
+    top: 50%;
+    margin-top: -4px;
+    right: 2px;
+}
+
+.arrow {
+    width: 14rpx;
+    height: 24rpx;
+}

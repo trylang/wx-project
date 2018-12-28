@@ -1,0 +1,172 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/carindex/index",
+        "pages/jump/index",
+        "pages/brand/index/index",
+        "pages/brand/search/index",
+        "pages/brand/details/index",
+        "pages/tdtt_world/index/index",
+        "pages/tdtt_world/details/index",
+        "rtmap/sign/sign",
+        "pages/new_gift/index/main",
+        "pages/new_gift/success/main",
+        "pages/new_gift/detail/main",
+        "pages/w_activity/index/index",
+        "pages/w_activity/enroll/enroll",
+        "pages/w_activity/detail/detail",
+        "pages/w_activity/order/order",
+        "pages/w_activity/payOrder/pay",
+        "pages/login/login",
+        "pages/turntable/index/index",
+        "pages/turntable/price/index",
+        "pages/present/index/index",
+        "rtmap/coupons/pages/shopsList/shopsList",
+        "rtmap/coupons/pages/orderDetail/orderDetail",
+        "rtmap/coupons/pages/couponInfo/couponInfo",
+        "rtmap/coupons/pages/webView/webView",
+        "rtmap/coupons/pages/mine/mine",
+        "rtmap/coupons/pages/orderlist/orderlist",
+        "rtmap/coupons/pages/couponList/couponList",
+        "rtmap/coupons/pages/userInfo/userInfo",
+        "rtmap/coupons/pages/credits/credits",
+        "rtmap/coupons/pages/setting/setting",
+        "rtmap/coupons/pages/mybonus/mybonus",
+        "rtmap/coupons/pages/feedback/feedback",
+        "rtmap/coupons/pages/refund/refund",
+        "rtmap/integralMall/integralHome/integralHome",
+        "rtmap/integralMall/integralDetail/integralDetail",
+        "rtmap/integralMall/integralHistory/integralHistory",
+        "rtmap/bubugao/park",
+        "rtmap/welfaremap/welfaremap"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "智慧图demo",
+        "navigationBarTextStyle": "black"
+    },
+    "subPackages": [
+        {
+            "root": "rtmap/bawang",
+            "pages": [
+                "pages/index/index",
+                "pages/index/wallet/index",
+                "pages/index/wallet/info/index"
+            ]
+        },
+        {
+            "root": "rtmap/seckill",
+            "pages": [            
+                "page/list/list",
+                "page/orderresult/orderresult",
+                "page/detail/detail",
+                "page/return/return",
+                "page/use/use",
+                "page/order/order"
+            ]
+        },
+        {
+            "root": "couponM/pages",
+            "pages": [      
+                "webView/webView",
+                "shopsList/shopsList",
+                "paymentResult/paymentResult",
+                "couponInfo/couponInfo",
+                "groupDetail/groupDetail",
+                "group/couponSubDetail/couponSubDetail",
+                "groupbuy/groupbuyDetail/groupbuyDetail",
+                "couponDist/couponDistShare/couponDistShare"
+            ]
+        },{
+            "root": "car/pages/",
+            "pages": [
+                "addCar/addCar",
+                "searchCar/searchCar",
+                "parkingRecords/parkingRecords",
+                "parkingPaly/parkingPaly",
+                "payInfo/payInfo",
+                "parkConvert/parkConvert",
+                "ruleInfo/ruleInfo"
+            ]
+        },{
+            "root": "rtmap/groupon/",
+            "pages": [
+                "detail/detail",
+                "result/result"
+            ]
+        },
+        {
+          "root": "rtmap/integral_mall/pages/",
+          "pages": [
+            "index/index",
+            "detail/detail",
+            "history/history",
+            "collect/collect"
+          ]
+        },{
+            "root":"pages/photo-new/",
+            "pages":[
+                "index/index",
+                "record/index"
+            ]
+        },{
+          "root": "pages/seal/",
+          "pages": [
+            "index/index"
+          ]
+        },
+        {
+            "root": "rtmap/send_coupons",
+            "pages": [
+                "index/index",
+                "list/list"
+            ]
+        },
+        {
+            "root": "rtmap/turntable",
+            "pages": [
+                "index/index",
+                "prize/prize"
+            ]
+        }
+    ],
+    "tabBar": {
+        "color": "#999999",
+        "selectedColor": "#f21b7b",
+        "borderStyle": "white",
+        "backgroundColor": "#fff",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/index/index.png",
+                "selectedIconPath": "images/index/index_active.png"
+            },
+            {
+              "pagePath": "rtmap/welfaremap/welfaremap",
+              "text": "福利地图",
+              "iconPath": "images/index/icon_gift.png",
+              "selectedIconPath": "images/index/icon_gift_active.png"
+            },
+            {
+                "iconPath": "images/index/park.png",
+                "selectedIconPath": "images/index/park_active.png",
+                "pagePath": "pages/carindex/index",
+                "text": "停车"
+            },
+            {
+                "pagePath": "rtmap/coupons/pages/mine/mine",
+                "text": "我的",
+                "iconPath": "images/index/mine.png",
+                "selectedIconPath": "images/index/mine_active.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 10000,
+        "connectSocket": 2000,
+        "uploadFile": 2000,
+        "downloadFile": 2000
+    }
+}

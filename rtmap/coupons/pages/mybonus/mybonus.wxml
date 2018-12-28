@@ -1,0 +1,27 @@
+<!--rtmap/coupons/pages/mybonus/mybonus.wxml-->
+<view class='mybonus_container'>
+
+    <view class='top'>
+        <text class='top-mybonus'>奖金明细</text>
+        <text class='addUp'>累计：<text>￥{{total}}</text></text>
+    </view>
+    <view class='line'></view>
+    <view class='list'  wx:if="{{records.length>0}}">
+        <view class='cell' wx:for='{{records}}' wx:key='{{index}}'>
+            <view class='cell-line line1'>
+                <text class='carNo'>{{item.mainInfo}}</text>
+                <view class='money'>
+                    <text style='font-size:30rpx;'>+</text>
+                    <text>{{item.cashbackFee}}</text>
+                </view>
+            </view>
+            <view class='cell-line line2'>
+                <text>{{item.createTime}}</text>
+                <view class='paring-duration'>
+                    <text>已发放至微信钱包</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='no-records' wx:else>暂无记录</view>
+</view>

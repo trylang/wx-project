@@ -1,0 +1,173 @@
+<!--index.wxml-->
+    <!-- 内容区域 -->
+    <!-- <swiper
+    autoplay='{{false}}' 
+    current='{{current}}'
+    duration='300' 
+    bindchange='switchTab'
+    circular='{{true}}'
+    style="height:{{windowHeight}}px;"
+    class="swiper_list"> -->
+<view style="position: relative;">
+    <block wx:for="{{killgoods}}" wx:key="index" data-index='{{index}}'>
+        <view style="display:{{index==current?'block':'none'}};" class="swiper_item">
+            <!-- 内容区域-头部和标题 -->
+            <!-- <view class="header_space"></view>
+        <view class="seckill_title">标题</view>
+        <scroll-view 
+          scroll-x="{{true}}"
+          scroll-y="{{false}}"
+          class="seckill_top_list">
+          <block wx:for="{{[1,2,3,4,5,6,7]}}" wx:for-index="idx" wx:key="idx">
+            !-- 内容区域-横向滚动区域 --
+            <view 
+              class="seckill_top_item"
+            >
+              <image class="seckill_top_img" src="https://img.rtmap.com/brand/20180730/8a9c4f6464a0d6ae0164e8ede94200b1.jpg"/>
+              <view class="seckill_top_info">
+                <p class="seckill_top_title">氛围防腐漆，测试驱蚊器氛围防腐漆，测试驱蚊器</p>
+                <view class="seckill_price_c">
+                  <span class="seckill_price">¥1.5</span>
+                  <span class="seckill_orgprice">¥17</span>
+                </view>
+              </view>
+            </view>
+          </block>
+        </scroll-view>
+        <view class="gray_line"></view>
+        !-- 商品列表 --
+        <view class="goods_c">
+          {{time}}
+        </view> -->
+            <!--优惠券列表-->
+            <view wx:if="{{item}}" class='coupons-list'>
+                <block wx:for="{{item}}" wx:key="coupon" wx:for-item="coupon" wx:for-index="ind" data-index='{{ind}}'>
+                    <view wx:if="{{coupon.coupons}}" class='coupons-slist'>
+                        <view wx:if="{{ind!=0}}" class="gray_line"></view>
+                        <view class="coupons_special_t">
+                            <image class='coupons-t-icon' src='http://res.rtmap.com/wx/seckill/time.png' mode="aspectFit"></image>{{coupon.name}}
+                        </view>
+                        <view class="coupons_special_c">
+                            <navigator url="../detail/detail?Id={{scoupon.id}}&couponId={{scoupon.couponId}}" class="coupons_special" wx:for="{{coupon.coupons}}" wx:for-item="scoupon">
+                                <view class='coupons_special_img' style='background-image: url({{scoupon.imgUrl0}})'>
+                                    
+                                    <view class='fourCircle' hidden='{{!scoupon.shopFloor}}'>
+                                        <text>{{scoupon.shopFloor}}</text>
+                                    </view>
+                                </view>
+                                <view class='coupons_special_title'>{{scoupon.mainInfo}}</view>
+                                <view class='coupons_special_price'>
+                                    <text wx:if="{{ scoupon.payType == 1 }}">免费</text>
+                                    <text wx:if="{{ scoupon.payType == 2 }}">￥{{scoupon.buyPrice/100}}</text>
+                                    <text wx:if="{{ scoupon.payType == 3 }}">{{scoupon.buyScore}}积分</text>
+                                    <text class="coupons_special_priceorg">￥{{scoupon.facePrice/100}}</text>
+                                </view>
+                            </navigator>
+                        </view>
+                    </view>
+                    <navigator wx:else url="../detail/detail?Id={{coupon.id}}&couponId={{coupon.couponId}}" class='coupons-list-cell'>
+                        <view class='coupon-image'>
+                            <image class='coupon-icon' src='{{coupon.imgUrl0}}' mode="aspectFill"></image>
+                            <!-- <view class='fourCircle' hidden='{{coupon.isAllshops==1||coupon.applyShops.length!=1}}'>
+                                <text>{{coupon.applyShops[0].floorId}}</text>
+                            </view> -->
+                            <view class='fourCircle' hidden='{{!coupon.shopFloor}}'>
+                                <text>{{coupon.shopFloor}}</text>
+                            </view>
+                        </view>
+                      <!--  <view class='coupon-icon' >
+                          <image class='coupon_img' src='{{coupon.imgUrl}}' mode="aspectFill"></image>
+                          <view class='coupon_bg'>
+                        
+                            </view> 
+                        </view> -->
+                        <image class='coupon-bg' src='../../../coupons/static/images/coupon_fg.png'></image>
+                        <view class='coupon-info'>
+                            <view class='coupon-info-titles'>
+                                <text class='coupon-info-title'>{{coupon.mainInfo}}</text>
+                                <text class='coupon-info-description'>{{coupon.extendInfo}}</text>
+                                <!-- <view class='coupon-info-shopv' hidden='{{coupon.isAllshops==1||coupon.applyShops.length!=1}}'>
+                                    <text class='coupon-info-shop'>{{coupon.applyShops[0].shopName}}</text>
+                                </view> -->
+                                <view class='coupon-info-usertype' wx:if="{{coupon.userType!==undefined}}">
+                                    <view wx:if="{{coupon.userType}}" class='coupon-info-arrows'>
+                                        {{memberlist&&memberlist[coupon.userType]}}
+                                    </view>
+                                </view>
+                                <view class='coupon-info-price'>
+                                    <block wx:if="{{ coupon.payType == 1 }}">
+                                        <text class="coupon-info-discount}}">免费</text>
+                                    </block>
+                                    <block wx:if="{{ coupon.payType == 3 }}">
+                                        <text class="coupon-info-discount number}}">{{coupon.buyScore}}积分</text>
+                                    </block>
+                                    <block wx:elif="{{ coupon.payType == 2 }}">
+                                        <text class="coupon-info-discount number}}">￥{{coupon.buyPrice/100}}</text>
+                                    </block>
+                                    <text class='coupon-info-orginprice'>￥{{coupon.facePrice/100}}</text>
+                                </view>
+                            </view>
+                            <view class='coupon-payment-info'>                                
+                                <block wx:if="{{acList[index].hasStart}}">
+                                    <view  wx:if="{{ coupon.sellscale==100}}" class="coupon-kill-button none">
+                                        <text>已抢光</text>
+                                    </view>
+                                    <view wx:elif="{{ coupon.payType == 1 }}" class="coupon-kill-button">
+                                        <text>立即领取</text>
+                                    </view>
+                                    <view wx:elif="{{ coupon.payType == 3 }}" class="coupon-kill-button">
+                                        <text>立即兑换</text>
+                                    </view>
+                                    <view wx:elif="{{ coupon.payType == 2 }}" class="coupon-kill-button">
+                                        <text>立即抢购</text>
+                                    </view>
+                                    <view class="sell_step">
+                                        已售{{coupon.sellscale}}%
+                                        <view class="sell_scale_b">
+                                            <view style="width:{{coupon.sellscale}}%" class="sell_scale_c"></view>
+                                        </view>
+                                    </view>
+                                </block>
+                                <form wx:else bindsubmit="switchAlert" data-index="{{index}}" data-ind="{{ind}}" report-submit='true' >  
+                                    <button form-type="submit" catchtap="empty" wx:if="{{coupon.notify}}" class="coupon-kill-button cancel"> 
+                                        <text>取消提醒</text>  
+                                    </button>
+                                    <button form-type="submit" catchtap="empty" wx:else class="coupon-kill-button">
+                                        <text>开售提醒</text> 
+                                    </button>
+                                </form>
+                            </view>
+                        </view>
+                    </navigator>
+                </block>
+            </view>
+            <view style="height: 20px;"></view>
+        </view>
+    </block>
+
+    <scroll-view 
+        class="header_c" 
+        scroll-x="{{true}}"
+        scroll-left="{{scrollleft}}"
+        scroll-y="{{false}}">
+        <view class="header">
+            <!-- 顶部切换选项卡 -->
+            <view class="header_navc" wx:for="{{acList}}" wx:key="index">
+                <view 
+                    bindtap="switchNav" 
+                    data-index="{{index}}"
+                    style="width:{{windowWidth/5}}px;"
+                    class="header_nav {{current===index?'header_nav_active':''}}">
+                    <!-- <view wx:if="{{item.istoday}}" class="h_n_title">{{item.showtime}}</view> -->
+                    <view class="h_n_title">{{item.istoday?item.showtime:item.showdate}}</view>
+                    <view class="h_n_status">
+                        {{item.istoday?'':item.showtime}}
+                        <image wx:if="{{item.isCrazy}}" src="http://res.rtmap.com/wx/seckill/second.png" />{{item.hasStart?(item.isCrazy?'疯抢中':'已开抢'):'预热中'}}
+                    </view>
+                </view>
+            </view>
+            <view class="h_n_after" style="left:{{windowWidth/5*(current+0.5)}}px"></view>
+        </view>
+    </scroll-view>
+    <!-- </swiper>  -->
+</view>

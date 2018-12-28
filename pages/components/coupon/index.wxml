@@ -1,0 +1,22 @@
+<view class="coupon-list">
+    <view class='coupons-list-cell'>
+        <image class='coupon-bg' src='../../../rtmap/coupons/static/images/coupon_fg.png'></image>
+        <image class='coupon-icon' src='{{couponDetail.couponImageList[0].imgUrl}}' mode="aspectFill"></image>
+        <view class='coupon-info'>
+            <view class='coupon-info-titles'>
+                <text class='coupon-info-title'>{{couponDetail.mainInfo}}</text>
+                <text wx:if="{{couponDetail.extendInfo}}" class='coupon-info-description'>{{couponDetail.extendInfo}}</text>
+                <view  class='coupon-info-shopv' hidden='{{couponDetail.isAllshops==1||couponDetail.applyShops.length>1}}'>
+                    <text class='coupon-info-shop'>{{couponDetail.categoryDesc}}</text>
+                </view>
+                 <view class='coupon-info-time' wx:if="{{couponDetail.effectiveStartTime}}">
+                    <text class='coupon-info-time'>{{couponDetail.effectiveStartTime}} 至 {{couponDetail.effectiveEndTime}}</text>
+                </view>
+            </view>
+            <view style="margin-left:320rpx;" wx:if="{{couponDetail.button}}" data-batchId="{{couponDetail.couponActivityId}}" data-activityId="{{couponDetail.activityId}}">
+                <button class="lingqu">领取</button>
+            </view>
+        </view>
+
+    </view>
+</view>

@@ -1,0 +1,24 @@
+<!--dialogComponent.wxml-->
+<view class='wx_dialog_container' hidden="{{!isShow}}" catchtap='_cancelEvent' catchtouchmove='start'>
+    <view class='wx-mask'></view>
+    <view class='wx-dialog'>
+        <view class="popout-close">×</view>
+        <view class='cardBack'>
+            <image src='{{cardImage}}' mode='widthFix'></image>
+        </view>
+        <image class='back' src='/rtmap/coupons/images/all_back.png' mode='widthFix'></image>
+        <view class='wx-dialog-data'>
+            <view class='dialog-prompt'>
+                <text>购物时请出示此电子会员卡</text>
+            </view>
+            <view class='dialog-card'>
+                <canvas canvas-id='qrcode' disable-scroll='true' class='dialog-title-card' disable-scroll='true' bindtouchstart="start" bindtouchmove="start" bindtouchend="start" style='margin: 0 auto;'></canvas>
+            </view>
+            <text class='dialog-title-card1-number'>{{cardDetail}}</text>
+            <!-- <view class='dialog-card1'>
+                <canvas canvas-id='barcode' class='dialog-title-card1' disable-scroll='true' style='margin: 0 auto;'></canvas>
+                
+            </view> -->
+        </view>
+    </view>
+</view>

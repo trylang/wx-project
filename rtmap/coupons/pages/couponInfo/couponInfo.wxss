@@ -1,0 +1,433 @@
+/* pages/couponInfo/couponInfo.wxss */
+@import "../../../../utils/certificationKit/ckit.wxss";
+@import "../../../../utils/certificationKit/echoss/echossAuth.wxss";
+
+.couponInfor {
+    padding: 50rpx 50rpx;
+}
+
+.title {
+    text-align: center;
+    font-size: 48rpx;
+    color: #000;
+}
+
+.rule {
+    text-align: center;
+    font-size: 30rpx;
+    color: #999;
+}
+
+.code {
+    text-align: center;
+    font-size: 36rpx;
+    color: #000;
+}
+
+.invalid {
+    position: relative;
+    top: 0;
+    margin: 0 auto;
+    width: 400rpx;
+    height: 400rpx;
+}
+
+.invalidImg {
+    position: relative;
+    z-index: 1;
+    width: 400rpx;
+    height: 400rpx;
+}
+
+.model {
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.invalidIcon {
+    top: 0;
+    right: 0;
+    z-index:6;
+    position: absolute;
+    border-right: 160rpx #d6ecde solid;
+    border-bottom: 160rpx transparent solid;
+    border-left: 160rpx transparent solid;
+}
+
+.statusText {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index:7;
+    font-size: 28rpx;
+    transform: rotate(45deg);
+    transform-origin: left center;
+    color: #37c26c;
+}
+
+.expired .invalidIcon {
+    border-right-color: #ddd;
+}
+
+.expired .statusText {
+    color: #999;
+}
+
+.retreat .invalidIcon {
+    border-right-color: #f0d9de;
+}
+
+.retreat .statusText {
+    color: #f21b7b;
+}
+
+.canvas-box {
+    margin: 60rpx 0 15rpx;
+}
+
+.shops {
+    border-top:2rpx solid #F5F5F5;
+    border-bottom:2rpx solid #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    margin:32rpx 0;
+    padding: 16rpx 0;
+    align-items: center;
+    width: 650rpx;
+}
+
+.shop {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 686rpx;
+    justify-content: space-between;
+}
+
+.shop-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.shop-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 142rpx;
+}
+
+.logo {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.call {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.call text {
+    color: #999;
+    font-size: 24rpx;
+    margin-top: 5rpx;
+    white-space: nowrap;
+}
+
+.call image {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.msg {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16rpx;
+    width: 440rpx;
+    overflow: hidden;
+}
+
+.msg .titleshop {
+    color: #000;
+    font-size: 30rpx;
+}
+
+.msg .floor {
+    color: #999;
+    font-size: 24rpx;
+    margin-top: 8rpx;
+}
+
+.img {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 8rpx;
+    vertical-align: top;
+}
+
+.describe {
+    height: 100rpx;
+    margin-left: 30rpx;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    flex-basis: 0;
+    flex-shrink: 1;
+    flex-grow: 1;
+}
+
+.describe_head {
+    width: 100%;
+    font-size: 36rpx;
+    color: #333;
+}
+
+.name {
+    font-size: 30rpx;
+    font-weight: 500;
+    color: #000;
+    /* display: block; */
+}
+
+.num {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.price {
+    font-size: 24rpx;
+    color: #999;
+    margin-right: 16rpx;
+}
+
+.discount {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.describe_foot {
+    display: flex;
+    flex-direction: row;
+    font-size: 28rpx;
+}
+
+.line {
+    height: 70rpx;
+    border: 1rpx #eee solid;
+    margin-right: 50rpx;
+}
+
+.icon_location {
+    width: 23rpx;
+    height: 23rpx;
+    margin-top: 6rpx;
+    margin-right: 12rpx;
+}
+
+.icon_phone {
+    width: 36rpx;
+    height: 36rpx;
+}
+.tip {
+  position: relative;
+}
+
+.tip_title {
+    font-size: 30rpx;
+    color: #000;
+    margin-bottom: 16rpx;
+    font-weight: 500;
+}
+
+.tip_content {
+    font-size: 24rpx;
+    color: #000;
+    font-weight: 500;
+}
+
+.descClauseImg {
+    max-width: 100%;
+}
+
+.give{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   left: 0;
+   top: 0;
+}
+.present{
+    
+    position: fixed;
+    bottom: 40rpx;
+    right: 32rpx;
+    width: 130rpx;
+    height: 98rpx;
+}
+.present-share{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    
+    background: transparent;
+}
+.present-share:after{
+    border: none;
+}
+
+.write-off {
+  position: absolute;
+  top: 100rpx;
+  right: 20rpx;
+}
+.write-off image {
+  display: inline-block;
+  width: 106rpx;
+  height: 106rpx;
+}
+
+
+
+/*
+弹窗相关
+*/
+
+@keyframes action_scaleOut {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.2);
+        opacity: 0;
+    }
+}
+
+@keyframes action_scale {
+    0% {
+        transform: scale(0.2);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.show {
+    visibility: visible;
+    -webkit-animation: action_scale 0.5s both;
+    animation: action_scale 0.5s both;
+}
+
+.hide {
+    visibility: hidden;
+    -webkit-animation: action_scaleOut 0.5s both;
+    animation: action_scaleOut 0.5s both;
+}
+
+.wx-mask {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.wx-dialog {
+    position: fixed;
+    z-index: 5000;
+    width: 560rpx;
+    max-width: 560rpx;
+    height: 500rpx;
+    top: 40%;
+    left: 15%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    text-align: center;
+}
+
+.dialog-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dialog-title-content {
+    height: 350rpx;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    align-items: center;
+}
+
+.dialog-title-content text {
+    color: #333;
+    font-size: 36rpx;
+    font-weight: 500;
+}
+
+.dialog-title-ok {
+    width: 220rpx;
+    height: 70rpx;
+    background-color: #F21B7B;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius:100rpx;
+}
+
+.dialog-title-ok text {
+    color: #fff;
+    font-size: 30rpx;
+    font-weight: 500;
+}
+
+.dialog-title image {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 172rpx;
+    height: 246rpx;
+}
+
+.dialog-convert {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30rpx;
+    align-items: center;
+}
+
+.dialog-convert text {
+    font-size: 50rpx;
+    color: #F21B7B;
+    font-weight: 500;
+}
+.shops-show {
+  flex-direction:row;
+}
+
+.shops-show text {
+  margin-right: 10rpx;
+}
+.canvas-box image {
+  display: block;
+  width: 400rpx;
+  height: 400rpx;
+  margin: 0 auto;
+}

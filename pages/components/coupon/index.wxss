@@ -1,0 +1,134 @@
+.coupons-list-cell {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 220rpx;
+    background: #f8f8f8;
+    margin-bottom: 16rpx;
+    align-items: center;
+    overflow: hidden;
+}
+
+.coupons-list {
+    width: 100%;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 570rpx;
+}
+.coupon-icon {
+    width: 220rpx;
+    height: 220rpx;
+}
+
+.coupon-info {
+    width: 520rpx;    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.coupon-info-titles {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin-left: 16rpx;
+    margin-right: 32rpx;
+}
+
+.coupon-info-title {
+    font-weight: bold;
+    color: #000;
+    font-size: 30rpx;
+    color: black;
+    line-height: 38rpx;
+}
+
+.coupon-info-description {
+    margin-top: 8rpx;
+    font-size: 24rpx;
+    color: #666;
+    line-height: 32rpx;
+}
+
+.coupon-info-shopv{
+    display: flex;
+    align-items: center;
+}
+
+.coupon-info-shop{
+    padding: 3rpx 7rpx;
+    background: #DCC4AF;
+    margin-top: 8rpx;
+    color: #fff;
+    font-size: 24rpx;
+    text-align: center;
+    font-weight: 500;
+}
+
+.coupon-payment-info {
+    height: 50rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 16rpx;
+    margin-right: 32rpx;
+}
+
+.coupon-info-price {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+.coupon-info-discount {
+    font-weight: 500;
+    font-size: 30rpx;
+    color: #F21B7B;
+}
+
+.coupon-info-orginprice {
+    margin-left: 8rpx;
+    font-size: 24rpx;
+    color: #999;
+}
+.coupon-info-time{
+    font-size: 24rpx;
+    color: #999999;
+    padding-top: 24rpx;
+    line-height: 34rpx;
+}
+
+.coupon-gain-button.payment {
+    background-color: #F21B7B;
+}
+
+.coupon-gain-button.free {
+    background-color: #F21B7B;
+}
+
+.coupon-gain-button.none{
+    background-color: #ccc;
+}
+
+.coupon-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.lingqu{
+    width:116rpx;
+    height:50rpx;
+    background:rgba(242,27,123,1);
+    border-radius:13px;
+    color:#fff ;
+    font-size: 30rpx;
+    text-align: center;
+    line-height: 50rpx;
+    padding:0;
+}

@@ -1,0 +1,27 @@
+<!--rtmap/coupons/pages/feedback/feedback.wxml-->
+<view class='container'>
+    <view class='cell name'>
+        <text class='title'>标题</text>
+        <view class='operation' style='padding: 0 16rpx;'>
+            <input class='input' placeholder-class='placeholder' placeholder='请输入标题' bindblur='titleInputEnd'></input>
+        </view>
+    </view>
+    <view class='cell content'>
+        <text class='title'>内容</text>
+        <view class='operation' style="{{ isIos? 'padding: 0;':'padding: 16rpx;' }}">
+            <textarea wx:if='{{ isShowTextarea }}' class="input{{isIos?' ios-textarea':' textarea'}}" placeholder-class='placeholder' placeholder='请输入内容' bindinput='contentInput' maxlength='200' bindblur='contentInputEnd'></textarea>
+            <view class='characters-counter'>
+                <text style='color: #999;'>{{contentInputCount}}/</text>
+                <text>200</text>
+            </view>
+        </view>
+    </view>
+    <view class='cell images-picker'>
+        <text class='title'>图片</text>
+        <images-picker bindupdateimages='updatePickerImages'></images-picker>
+    </view>
+    <view class='submit-button' bindtap='submit'>
+        <text>提交反馈</text>
+    </view>
+    <dialog id='dialog' payResult='{{submitResult}}' bind:cancelEvent='onLeftClick' bind:confirmEvent='onRightClick'></dialog>
+</view>

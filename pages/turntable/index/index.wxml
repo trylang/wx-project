@@ -1,0 +1,59 @@
+
+<view class="contaner" style='background-color:{{bg_color}}'>
+	<view class='content'>
+		<image class="bg-image" src='{{homePageImage}}' mode="widthFix"></image>
+		<view class="turn-table">
+			<image class="bg-turntable" src='{{turntableImage}}'  mode="widthFix"></image>
+		  	<view>
+		  		<view class='canvas-container'>
+		  			<canvas style="position:fixed;left: -10000rpx;" disable-scroll="true" canvas-id='canvasI' id="canvas-one" class='canvasI '></canvas>
+		  			<!-- <view class='canvasI' style="background-image: url({{tempFilePath}});background-size:cover;transform:rotate({{isRotate}}deg)"   class='canvasI-image'></view> -->
+		  			<image src='{{tempFilePath}}' style="-webkit-transform:rotate({{isRotate}}deg);transform:rotate({{isRotate}}deg);display: block;"  class='canvasI-image'></image>
+		  		</view>
+		  	</view>
+		  	<view class="center-bg">
+		  	 	<image class='start' src="../../../images/turntable/start.png" catchtap='{{trunBtn?"getStart":""}}'  mode="widthFix" />
+		  	</view>
+		</view>
+		<view class="button-info">
+			<view class="has-join">已有<view style='font-size: 56rpx;' class="style-font">{{canYuCount}}</view>人参与</view>
+			<view class="has-join">还有<view style='font-size: 56rpx;' class="style-font">{{chanceNum}}</view>次机会</view>
+		</view>
+		<view class="share-btn">
+			<button class="get-num-btn left-btn" style="background-color: {{register_color}}" bindtap="{{isLogin?'handleShowScoreModal':'handleLinkLogin'}}">{{loginName}}</button>
+			<button class="get-num-btn"  open-type="share"  style="background-color: #2d2d2d;">分享送抽奖机会</button>
+		</view>
+		<view class="rule-info">
+			<image class='rule-info-image' src='{{ruleImage?ruleImage:"../../../images/turntable/rule_bg.png"}}' mode="widthFix"></image>
+		</view>
+		<view class="price-container">
+			<image class='price-container-image' src='{{winningImage?winningImage:"../../../images/turntable/container-price.png"}}' mode="widthFix"></image>
+			<view class="price-list">
+				<view class="price-item" hidden='{{!pricelist.length}}' wx:for='{{pricelist}}' wx:key='{{index}}'>
+					<image class='price-item-image' src='../../../images/turntable/price-person.png' mode="widthFix"></image>
+					<view class="item-container">
+						<image class="header" src='{{item.headimg?item.headimg:"../../../images/index/head_default.png"}}' mode='widthFix'></image>
+						<view class="nickname">{{item.nickName?item.nickName:item.mobile}}</view>
+						<view class="price-item-right">{{item.winningPrizes}}</view>
+					</view>
+				</view>
+				<view hidden='{{pricelist.length}}'>
+					<view class="price-item-left" style='padding-left: 40rpx;'>
+						暂无中奖信息
+					</view>
+				</view>
+			</view>
+			<view class="my-price" bindtap='handleLinkPrice'>
+				<image class="price-btn-img" src='../../../images/turntable/price_btn.png'></image>
+			</view>
+		</view>
+	</view>
+	
+	<include src="../../components/turntable_modal/index.wxml" />
+	<include src="../../components/score_modal/index.wxml" />
+	
+     <navigator url="/pages/index/index" open-type="switchTab" wx:if="{{isFromShare == 'true'}}">
+    <image class="{{isMove?'go-home-hide':'go-home'}}" src='http://res.rtmap.com/wx/couponM/go_home.png' mode='widthFix'></image>
+  </navigator>
+
+</view>

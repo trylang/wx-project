@@ -1,0 +1,115 @@
+<view class='activity-container'>
+	<view class="head-info">
+		<view class="head-container">
+			<icon type="search" bindtap='handleSearch' class='search-icon' size="12"/>
+			<input type="text" class="search-input" placeholder="请输入关键字" value="{{activity_title}}" bindinput='handleSearchTitle' bindconfirm='handleConfirm' />
+		</view>
+		<view class="select">
+			<view bindtap='handleSlect'>
+				<image class='search-img' src='../../../images/w_activity/select.png'></image>
+				<view class="select-word">筛选</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="content">
+		<view class="select-info" wx:if='{{showSelect}}'>
+			<view class="type author {{isActive==0&&showSelectBtn?'active':''}}" data-index='0' bindtap='handleClickType'>{{author}}
+				<image class="tangle" wx:if='{{isActive==0&&showSelectBtn}}' src='../../../images/w_activity/trangle_active.png'></image>
+				<image class="tangle" wx:else src='../../../images/w_activity/trangle.png'></image>
+			</view>
+			<view class="type class-type {{isActive==1&&showSelectBtn?'active':''}}" data-index='1' bindtap='handleClickType'>{{className}}
+				<image class="tangle" wx:if='{{isActive==1&&showSelectBtn}}' src='../../../images/w_activity/trangle_active.png'></image>
+				<image class="tangle" wx:else src='../../../images/w_activity/trangle.png'></image>
+			</view>
+			<view class="type default-sort {{isActive==2&&showSelectBtn?'active':''}}" data-index='2' bindtap='handleClickType'>{{sort}}
+				<image class="tangle" wx:if='{{isActive==2&&showSelectBtn}}' src='../../../images/w_activity/trangle_active.png'></image>
+				<image class="tangle" wx:else src='../../../images/w_activity/trangle.png'></image>
+			</view>
+		</view>
+		<view class="activity-container-bg">
+			<image class="mine-activity-bg" src='../../../images/w_activity/activity_bg.png'></image>
+			<view class="mine-activity" bindtap='handleLinkMineAct'>
+				<view class="mine-activity-left">
+					<image class="mine-star" src='../../../images/w_activity/activity_star.png'></image>
+					<view class="mine-info">我的活动</view>
+				</view>
+				<view class="mine-activity-right" wx:if='{{!orderList.length}}'>
+					您当前还没有参加任何活动 
+				</view>
+				<view class="mine-activity-right" wx:else>
+					查看已参加活动 >
+				</view>
+			</view>
+		</view>
+		<view wx:if='{{showSelectBtn}}'>
+			<view class="cover-modal" bindtap='hiddenModal' catchtouchmove="preventScroll"></view>
+			<view class="main-container"  wx:if='{{isActive==0}}'>
+		      	<view class="select-pick">
+			        <view class="pick-item {{author==item.buildName?'active':''}}" data-name='{{item.buildName}}' bindtap='handleSelectAuthor' wx:for='{{authorList}}' wx:key='{{index}}'>
+			        	{{item.buildName}}
+			        </view>
+		      	</view>
+		    </view>
+		    <view class="main-container"  wx:if='{{isActive==1}}'>
+		      	<view class="select-pick">
+			        <view class="pick-item {{className==item.name?'active':''}}" wx:for='{{classList}}'  data-name='{{item.name}}' data-id='{{item.id}}' bindtap='handleSelectClass' wx:key='{{index}}'>
+			        	{{item.name}}
+			        </view>
+		      	</view>
+		    </view>
+		    <view class="main-container"  wx:if='{{isActive==2}}'>
+		      	<view class="select-pick">
+			        <view class="pick-item  {{sort==item.name?'active':''}}" wx:for='{{defaultList}}'  data-name='{{item.name}}'  data-id='{{item.id}}' bindtap='handleSelectSort' wx:key='{{index}}'>
+			        	{{item.name}}
+			        </view>
+		      	</view>
+		    </view>
+	    </view>
+	    <scroll-view scroll-y>
+			<view class="activity-list" wx:if='{{activitylist.length}}'>
+				<view class="activity-info" wx:for='{{activitylist}}' wx:key='{{index}}'>
+					<view class="activity-title">
+						{{item.title}}
+					</view>
+					<view class="activity-time">
+						{{item.createDate}}
+					</view>
+					<navigator url="/pages/w_activity/detail/detail?id={{item.id}}" hover-class="navigator-hover">
+						<view class="item-image">
+							<image class="image-info" src='{{item.image}}' mode='widthFix'></image>
+						</view>
+					</navigator>
+					<view class="eyes-info">
+						<view class="eyes-left" >
+							<view hidden='{{item.enrollStatus==0}}'>
+								<view class='head-list'>
+									<image wx:for='{{item.headImgList}}' wx:key='{{index}}' wx:for-index="i" wx:for-item='head' class="head-img" src="{{head.headimgurl||'../../../images/head_default.png'}}"></image>
+								</view>
+								<view class="enroll-person {{!item.headImgList.length?'enroll-person-no':''}}">已有{{item.ordernumber}}人报名/限{{item.allnumber}}人报名</view>
+							</view>
+						</view>
+						<view class="eyes-right">
+							<view class="eyes right-eyes">
+								<image class="icon-default icon-eyes" src='../../../images/w_activity/eye.png'></image>
+								<view class="eye-num">{{item.readnum}}</view>
+							</view>
+							<view class="good right-eyes">
+								<image bindtap='handleGoodActivity' class="icon-default" src='../../../images/w_activity/zan.png'  data-good='{{item.id}}' wx:if='{{item.goodflag==0}}'></image>
+								<image class="icon-default" src='../../../images/w_activity/zan_active.png'  wx:else></image>
+								<view class="eye-num">{{item.goodnum}}</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="noitem" wx:else>
+				<image src="../../../rtmap/coupons/images/noitem.png" mode='aspectFit'></image>
+		        <view class='tip'>
+		            <text>暂无活动</text>
+		        </view>
+			</view>
+		</scroll-view>
+	</view>
+	
+</view>

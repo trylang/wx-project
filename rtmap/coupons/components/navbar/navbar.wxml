@@ -1,0 +1,8 @@
+<!--components/navbar/navbar.wxml-->
+<view class='navbar'>
+  <block wx:for="{{tabs}}" wx:key="index">
+    <view id="{{index}}" data-value="{{item.value}}" class="navbar_item {{activeIndex == index ? 'narbar_active' : ''}}" bindtap="tabClick">
+      <view class="navbar_title">{{item.label}}</view>
+    </view>
+  </block>
+</view>

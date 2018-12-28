@@ -1,0 +1,16 @@
+<!--pages/couponList/couponList.wxml-->
+<view>
+    <rt-navbar tabs="{{tabs}}" bind:change="navchange" index="{{statusIndex}}"></rt-navbar>
+    <view class='list'>
+        <rt-couponitem wx:for="{{couponList}}" data='{{item}}' wx:key="{{index}}"></rt-couponitem>
+    </view>
+    <view class='noitem' wx:if="{{couponList.length==0}}">
+        <image src="../../images/noitem.png" mode='aspectFit'></image>
+        <view class='tip'>
+            <text>暂无优惠券</text>
+        </view>
+        <view class='lookother'>
+            <navigator url="/pages/index/index" open-type='switchTab' hover-class="navigator-hover">去逛逛吧</navigator>
+        </view>
+    </view>
+</view>

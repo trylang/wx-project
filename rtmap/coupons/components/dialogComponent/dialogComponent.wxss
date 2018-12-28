@@ -1,0 +1,130 @@
+/* dialogComponent.wxss */
+
+.wx-mask {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.wx-dialog {
+    position: fixed;
+    z-index: 5000;
+    width: 706rpx;
+    box-sizing: border-box;
+    padding: 20rpx 40rpx 20rpx;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -40%);
+    transform: translate(-50%, -40%);
+    text-align: center;
+    border-radius: 10rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wx-dialog .cardBack {
+    width: 654rpx;
+    height: 780rpx;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wx-dialog .cardBack image {
+    width: 472rpx;
+    height: 300rpx;
+    transform: translate(0, -130%);
+}
+
+.wx-dialog .back {
+    position: fixed;
+    width: 706rpx;
+    height: 830rpx;
+    left: 0;
+    top: 0;
+}
+
+.wx-dialog-data {
+    position: fixed;
+    z-index: 6000;
+    width: 706rpx;
+    left: 0;
+    top: 122rpx;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dialog-prompt {
+    margin-top: 80rpx;
+    color: black;
+    font-size: 36rpx;
+    width: 498rpx;
+    height: 64rpx;
+    border-radius: 32rpx;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialog-card {
+    display: flex;
+    width: 400rpx;
+    height: 400rpx;
+    box-sizing: border-box;
+    margin-top: 40rpx;
+    border-style: solid;
+    border-color: #ccc;
+    border-radius: 8rpx;
+    border-width: 2rpx;
+    padding: 0;
+}
+
+.dialog-title-card {
+    width: 400rpx;
+    height: 400rpx;
+}
+
+.dialog-card1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 360rpx;
+    margin-top: 40rpx;
+}
+
+.dialog-title-card1 {
+    width: 100%;
+    height: 84rpx;
+}
+
+.dialog-title-card1-number {
+    font-size: 36rpx;
+    color: black;
+    margin-top: 26rpx;
+    font-weight: 500;
+}
+
+.popout-close {
+    color: #fff;
+    font-size: 50rpx;
+    width: 50rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    border: 1rpx solid #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(-30%, -350%);
+    z-index: 5001;
+    border-radius: 50%;
+}

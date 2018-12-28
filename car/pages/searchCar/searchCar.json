@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "输入车牌缴费",
+  "navigationBarBackgroundColor": "#EE4C75",
+  "navigationBarTextStyle": "white",
+  "disableScroll": true,
+  "usingComponents": {
+    "dialog": "../../components/dialogComponent/dialogComponent",
+    "key-board": "../../components/keyboardComponent/keyboardComponent"
+}
+}

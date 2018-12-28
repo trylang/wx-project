@@ -1,0 +1,46 @@
+<!--rtmap/integralMall/integralHome/integralHome.wxml-->
+<view class='integral'>
+    <view class='fix-top'>
+        <view class='convert'>
+            <!-- <image src='../images/backbg.png' mode='widthFix'></image> -->
+            <view class='convert-container'>
+                <image src='../../coupons/static/images/mine_credits.png' mode='widthFix'></image>
+                <text class='convert-txt'>{{convert}}</text>
+                <text class='convert-txtc'>积分</text>
+            </view>
+
+            <!-- <view class='hitory' bindtap='onHistoryClick'>
+                <text>兑换记录  ></text>
+            </view> -->
+        </view>
+
+        <in_sel id='inSel' class='in-sel' bind:onSelClick='onSelClick'></in_sel>
+
+        <view class='mask' hidden='{{clickIndex==-1}}' catchtouchmove='move' catchtap='onMaskClick'>
+            <view class='mask-list' wx:for='{{itemSelList[clickIndex]}}' wx:key='item' data-index='{{index}}' catchtap='onSelItemClick'>
+                <text style="{{selItemIndex[clickIndex]==index?'color:#F21B7B':'color:#000'}}">{{item}}</text>
+            </view>
+        </view>
+    </view>
+
+    <view class='bottom'>
+        <view class='no-data' hidden='{{integralList.length>0}}'>
+            <image src='../images/fail.png' class='no-data' mode='widthFix'></image>
+            <text>暂无数据</text>
+        </view>
+
+        <view class='list' hidden='{{integralList.length<=0}}'>
+            <view class='list-item' wx:for='{{integralList}}' wx:key='item' data-index='{{index}}' style="{{index%2==0?'border-right: 2rpx #F5F5F5 solid;;':'border-right: none'}}" bindtap='onItemClick'>
+                <image src='{{item.imgurl}}' lazy-load></image>
+                <view class='list-tet'>
+                    <text style='font-size:30rpx;font-weight:bold;'>{{item.main}}</text>
+                    <text class='list-intergral'>{{item.integral}}<text style='color:#999;margin-left:8rpx;'>积分</text></text>
+                </view>
+            </view>
+        </view>
+
+
+    </view>
+
+
+</view>

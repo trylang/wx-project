@@ -1,0 +1,10 @@
+<view class="container">
+    <view class="userinfo">
+	    <image class="userinfo-logo" src="{{logoImg}}" background-size="cover" />
+	    <view class="userinfo-name">
+	        <view>西单大悦城</view>
+	    </view>
+    </view>
+    <button class="market_name" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信授权一键登录</button>
+    <include src="../../components/modal_btn/modal.wxml" />
+</view>

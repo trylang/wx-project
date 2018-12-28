@@ -1,0 +1,27 @@
+<view class="present-container">
+	<view class="header">
+		<image class="head-img" src='{{header}}' mode="widthFix"></image>
+		<view class="nick-name">{{nickName}}</view>
+		<view class="coupon">赠送的优惠券</view>
+	</view>
+	<view class="time-limit">
+		<view class='hot-buy'>领取截止时间</view>
+        <view class='limit-time'>
+            <view class="hour time">{{hours}}</view>:
+            <view class="minute time">{{minutes}}</view>:
+            <view class="second time">{{seconds}}</view>
+       </view>
+	</view>
+	<view class="coupon-present">
+		<include src="../../components/coupon/index.wxml" />
+	</view>
+	<view class="has-get">
+		<button class="get-btn" hidden='{{couponStatus!=1}}'>已领取</button>
+		<button class="get-btn" hidden='{{couponStatus!=2}}'>已结束</button>
+		<button class="get-btn {{couponStatus==0?'can-get':''}}" hidden='{{couponStatus!=0}}' bindtap='handleShowBtn'>立即领取</button>
+	</view>
+	<include src="../../components/modal_btn/modal.wxml" />
+	<view class='back-index' bindtap='handleLinkIndex'>
+		<image class="back-img" src='../../../images/present/backindex.png'></image>
+	</view>
+</view>

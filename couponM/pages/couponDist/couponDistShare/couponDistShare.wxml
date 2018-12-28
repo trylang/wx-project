@@ -1,0 +1,32 @@
+<!--couponM/pages/couponDist/couponDistShare/couponDistShare.wxml-->
+<view>
+    <canvas canvas-id='share' style='width:750rpx;height:960rpx;'></canvas>
+    <view class='share-top'>
+        <text class='txt'>保存图片后，可分享至朋友圈或微信群，购买之后将获得<text style='color:#DD3A7A;'>{{coupon.product.cashbackRatio*coupon.product.price}}元</text>的奖金。</text>
+
+        <view class='share-btn'>
+            <label>
+                <view class='share-friend'>
+                    <text>发送给朋友</text>
+                </view>
+                <button open-type='share'></button>
+            </label>
+
+            <view class='share-save' bindtap='saveImg'>
+                <text>保存图片</text>
+            </view>
+        </view>
+        <!-- <image class='share-bg' src='https://res.rtmap.com/light_app/coupon-mall/collage_share_bg.png' mode='widthFix'></image> -->
+
+        <!-- <image class='share-bg' src='http://res.rtmap.com/wx/couponM/share_bg.png' mode='widthFix'></image>
+
+        <view class='share-detail'>
+            <image class='share-photo' src='{{userInfo.avatarUrl}}' mode='widthFix'></image>
+            <text class='name'>{{userInfo.nickName}}</text>
+            <text class='desc'>— 特汇爆品/强势推荐 —</text>
+            <image class='coupon-image' src='{{coupon.imgLogoUrl}}' mode='widthFix'></image>
+            <text class='coupon-name'>{{coupon.mainInfo}}</text>
+            <text class='coupon-extend'>{{coupon.extendInfo}}</text>
+        </view> -->
+    </view>
+</view>

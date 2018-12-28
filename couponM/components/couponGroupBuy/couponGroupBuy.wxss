@@ -1,0 +1,830 @@
+/* couponM/components/couponNormal/couponNormal.wxss */
+
+.maincolor {
+    color: #f21b7b;
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.banner {
+    width: 100%;
+    height: 750rpx;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    width: 686rpx;
+    padding: 32rpx;
+}
+
+.message_t {
+    font-size: 30rpx;
+    color: #000;
+    margin-bottom: 16rpx;
+    font-weight: bold;
+}
+
+.message_content {
+    white-space: pre-wrap;
+    margin-top: 40rpx;
+    font-size: 28rpx;
+}
+
+.tip_content {
+    font-size: 30rpx;
+    color: #000;
+    font-weight: 500;
+    margin: 16rpx 0;
+}
+
+.collage-all {
+    padding: 56rpx 0 32rpx 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.collage-all text {
+    font-size: 30rpx;
+    font-weight: 500;
+}
+
+.collage-item {
+    display: flex;
+    flex-direction: row;
+    height: 144rpx;
+    border-top: 2rpx #eee solid;
+    align-items: center;
+    width: 100%;
+}
+
+.collage-item image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 40rpx;
+}
+
+.collage-desc {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16rpx;
+}
+
+.collage-desc .name {
+    font-size: 30rpx;
+}
+
+.collage-desc .sub {
+    font-size: 24rpx;
+    color: #999;
+    margin-top: 8rpx;
+}
+
+.collage-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f21b7b;
+    border-radius: 40rpx;
+    height: 56rpx;
+    width: 140rpx;
+    margin-left: auto;
+}
+
+.collage-btn text{
+    color: #fff;
+    font-size: 24rpx;
+    font-weight: 500;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.title-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.title-content .main-c {
+    display: flex;
+}
+
+.title-content .main {
+    color: #000;
+    font-size: 36rpx;
+    font-weight: bold;
+    width: 640rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.title-content .extend {
+    color: #999;
+    font-size: 24rpx;
+    margin-top: 8rpx;
+}
+
+.detail-share {
+    display: flex;
+}
+
+/*.title-status {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40rpx;
+}
+
+.title-left {
+    display: flex;
+    flex-direction: column;
+}
+.coupon-info-price {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+.coupon-info-discount {
+    font-weight: 500;
+    font-size: 36rpx;
+    color: #f21b7b;
+    line-height: 50rpx;
+}
+
+.coupon-info-orginprice {
+    margin-left: 12rpx;
+    font-size: 24rpx;
+    color: #999;
+}
+.title-share {
+    padding-left: 40rpx;
+    border-left: 2rpx #eee solid;
+}
+
+.share {
+    width: 36rpx;
+    height: 36rpx;
+}
+*/
+
+.integral {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.integral .conv {
+    color: #f21b7b;
+    font-size: 36rpx;
+}
+
+.integral .convend {
+    color: #f21b7b;
+    font-size: 24rpx;
+    margin-left: 4rpx;
+}
+
+.integral .money {
+    color: #999;
+    font-size: 24rpx;
+    margin-left: 16rpx;
+    text-align: center;
+    text-decoration: line-through;
+}
+
+.tag {
+    display: flex;
+    flex-direction: row;
+    margin-top: 18rpx;
+}
+
+.tag-xian {
+    height: 32rpx;
+    border: 2rpx #f21b7b solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f21b7b;
+    font-size: 20rpx;
+    margin: 0 8rpx 0 0;
+    padding: 0 6rpx;
+}
+
+.line {
+    width: 100%;
+    background: #f5f5f5;
+    height: 16rpx;
+}
+
+.shops {
+    border-top: 2rpx solid #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    margin: 0rpx 32rpx 32rpx;
+    padding-top: 32rpx;
+    align-items: center;
+    width: 686rpx;
+}
+
+.shop {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 686rpx;
+    justify-content: space-between;
+}
+
+.shop-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.shop-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 142rpx;
+}
+
+.logo {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.call {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.call text {
+    color: #999;
+    font-size: 24rpx;
+    margin-top: 5rpx;
+    white-space: nowrap;
+}
+
+.call image {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.msg {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16rpx;
+    width: 440rpx;
+    overflow: hidden;
+}
+
+.msg .title {
+    color: #000;
+    font-size: 30rpx;
+}
+
+.msg .floor {
+    color: #999;
+    font-size: 24rpx;
+    margin-top: 8rpx;
+}
+
+/*.showall {
+    color: #f21b7b;
+    font-size: 24rpx;
+}*/
+
+.excellfree {
+    position: fixed;
+    left: 190rpx;
+    bottom: 56rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    flex-direction: row;
+    text-align: center;
+    z-index: 10;
+    width: 370rpx;
+    color: white;
+    background-color: #f21b7b;
+    border-radius: 50rpx;
+}
+
+.free-empty {
+    background-color: #ccc;
+}
+
+.excell {
+    position: fixed;
+    left: 100rpx;
+    bottom: 56rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    display: flex;
+    flex-direction: row;
+    z-index: 10;
+    width: 550rpx;
+    visibility: hidden;    
+}
+
+.paymsg {
+    flex: 1;
+    height: 100%;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 50rpx;
+    border-bottom-left-radius: 50rpx;
+}
+
+.pay-table {
+    display: table-row;
+    vertical-align: bottom;
+}
+
+.paymsg text{
+    color: #fff;
+    font-size: 30rpx;
+    font-weight: 500;
+}
+
+.paymsg .conv {
+    font-size: 36rpx;
+    margin-right: 8rpx;
+}
+
+.pay {
+    flex: 1;
+    height: 100%;
+    background: #ccc;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 50rpx;
+    border-bottom-right-radius: 50rpx;
+}
+
+.pay text{
+    color: #fff;
+    font-size: 30rpx;
+    font-weight: 500;
+}
+
+.pay .conv {
+    font-size: 36rpx;
+    margin-right: 8rpx;
+}
+
+.mask {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.burial {
+    position: fixed;
+    z-index: 500;
+    width: 600rpx;
+    max-width: 600rpx;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.burial-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80rpx 0 80rpx 0;
+}
+
+.burial-title .title {
+    color: #333;
+    font-size: 36rpx;
+}
+
+.burial-title .content {
+    color: #333;
+    font-size: 30rpx;
+    margin-top: 8rpx;
+}
+
+.btnrow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 480rpx;
+    margin-top: 48rpx;
+    justify-content: space-between;
+}
+
+.cancle {
+    width: 200rpx;
+    height: 72rpx;
+    border: 2rpx #f21b7b solid;
+    border-radius: 36rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f21b7b;
+    font-size: 30rpx;
+}
+
+.btnrow .ok {
+    width: 200rpx;
+    height: 72rpx;
+    border-radius: 36rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f21b7b;
+    color: #fff;
+    font-size: 30rpx;
+}
+
+.wx-mask {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.wx-dialog {
+    position: fixed;
+    z-index: 200;
+    width: 80%;
+    max-width: 600rpx;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.dialog-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dialog-title-content {
+    height: 280rpx;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-share {
+    flex: 1;
+    background: none;
+    height: 40rpx;
+    padding: 0rpx;
+    line-height: 55rpx;
+}
+
+.main-share::after {
+    border: 0rpx;
+}
+
+.main-share image {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.dialog-title .btnrow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 480rpx;
+    margin-bottom: 80rpx;
+    justify-content: space-between;
+}
+
+.btnrow-cancle {
+    width: 200rpx;
+    height: 72rpx;
+    border: 2rpx #f21b7b solid;
+    border-radius: 36rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f21b7b;
+    font-size: 30rpx;
+}
+
+.okbtn {
+    width: 200rpx;
+    height: 72rpx;
+    border-radius: 36rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f21b7b;
+    color: #fff;
+    font-size: 30rpx;
+}
+
+.dialog-image {
+    position: fixed;
+    left: 50%;
+    top: 0;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 192rpx;
+    height: 262rpx;
+}
+
+.modal-dialog {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 9000;
+    color: #fff;
+}
+
+.modal-mask {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.modal-content {
+    width: 560rpx;
+    height: 540rpx;
+    background-color: white;
+    border-radius: 16rpx;
+    /* overflow: hidden;  */
+    position: absolute;
+    top: 25%;
+    left: 96rpx;
+}
+
+.modal-content.coupon {
+    height: 440rpx;
+    top: 31.8%;
+}
+
+/*
+* 登录
+*/
+
+.login.input {
+    font-size: 28rpx;
+    color: #333;
+    font-weight: 300;
+}
+
+.login.input-placeholder {
+    color: #d1d1d1;
+}
+
+.login.label-item {
+    padding-bottom: 8rpx;
+    margin-top: 40rpx;
+    margin-right: 52rpx;
+    margin-left: 52rpx;
+    border-bottom-style: solid;
+    border-bottom-color: #ebebeb;
+    border-bottom-width: 2rpx;
+}
+
+.login.label-item.login-phone {
+    margin-top: 100rpx;
+    display: block;
+}
+
+.login.label-item.login-code {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login.code {
+    border-left-style: solid;
+    border-left-color: #f3f3f3;
+    border-left-width: 2rpx;
+    padding-left: 20rpx;
+}
+
+.login.login-button {
+    margin: 80rpx auto 0 auto;
+    background: #ff6559;
+    width: 200rpx;
+    height: 60rpx;
+    color: white;
+    font-size: 24rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30rpx;
+}
+
+.login.cancel-button {
+    width: 200rpx;
+    height: 60rpx;
+    margin: 30rpx auto 0 auto;
+    color: #ccc;
+    font-size: 24rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*领取优惠券*/
+
+.modal-dialog-coupon-top-image {
+    width: 144rpx;
+    height: 210rpx;
+    margin: -100rpx auto 0 auto;
+    display: block;
+}
+
+.modal-dialog-coupon-title {
+    color: #333;
+    font-size: 40rpx;
+    font-weight: bold;
+    margin-top: 60rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-dialog-coupon-button {
+    color: white;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200rpx;
+    height: 72rpx;
+    border-radius: 36rpx;
+}
+
+.modal-dialog-coupon-buttons {
+    margin-top: 56rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 成功 */
+
+.modal-dialog-coupon-button.other {
+    margin-right: 40rpx;
+    border-color: #f21b7b;
+    border-width: 2rpx;
+    border-style: solid;
+    color: #f21b7b;
+}
+
+.modal-dialog-coupon-button.use {
+    background: #f21b7b;
+}
+
+/* 失败 领取上限 */
+
+.modal-dialog-coupon-button.fail-other {
+    background: #f21b7b;
+}
+
+.descClauseImg {
+    width: 100%;
+    margin: 0px auto;
+}
+
+.go-home {
+    position: fixed;
+    right: 15rpx;
+    top: 60%;
+    width: 100rpx;
+    height: 103rpx;
+}
+
+.go-home-hide {
+    position: fixed;
+    right: 0;
+    top: 60%;
+    transform: translate(50%, 0);
+    width: 100rpx;
+    height: 103rpx;
+    opacity: 0.5;
+}
+
+@keyframes dialogSlipToUp {
+    0% {
+        top: 100%;
+        opacity: 0.3;
+    }
+
+    100% {
+        top: 88%;
+        opacity: 1;
+    }
+}
+
+.show {
+    visibility: visible;
+    animation: dialogSlipToUp 0.3s linear both;
+}
+
+/*
+弹窗相关
+*/
+
+@keyframes action_scaleOut {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.2);
+        opacity: 0;
+    }
+}
+
+@keyframes action_scale {
+    0% {
+        transform: scale(0.2);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.listshow {
+    visibility: visible;
+    -webkit-animation: action_scale 0.5s both;
+    animation: action_scale 0.5s both;
+}
+
+.listhide {
+    visibility: hidden;
+    -webkit-animation: action_scaleOut 0.5s both;
+    animation: action_scaleOut 0.5s both;
+}
+
+.wx-mask {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.wx-dialog {
+    position: fixed;
+    z-index: 5000;
+    width: 654rpx;
+    max-width: 654rpx;
+    max-height: 850rpx;
+    height: 850rpx;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    text-align: center;
+    border-radius: 8rpx;
+}

@@ -1,0 +1,7 @@
+{
+    "navigationBarBackgroundColor": "white",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "积分流水",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "black"
+}

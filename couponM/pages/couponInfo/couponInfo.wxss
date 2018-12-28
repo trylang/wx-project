@@ -1,0 +1,277 @@
+/* pages/couponInfo/couponInfo.wxss */
+.maincolor {
+    color: #f21b7b;
+}
+
+.couponInfor {
+    padding: 50rpx 50rpx;
+}
+
+.title {
+    text-align: center;
+    font-size: 48rpx;
+    color: #000;
+}
+
+.rule {
+    text-align: center;
+    font-size: 30rpx;
+    color: #999;
+}
+
+.code {
+    text-align: center;
+    font-size: 36rpx;
+    color: #000;
+}
+
+.invalid {
+    position: relative;
+    margin: 0 auto;
+    width: 400rpx;
+    height: 400rpx;
+}
+
+.invalidImg {
+    width: 400rpx;
+    height: 400rpx;
+}
+
+.model {
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.invalidIcon {
+    top: 0;
+    right: 0;
+    position: absolute;
+    border-right: 160rpx #d6ecde solid;
+    border-bottom: 160rpx transparent solid;
+    border-left: 160rpx transparent solid;
+}
+
+.statusText {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 28rpx;
+    transform: rotate(45deg);
+    transform-origin: left center;
+    color: #37c26c;
+}
+
+.expired .invalidIcon {
+    border-right-color: #ddd;
+}
+
+.expired .statusText {
+    color: #999;
+}
+
+.retreat .invalidIcon {
+    border-right-color: #f0d9de;
+}
+
+.retreat .statusText {
+    color: #f21b7b;
+}
+
+.canvas-box {
+    margin: 60rpx 0 15rpx;
+}
+
+.shops {
+    border-top:2rpx solid #F5F5F5;
+    border-bottom:2rpx solid #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    margin:32rpx 0;
+    padding: 16rpx 0;
+    align-items: center;
+    width: 650rpx;
+}
+
+.shop {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 686rpx;
+    justify-content: space-between;
+}
+
+.shop-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.shop-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 142rpx;
+}
+
+.logo {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.call {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.call text {
+    color: #999;
+    font-size: 24rpx;
+    margin-top: 5rpx;
+    white-space: nowrap;
+}
+
+.call image {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.msg {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16rpx;
+    width: 440rpx;
+    overflow: hidden;
+}
+
+.msg .titleshop {
+    color: #000;
+    font-size: 30rpx;
+}
+
+.msg .floor {
+    color: #999;
+    font-size: 24rpx;
+    margin-top: 8rpx;
+}
+
+.img {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 8rpx;
+    vertical-align: top;
+}
+
+.describe {
+    height: 100rpx;
+    margin-left: 30rpx;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    flex-basis: 0;
+    flex-shrink: 1;
+    flex-grow: 1;
+}
+
+.describe_head {
+    width: 100%;
+    font-size: 36rpx;
+    color: #333;
+}
+
+.name {
+    font-size: 30rpx;
+    font-weight: 500;
+    color: #000;
+    /* display: block; */
+}
+
+.num {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.price {
+    font-size: 24rpx;
+    color: #999;
+    margin-right: 16rpx;
+}
+
+.discount {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.describe_foot {
+    display: flex;
+    flex-direction: row;
+    font-size: 28rpx;
+}
+
+.line {
+    height: 70rpx;
+    border: 1rpx #eee solid;
+    margin-right: 50rpx;
+}
+
+.icon_location {
+    width: 23rpx;
+    height: 23rpx;
+    margin-top: 6rpx;
+    margin-right: 12rpx;
+}
+
+.icon_phone {
+    width: 36rpx;
+    height: 36rpx;
+}
+
+
+
+.tip_title {
+    font-size: 30rpx;
+    color: #000;
+    margin-bottom: 16rpx;
+    font-weight: 500;
+}
+
+.tip_content {
+    font-size: 24rpx;
+    color: #000;
+}
+
+.descClauseImg {
+    max-width: 100%;
+}
+
+.give{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   left: 0;
+   top: 0;
+}
+.present{
+    
+    position: fixed;
+    bottom: 40rpx;
+    right: 32rpx;
+    width: 130rpx;
+    height: 98rpx;
+}
+.present-share{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    
+    background: transparent;
+}
+.present-share:after{
+    border: none;
+}

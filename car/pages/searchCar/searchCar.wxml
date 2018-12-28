@@ -1,0 +1,23 @@
+<view class='search-car-container'>
+    <view class='topColor'></view>
+    <view class='search-car-top'>
+        <view class='search-car-input'>
+            <view class='search-car-input-num'>
+            <view class='select' catchtap='selectTap'>
+            <text class='select_text' style="{{isFirst?'color:#aaa':'#000'}}">{{carNum}}</text>
+                <!-- <text class='select_text'>{{historyList[index]}}</text> -->
+                    <!-- <image class='select_img {{show&&"select_img_rotate"}}' src='/images/arrow.png'></image>          -->
+            </view>
+            <!-- <view class='option_box' style='height:{{show?(historyList.length>5?300:historyList.length*60):0}}rpx;'>
+                <text class='option' style='{{index==historyList.length-1&&"border:0;"}}' wx:for='{{historyList}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+            </view> -->
+            </view>
+        </view>
+    </view>
+    <view class='welcome'>欢迎使用停车服务</view>
+    <view class='add-car-bind' style="{{isInput?'background-color:#EE4C75;':'background-color:#BCBCBC;'}}" bindtap='pay'>
+        <text style="color:#fff;">查询缴费</text>
+    </view>
+    <key-board carList='{{carList}}' bind:onInputChange='onInputChange'></key-board>
+</view>
+<dialog id='dialog' payResult='{{payResult}}' bind:cancelEvent='onLeftClick' bind:confirmEvent='onRightClick'></dialog>

@@ -1,0 +1,72 @@
+<!--dialogComponent.wxml-->
+<view class='wx_dialog_container' hidden="{{!isShow}}" catchtouchmove='start'>
+    <view class='wx-mask' bindtap='_confirmEvent'></view>
+    <view class='wx-dialog'>
+        <view class='dialog-title' hidden='{{payResult.type!=0}}'>
+            <view class='dialog-title-content'>
+                <text class='content-title'>{{payResult.content}}</text>
+            </view>
+
+            <view class="card-list-center">
+                <view class="card-list-item">
+                    <image class='cards' src='{{payResult.card.cover}}' mode='widthFix'></image>
+                </view>
+                <view class="hint">温馨提示</view>
+                <view class="result">赠送会先扣除卡片，超时未领取将自动退回</view>
+            </view>
+
+
+            <label>
+                <view class='okbtn'>
+                    {{payResult.rightText}}
+                </view>
+                <button open-type='share'></button>
+            </label>
+        </view>
+
+        <view class='dialog-title' hidden='{{payResult.type!=1}}'>
+            <view class='dialog-title-content'>
+                <text class='content-title'>{{payResult.content}}</text>
+            </view>
+
+            <view class="card-list-center">
+                <view class="card-list-item">
+                    <image class='cards' src='{{payResult.card.url}}' mode='widthFix'></image>
+                </view>
+            </view>
+
+
+            <view class='okbtn' bindtap='_cancelEvent'>
+                {{payResult.rightText}}
+            </view>
+        </view>
+
+        <view class='dialog-title' hidden='{{payResult.type!=2}}'>
+
+            <view class='no-card'>
+                <text>{{payResult.content}}</text>
+            </view>
+
+            <view class='okbtn' bindtap='_cancelEvent'>
+                {{payResult.rightText}}
+            </view>
+        </view>
+
+        <view class='dialog-title' hidden='{{payResult.type!=3}}'>
+
+            <view class='no-card'>
+                <text>{{payResult.content}}</text>
+            </view>
+
+
+            <label>
+                <button open-type='getUserInfo' bindgetuserinfo="_onUserInfoClick"></button>
+                <view class='okbtn'>
+                    {{payResult.rightText}}
+                </view>
+            </label>
+        </view>
+
+        <image class='dialog-close' src='../images/dialog-close.png' mode='widthFix' bindtap='_cancelEvent' hidden='{{payResult.type!=0}}'></image>
+    </view>
+</view>

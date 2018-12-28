@@ -1,0 +1,42 @@
+@import "../../components/modal_btn/modal.wxss";
+page{
+	background: #fff;
+}
+.container{
+	background: #fff;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-logo {
+  width: 180rpx;
+  height: 180rpx;
+  margin: 0 auto;
+  margin-top: 140rpx;
+  border-radius: 50%;
+  border: 1rpx solid #e3e3e3;
+
+}
+
+.userinfo-name {
+  color: #333;
+  font-size: 32rpx;
+  padding-top: 30rpx;
+}
+
+.usermotto {
+  margin-top: 150px;
+}
+
+.market_name{
+    width: 484rpx;
+    height: 85rpx;
+    line-height: 85rpx;
+    background: #1aad19;
+    color: #fff;
+    border-radius: 45rpx;
+    margin-top: 95rpx;
+}

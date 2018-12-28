@@ -1,0 +1,70 @@
+<template name="coupon_summary">
+	<view class="couponSummary {{_coupon_.class}} {{_coupon_.status==3?'used':''}} {{_coupon_.status==4?'invalid':''}}" data-couponId="{{_coupon_.id||_coupon_.couponId}}" data-couponActivityId="{{_coupon_.couponActivityId}}" data-qrCode="{{_coupon_.qrCode}}" catchtap="_couponViewHandler">
+		<view class="main">
+			<view wx:if="{{_coupon_.categoryId==0}}">
+				<text class="title" style="font-size: 60rpx">{{_coupon_.discount}}</text>
+				<text>折</text>
+				<text class="type">{{_coupon_.categoryDesc}}</text>
+			</view>
+			<view wx:if="{{_coupon_.categoryId==1 || _coupon_.categoryId==7}}">
+				<text>￥</text>
+				<text class="title" style="font-size: 60rpx">{{_coupon_.unitPrice/100}}</text>
+				<text class="type">{{_coupon_.categoryDesc}}</text>
+			</view>
+			<view wx:if="{{_coupon_.categoryId==2}}">
+				<text>￥</text>
+				<text class="title" style="font-size: 60rpx">{{_coupon_.facePrice/100}}</text>
+				<text class="type">{{_coupon_.categoryDesc}}</text>
+			</view>
+			<view wx:if="{{_coupon_.categoryId==6}}">
+				<text class="title">免费</text>
+				<text class="type">{{_coupon_.categoryDesc}}</text>
+			</view>
+			<view wx:if="{{_coupon_.categoryId==700}}">
+				<text class="title">单品</text>
+				<text class="type">{{_coupon_.categoryDesc}}</text>
+			</view>
+			<view wx:if="{{_coupon_.categoryId==8}}">
+				<text class="title">品牌</text>
+				<text class="type">{{_coupon_.categoryDesc}}</text>
+			</view>
+			<view wx:if="{{_coupon_.categoryId==9}}">
+				<text class="title">通用</text>
+				<text class="type">{{_coupon_.categoryDesc}}</text>
+			</view>
+		</view>
+		<view class="extend">
+			<view>
+				<text class="title">{{_coupon_.mainInfo}}</text>
+				<text class="limit" wx:if="{{_coupon_.conditionType==1}}">满{{_coupon_.conditionPrice/100}}元可用</text>
+				<text class="limit" wx:else>无门槛</text>
+				<text class="date" wx:if="{{_coupon_.effectiveStartTime && _coupon_.effectiveEndTime}}">有效期: {{_coupon_.effectiveStartTime}} 至 {{_coupon_.effectiveEndTime}}</text>
+				<text class="date" wx:if="{{_coupon_.effectiveStartTime && !_coupon_.effectiveEndTime}}">有效期: 自{{_coupon_.effectiveStartTime}}起</text>
+			</view>
+			<view class="tag">
+				<image
+					class="used"
+					mode="aspectFit"
+					src="./assets/icon_used.png"></image>
+				<image
+					class="invalid"
+					mode="aspectFit"
+					src="./assets/icon_invalid.png"></image>
+			</view>
+		</view>
+	</view>
+</template>
+<template name="dialog">
+	<view class="_dialog_layer" hidden="{{!_dialog_._dialogVisible}}">
+		<view class="_dialog_bg">
+			<view class="_dialog_title">
+				<view hidden="{{!_dialog_._dialogTitle}}">{{_dialog_._dialogTitle}}</view>
+				<view class="_dialog_content">{{_dialog_._dialogContent}}</view>
+			</view>
+			<view class="_dialog_button_wrap">
+				<view class="_dialog_button {{_dialog_._dialogBtnCancelType}}" catchtap="_dialogCancelHandler" hidden="{{_dialog_._dialogMode==false}}">{{_dialog_._dialogBtnCancel}}</view>
+				<view class="_dialog_button {{_dialog_._dialogBtnConfirmType}}" catchtap="_dialogConfirmHandler">{{_dialog_._dialogBtnConfirm}}</view>
+			</view>
+		</view>
+	</view>
+</template>

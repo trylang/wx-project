@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "扫码送券",
+    "usingComponents": {
+       "result": "../components/result/result"
+    }
+}

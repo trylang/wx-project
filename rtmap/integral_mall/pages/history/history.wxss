@@ -1,0 +1,45 @@
+.historyWrapper{
+    padding: 0 32rpx;
+    border-top: 1rpx solid #eee;
+}
+.historyWrapper .history_list{
+    width: 100%;
+    height: 148rpx;
+    border-bottom: 1rpx solid #eee;
+    position: relative
+}
+.historyWrapper .history_list .title{
+    font-size: 30rpx;
+    color: #000;
+    margin: 40rpx 0 16rpx 0;
+}
+.historyWrapper .history_list .time{
+    font-size: 24rpx;
+    color: #999999;
+}
+.historyWrapper .history_list .integral_num{
+    font-size: 36rpx;
+    color: #000;
+    position: absolute;
+    top: 40rpx;
+    right: 10rpx;
+}
+
+.historyWrapper .noData{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    margin-top: 244rpx;
+}
+.noData image{
+    width: 192rpx;
+    height: 262rpx;
+}
+.noData text{
+    color: #000;
+    font-size: 30rpx;
+    margin-top: 20rpx;
+}

@@ -1,0 +1,46 @@
+page{
+    background: #fff;
+}
+.top-info{
+    text-align: center;
+    padding-top: 90rpx;
+    width: 650rpx;
+    margin: 0 auto;
+    padding-bottom: 52rpx;
+    border-bottom: 1px solid #eee;
+}
+.detail-title {
+    font-size: 48rpx;
+    color: #333;
+}
+.detail-info{
+    font-size: 28rpx;
+    color: #c9c9c9;
+}
+.middle-info{
+    padding: 0 50rpx;
+}
+.qr-code{
+    width: 340rpx;
+    height: 340rpx;
+    margin: 0 auto;
+   text-align: center;
+}
+canvas{
+    width: 300rpx;
+    height: 300rpx;
+}
+.card-num{
+    font-size: 32rpx;
+}
+.title{
+    font-size: 36rpx;
+    color: #333333;
+    padding-top: 50rpx;
+    padding-bottom: 24rpx;
+}
+.use-info{
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #525252;
+}

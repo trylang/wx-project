@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="body">
+	<view class="top-search">
+		<input class="input-search" type="text" confirm-type="search"placeholder="请输入店铺名称查询"   bindinput="inputChange" value="{{delVal}}" autofocus="autofocus"  />
+        <view bindtap="delSearch" class="ion-clear"><!-- <icon type="clear" size="14" ></icon> -->
+        <image src="../../../images/photo/del.png"></image>
+        </view>
+	</view>
+     <!-- 联想字 -->
+  <view class="think {{think}}">
+      <view class="think-search" wx:key="{{index}}" bindtap="getThink" data-text="{{item.id}}"  data-poiNo="{{item.poiNo}}" data-poiNumber="{{item.poiNumber}}" data-floor="{{item.floor}}" data-name="{{item.poiName}}" wx:for="{{conAll}}">{{item.poiName}}</view>
+  </view> <!-- bindinput="inputChange" -->
+
+    <!-- 搜索块 -->
+    <view class="con-search {{searchCon}}">
+        <view class="search-history">
+            <view>搜索历史</view>
+            <image class="search-no" bindtap="delHistory" src="../../../images/brand/del.png"></image>
+        </view>
+        <view class="history-cons">
+            <view class="con-history" data-text="{{item}}" bindtap="conHistory"  wx:for="{{listHistory}}" wx:key="{{index}}">{{item}}</view>
+        </view>
+    </view>
+
+    <!-- 没有搜索记录 -->
+    <view class="{{record}} record-con search-no">
+        <image src="../../../images/brand/seach-no.png"></image>
+        <view clas="">暂无搜索记录</view>
+    </view>
+
+    <!-- 没有搜索到商品 -->
+    <view class="{{noItems}} record-con search-no">
+        <image src="../../../images/brand/seach-no.png"></image>
+        <view clas="">抱歉，没有找到</view>
+        <view clas="">与{{storeName}}相关的品牌或店铺</view>
+    </view>
+ 
+</view>

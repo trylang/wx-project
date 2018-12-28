@@ -1,0 +1,10 @@
+{
+    "navigationBarBackgroundColor": "#FB3B67",
+    "navigationBarTextStyle": "#fff",
+    "navigationBarTitleText": "个人中心",
+    "usingComponents": {
+        "dialog": "../../components/dialogComponent/dialogComponent"
+    },
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "black"
+}

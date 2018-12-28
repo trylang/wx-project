@@ -1,0 +1,11 @@
+<!--rtmap/integralMall/integralHistory/integralHistory.wxml-->
+<view class='history'>
+  <view class='item' wx:for='{{list}}' wx:key='item' data-index='{{index}}'>
+    <view class='item-left'>
+      <text class='name'>{{item.title}}</text>
+      <text class='time'>{{item.time}}</text>
+    </view>
+
+    <text class='convert'>{{item.convert}}</text>
+  </view>
+</view>

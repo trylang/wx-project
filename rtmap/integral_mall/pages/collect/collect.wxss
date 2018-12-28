@@ -1,0 +1,78 @@
+page{
+    background-color: #fff;
+}
+.collectWrapper{
+    width: 100%;
+    /* height: 100%; */
+}
+.collectWrapper .collect_list{
+    width: 100%;
+    height: 240rpx;
+    padding: 0 40rpx;
+    border-bottom: 2rpx solid #eee;
+     position: relative; 
+}
+.collect_list .logo{
+    width: 200rpx;
+    height: 200rpx;
+    margin: 20rpx 60rpx 0 0;
+    display: inline-block;
+}
+.collect_list .logo image{
+    width: 200rpx;
+    height: 200rpx;
+    display: block;
+}
+.collectWrapper .collect_list .right{
+    height: 200rpx;
+    vertical-align: top;
+    display: inline-block;
+}
+.collectWrapper .collect_list .right .title{
+    font-size: 30rpx;
+    color: #000;
+    margin: 20rpx 0 54rpx 0;
+}
+.collectWrapper .collect_list .right .price{
+    font-size: 24rpx;
+    color: #999999;
+}
+.collectWrapper .collect_list .right .price text{
+    color: #F21B7B;
+}
+.collectWrapper .collect_list .right .collect_num{
+    font-size: 20rpx;
+    color: #999999;
+    margin-top: 10rpx;
+}
+.collectWrapper .collect_list .xiajia{
+    position: absolute;
+    right: 100rpx;
+    top: 0;
+}
+.collectWrapper .collect_list .xiajia image{
+    width: 104rpx;
+    height: 82rpx;
+    display: block;
+}
+.collectWrapper .noData{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    margin-top: 244rpx;
+}
+.back{
+    opacity: 0.5;
+}
+.noData image{
+    width: 192rpx;
+    height: 262rpx;
+}
+.noData text{
+    color: #000;
+    font-size: 30rpx;
+    margin-top: 20rpx;
+}

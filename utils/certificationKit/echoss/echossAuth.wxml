@@ -1,0 +1,17 @@
+<template name="echossAuth">
+  <view class="echoss_auth_template {{echossData.echossAuthShow === true ? 'on' : ''}} {{echossData.echossAuthShow === false ? 'off' : ''}}">
+    <view id="echoss_auth_wrap">
+      <view id="echoss_auth_view" class="c-minheight echoss_auth_view">
+        <view class="c-minheight echoss_auth_header">
+          <image class="echoss_auth_logo" mode="aspectFit" src="{{echossData.echossAuthImage02 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossAuthImage02}}" />
+          <image catchtap="echossAuthEvent" class="echoss_auth_close" data-event="1" mode="aspectFill" src="{{echossData.echossAuthImage03 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossAuthImage03}}" />
+        </view>
+
+        <view class="echoss_auth_body_frame">
+          <button class="echoss_auth_button" type='primary' open-type="getUserInfo" bindgetuserinfo="echossGetUserInfo">授权登录</button>
+        </view>
+      </view>
+      
+    </view>
+  </view>
+</template>

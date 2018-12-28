@@ -1,0 +1,65 @@
+<import src="../comp/index.wxml" />
+<view class="container">
+    <view class="coupon {{pageStatus||''}}" animation="{{animationPage}}">
+        <image class="backend" mode="aspectFit" animation="{{animationBackend}}" src="../assets/couponBackend.png"></image>
+        <view class="couponend" animation="{{animationCoupon}}">
+            <view class="title textOverflow">{{coupon.title}}</view>
+            <view class="inset">
+                <image mode="aspectFill" src="../assets/couponInset.png"></image>
+            </view>
+            <view class="compose">
+                <view class="qrcode">
+                    <canvas canvas-id="qrCanvas" />
+                </view>
+                <view class="qrcodeNum">{{coupon.qrcode}}</view>
+                <view class="qrcodeTip">请到店使用, 付款前请出示二维码</view>
+            </view>
+        </view>
+        <view class="frontend">
+            <view class="triangle">
+                <view class="left"></view>
+                <view class="right"></view>
+            </view>
+        </view>
+        <view class="extend">
+            <image class="logo" mode="aspectFill" src="{{coupon.logo}}"></image>
+            <view class="content">
+                <view class="title textOverflow">{{coupon.shop}}</view>
+                <view class="btnGetCoupon" catchtap="getCouponHandler">领取{{coupon.type}}</view>
+                <view class="desc">
+                    <view hidden="{{coupon.date.length<2}}">
+                        <view class="infoBlock">
+                            <text class="label">有效期:</text>
+                            <text class="info">{{coupon.date[0]}} 至 {{coupon.date[1]}}</text>
+                        </view>
+                    </view>
+                    <view hidden="{{coupon.date.length!=1}}">
+                        <view class="infoBlock">
+                            <text class="label">有效期:</text>
+                            <text class="info">自{{coupon.date[0]}}起</text>
+                        </view>
+                    </view>
+                    <view hidden="{{coupon.date.length>0}}">
+                        <view class="infoBlock">
+                            <text class="label">有效期:</text>
+                            <text class="info">有效期: -</text>
+                        </view>
+                    </view>
+                    <view class="infoBlock">
+                        <text class="label">使用条件:</text>
+                        <text class="info">{{coupon.limit}}</text>
+                    </view>
+                    <view class="infoBlock" style='flex-direction: column;'>
+                        <text class="label">使用说明:</text>
+                        <rich-text nodes='{{coupon.desc}}'></rich-text>
+                    </view>
+                    <view class="infoBlock">
+                        <text class="label">适用商户:</text>
+                        <text class="info" wx:if="{{coupon.applyshops.length>0}}">{{coupon.applyshops}}</text>
+                        <text class="info" wx:else>全部商户</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

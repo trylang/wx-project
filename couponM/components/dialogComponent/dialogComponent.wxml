@@ -1,0 +1,27 @@
+<!--dialogComponent.wxml-->
+<view class='wx_dialog_container' hidden="{{!isShow}}" catchtouchmove='start'>
+    <view class='wx-mask' bindtap='_confirmEvent'></view>
+    <view class='wx-dialog'>
+        <view class='dialog-title'>
+            <text class='dialog-grouplist'>拼团列表</text>
+
+            <text>还剩<text style='color:#F21B7B;'>{{collageList.length}}</text>人在拼团</text>
+        </view>
+
+        <scroll-view class='scroll' scroll-y bindscrolltolower='onScrollListener'>
+        <view wx:for='{{collageList}}' wx:key='item' data-index='{{index}}' class='collage-item'>
+            <image src='{{item.sponsorUser.faceLogo}}' mode='widthFix'></image>
+
+            <view class='collage-desc'>
+                <text class='name'>{{item.sponsorUser.name}}</text>
+                <text class='sub'>还差<text class='maincolor'>{{item.memberCount-item.followMemberCount}}</text>人拼成 剩余{{item.surplusTime}}</text>
+            </view>
+
+            <view class='collage-btn' bindtap='_onGroupClick' data-index='{{index}}'>
+                <text>去拼团</text>
+            </view>
+        </view>
+        </scroll-view>
+        <image class='dialog-close' src='http://res.rtmap.com/wx/couponM/close.png' mode='widthFix' bindtap='_cancelEvent'></image>
+    </view>
+</view>

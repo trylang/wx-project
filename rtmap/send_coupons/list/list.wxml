@@ -1,0 +1,23 @@
+<view class="body">
+    <image class="bg" src="{{detailBanner}}"></image>
+    <scroll-view class="conent">
+        <view class="item" wx:for="{{list}}"  wx:key="{{index}}">
+            <image class="coupon_bg" src="../imgs/coupon_bg.png"></image>
+            <view class="right">
+                <text class="title">{{item.mainInfo}}</text>
+                <view class="info">
+                    <view class="detail">
+                        <text class="mask">{{item.extendInfo}}</text>
+                        <text class="mask" wx:if="{{item.effectiveType==0}}">有效期：{{item.effectiveStartTime}}至{{item.effectiveEndTime}}</text>
+                        <text class="mask" wx:if="{{item.effectiveType==1}}">有效期：领取后{{item.activedLimitedStartDay}}天生效，有效期{{item.activedLimitedDays}}天</text>
+                    </view>
+                    <button class="btn" data-extendInfo="item.extendInfo" data-qrCode="{{item.qrCode}}" bindtap="use">立即使用</button>
+                </view>
+                
+            </view>
+        </view>
+    </scroll-view>
+    <navigator url="/pages/index/index" open-type="switchTab">
+        <image class="{{isMove?'go-home-hide':'go-home'}}" src='http://res.rtmap.com/wx/couponM/go_home.png' mode='widthFix'></image>
+    </navigator>
+</view>

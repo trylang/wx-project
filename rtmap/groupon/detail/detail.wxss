@@ -1,0 +1,364 @@
+/* rtmap/groupon/detail/detail.wxss */
+
+page {
+    padding-bottom: 200rpx;
+}
+
+.head .img {
+    width: 100%;
+    height: 750rpx;
+}
+
+.banner {
+    width: 100%;
+    height: 750rpx;
+}
+
+.coupon_info {
+    margin-top: 40rpx;
+    background-color: #f5f5f5;
+}
+
+.coupon_info_haed {
+    background-color: #fff;
+    padding: 0 32rpx;
+}
+
+.title {
+    margin-bottom: 8rpx;
+}
+
+.title_text {
+    display: inline-block;
+    width: 85%;
+    vertical-align: middle;
+    font-size: 36rpx;
+}
+
+.share {
+    width: 15%;
+    display: inline-block;
+    vertical-align: bottom;
+    padding: 0;
+    line-height: 1;
+    background: none;
+    border: none;
+    text-align: right;
+}
+
+.share::after {
+    border: none;
+}
+
+.share .img {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.tips {
+    color: #999;
+    font-size: 30rpx;
+    margin-bottom: 8rpx;
+}
+
+.num {
+    width: 140rpx;
+    line-height: 28rpx;
+    background-color: #fffac5;
+    font-size: 20rpx;
+    color: #dd5f65;
+    text-align: center;
+    border-radius: 100rpx;
+    margin-bottom: 18rpx;
+}
+
+.rule {
+    color: #f21b7b;
+    font-size: 20rpx;
+    display: flex;
+    margin-bottom: 34rpx;
+}
+
+.rule view {
+    border: 2rpx solid;
+    margin-right: 16rpx;
+    padding: 0 3rpx;
+}
+
+.grouponRule text {
+    display: block;
+    font-size: 30rpx;
+    color: #000;
+}
+
+.grouponRule .ruleNum {
+    color: red;
+}
+
+.shop {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 686rpx;
+    justify-content: space-between;
+    padding: 20rpx 0;
+    border-top: 2rpx solid #f5f5f5;
+}
+
+.shop_img .img {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.shopName {
+    width: 390rpx;
+    margin-left: 16rpx;
+}
+
+.shop_name {
+    font-size: 30rpx;
+}
+
+.shop_code {
+    font-size: 24rpx;
+    margin-top: 8rpx;
+}
+
+.shopTel .img {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.shopAd .img {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.shopAd, .shopTel {
+    font-size: 20rpx;
+    color: #b6b6b6;
+    padding-top: 20rpx;
+    text-align: center;
+}
+
+.shopTel {
+    margin-left: auto;
+    padding-right: 35rpx;
+    border-right: 0.5rpx solid #eee;
+}
+
+.shopAd {
+    padding-left: 35rpx;
+}
+
+.member {
+    background-color: #fff;
+    margin-top: 16rpx;
+    padding: 0 32rpx;
+}
+
+.mem_item {
+    display: flex;
+    align-items: center;
+    padding: 32rpx 0;
+    border-top: 1rpx solid #eee;
+}
+
+.mem_head {
+    font-size: 30rpx;
+    padding: 56rpx 0 32rpx;
+}
+
+.mem_haed_info {
+    display: flex;
+    align-items: center;
+}
+
+.peopleNum {
+    color: #f21b7b;
+    margin-right: 10rpx;
+}
+
+.more {
+    font-size: 24rpx;
+    margin-left: auto;
+}
+
+.mem_img .img {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 80rpx;
+}
+
+.memName {
+    margin-left: 16rpx;
+}
+
+.mem_name {
+    font-size: 30rpx;
+}
+
+.tips {
+    font-size: 24rpx;
+}
+
+.btn {
+    width: 140rpx;
+    line-height: 56rpx;
+    height: 56rpx;
+    color: #fff;
+    background-color: #f21b7b;
+    text-align: center;
+    border-radius: 100rpx;
+    font-size: 24rpx;
+    margin-left: auto;
+}
+
+.groupon_rule {
+    font-size: 24rpx;
+    color: #f21b7b;
+    text-align: center;
+    padding-bottom: 32rpx;
+}
+
+.buy_rule, .use_rule {
+    padding: 32rpx 32rpx;
+    margin-top: 16rpx;
+    background-color: #fff;
+}
+
+.buy_rule_title {
+    font-size: 30rpx;
+    margin-bottom: 32rpx;
+}
+
+.use_rule_title {
+    font-size: 30rpx;
+}
+
+.buy_rule_content, .use_rule_content {
+    font-size: 24rpx;
+}
+
+.model {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.model_body {
+    background-color: #fff;
+    width: 80%;
+    height: 70%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 9rpx;
+    padding: 0 32rpx;
+}
+
+.model_close {
+    text-align: right;
+    padding-top: 30rpx;
+}
+
+.model_close text {
+    display: inline-block;
+    width: 100rpx;
+    font-size: 36rpx;
+    line-height: 50rpx;
+}
+
+.model_title {
+    text-align: center;
+    font-size: 36rpx;
+}
+
+.model_num {
+    text-align: center;
+    font-size: 30rpx;
+}
+
+.button {
+    width: 550rpx;
+    position: fixed;
+    border-radius: 400rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    bottom: 56rpx;
+    left: 100rpx;
+    display: flex;
+    background-color: red;
+    overflow: hidden;
+    text-align: center;
+    color: #fff;
+    font-size: 30rpx;
+}
+
+.show {
+    visibility: visible;
+    animation: dialogSlipToUp 0.3s linear both;
+}
+
+.left {
+    background-color: #000;
+    width: 50%;
+}
+
+.right {
+    background-color: #f21b7b;
+    width: 50%;
+}
+
+.use_rule_content image {
+    max-width: 100%;
+    padding: 40rpx 0;
+}
+
+.cost {
+    font-size: 32rpx;
+}
+.use_rule_img{
+    width: 100%;
+}
+.go-home {
+    position: fixed;
+    right: 15rpx;
+    top: 60%;
+    width: 100rpx;
+    height: 103rpx;
+}
+
+.go-home-hide {
+    position: fixed;
+    right: 0;
+    top: 60%;
+    transform: translate(50%, 0);
+    width: 100rpx;
+    height: 103rpx;
+    opacity: 0.5;
+}
+
+@keyframes dialogSlipToUp {
+    0% {
+        top: 100%;
+        opacity: 0.3;
+    }
+
+    100% {
+        top: 88%;
+        opacity: 1;
+    }
+}
+
+.show {
+    visibility: visible;
+    animation: dialogSlipToUp 0.3s linear both;
+}

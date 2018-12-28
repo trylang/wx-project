@@ -1,0 +1,54 @@
+<!--index.wxml-->
+<scroll-view scroll-y>
+<view class="body">
+    <view class="details-con">
+        <image class="big-baner" src="{{mapPoi.poiImage}}"></image>
+        <view class="one-none">
+        <view>
+            <view class="details-h1">{{mapPoi.poiName}}</view>
+            <view class="details-h4" wx:if="{{mapPoi.path!=null&&mapPoi.path!=''}}">
+                <view class="details-map">
+                    <image src="../../../images/brand/map.png" class="map-image"></image>
+                    <view>{{mapPoi.path}}</view>
+                    <!-- <view wx:else>{{mapPoi.poiNumber}}</view> -->
+                </view>
+            </view>
+        </view>
+        <view class="two-none">
+            <view class="logo-border logo-margin" bindtap="goPhoto">
+                <image class="brand-logo" src="../../../images/brand/photo.png"></image>
+                
+            </view>
+            <view class="logo-margin"bindtap='onMapClick'>
+                
+                    <image class="brand-logo" src="../../../images/brand/brand.png"></image>
+            </view>
+        </view>
+        </view>
+         <view class="details-p">
+            <view style="font-size:30rpx;margin:0 0 16rpx 0;">{{mapPoi.className}}</view>
+            <import
+             src="../../components/wxparse/wxparse.wxml"/>
+            <template    class="details-p" is="wxParse" data="{{wxParseData:poiDescribe.nodes}}"/>
+        </view>
+    </view>
+     <!-- catchtouchmove="preventScroll" -->
+    <view class="cover-modal" bindtap='hiddenModal'>
+        <view class="comment-write" catchtap='handleTap'>
+            <view bindtap="lingqu" data-batchId="{{couponDetail.couponActivityId}}" data-activityId="{{couponDetail.activityId}}" wx:for="{{couponDetails}}" wx:key="{{index}}" wx:for-item="couponDetail">
+                <include src="../../components/coupon/index.wxml"/> 
+            </view>
+        </view>
+    </view>
+       
+    <view class="details-bot">
+    	<view class="details-bot-bor" wx:for="{{activity}}" wx:key="{{index}}">
+        <view data-text="{{item.id}}" bindtap="goEnroll">
+	    	<view class="bot-h1">{{item.asharetitle}}</view>
+	    	<view class="bot-time">{{item.createDate}}</view>
+	    	<image class="bot-img" src="{{item.ashareimg}}"></image>
+        </view>
+    	</view>
+    </view>
+</view>
+</scroll-view>

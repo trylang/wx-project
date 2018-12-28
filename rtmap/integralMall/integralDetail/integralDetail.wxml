@@ -1,0 +1,93 @@
+<view class='detail'>
+    <image class='banner' src='{{goods.imgurl}}' mode='aspectFill' lazy-load></image>
+
+    <view class='message'>
+
+        <view class='title-content'>
+            <text class='main'>{{goods.main}}</text>
+            <text class='extend'>{{goods.extend}}</text>
+        </view>
+
+        <view class='title'>
+            <view class='integral'>
+                <text class='conv'>{{goods.integral}}</text>
+                <text class='convend' style=''>积分</text>
+                <text class='money' hidden="{{goods.market_price==''}}">价值{{goods.market_price}}</text>
+            </view>
+
+            <label style='margin-top:8rpx;padding-left: 40rpx;border-left: 2rpx #eee solid;'>
+                <image class='share' src='../images/share.png' mode='widthFix'></image>
+                <button open-type='share'></button>
+            </label>
+        </view>
+        <!-- <view class='tag'>
+            <view class='tag-xian'>限购1张</view>
+        </view> -->
+    </view>
+
+    <!-- <view class='line'></view> -->
+
+    <!-- <view class='shops'>
+        <view class='shop' wx:for='{{list}}' wx:key='item' data-index='{{index}}' bindtap='onShopClick'>
+            <view class='shop-logo'>
+                <image class='logo' src='{{item.logo}}' mode='widthFix'></image>
+
+                <view class='msg'>
+                    <text class='title'>{{item.title}}</text>
+                    <text class='floor'>{{item.floor}}</text>
+                </view>
+            </view>
+
+            <view class='shop-logo'>
+                <view class='call' bindtap='onCallClick'>
+                    <image src='../images/call.png' mode='widthFix'></image>
+                    <text>打电话</text>
+                </view>
+
+                <view class='call' style='margin-left:40rpx;' bindtap='onGoClick'>
+                    <image src='../images/go.png' mode='widthFix'></image>
+                    <text>到这去</text>
+                </view>
+            </view>
+        </view>
+
+        <text class='showall' hidden='{{list.length>1}}' bindtap='onShowAllClick'>查看全部适用店铺</text>
+    </view> -->
+
+    <view class='line'></view>
+
+    <view class='message' style='margin-bottom:132rpx;'>
+
+        <text style='font-size:30rpx;color:#000;margin-bottom:16rpx;font-weight:bold;'>使用须知</text>
+        <rich-text nodes='{{goods.content}}' style='font-size:24rpx;'></rich-text>
+    </view>
+
+    <view class='excell'>
+        <view class='paymsg'>
+            <text class='conv'>{{goods.integral}}</text>
+            <text class='convend' style=''>积分</text>
+            <text class='money' hidden="{{goods.market_price==''}}">价值{{goods.market_price}}</text>
+        </view>
+
+        <view class='pay' bindtap='onPayClick'>
+            <text>兑换</text>
+        </view>
+    </view>
+
+    <view hidden="{{!isDialogShow}}" catchtouchmove='start'>
+        <view class='mask'></view>
+        <view class='burial'>
+            <view class='burial-title'>
+                <text class='title'>使用<text style='color:#F21B7B;margin:0 10rpx;'>{{goods.integral}}</text>积分</text>
+                <text class='content'>兑换{{goods.main}}</text>
+                <view class='btnrow'>
+                    <view class='cancle' bindtap='onCancleClick'>取消</view>
+                    <view class='ok' bindtap='onExcellClick'>兑换</view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <dialog id='dialog' payResult='{{payResult}}' bind:cancelEvent='onLeftClick' bind:confirmEvent='onRightClick'></dialog>
+
+</view>

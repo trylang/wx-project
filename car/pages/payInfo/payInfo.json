@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "缴费详情",
+    "navigationBarBackgroundColor": "#EE4C75",
+    "navigationBarTextStyle": "white",
+    "usingComponents": {
+        "dialog": "../../components/dialogComponent/dialogComponent"
+    }
+}

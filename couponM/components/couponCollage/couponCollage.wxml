@@ -1,0 +1,97 @@
+<!--components/couponMode.wxml-->
+<!-- 优惠券 -->
+<view class='coupons' hidden='{{businessTypes.length<=0}}'>
+    <scroll-view scroll-x class='top'>
+        <!--业态列表-->
+        <view class='businesstypes-list-content'>
+            <view class="businesstypes-list-item{{ businessTypesCurrent == index?' selected-item':''}}" wx:for='{{ businessTypes }}' wx:key="{{index}}" wx:for-item="type" catchtap='_changeNav' data-index='{{index}}'>
+                <text>{{type.name}}</text>
+                <!-- <view class='gradient' hidden='{{index!=businessTypes.length-1}}'></view> -->
+            </view>
+        </view>
+    </scroll-view>
+     <!--优惠券列表-->
+    <view class='coupons-list' bindscrolltolower='onScrollListener'>
+        <view class='coupons-item' wx:for='{{couponsList}}' wx:key='{{index}}' bindtap='onItemClick' data-index='{{index}}'>
+
+            <!--组合券-->
+            <view class='group' hidden='{{item.type!=1}}'>
+                <image class='coupon-group-bg' src='http://res.rtmap.com/wx/couponM/coupon_fg.png' hidden='{{item.type!=1}}'></image>
+                <view class='group-detail' hidden='{{item.type!=1}}'>
+                    <view class='title'>
+                        <text class='title-main'>{{item.data.mainInfo}}</text>
+                        <view class='title-price'>
+                            <text class='now-price'>¥{{item.data.price/100}}</text>
+                            <text class='old-price'>节省 ¥{{(item.data.cost-item.data.price)/100}}</text>
+                            <text style='color:#999;font-size:30rpx;'>></text>
+                        </view>
+                    </view>
+
+                    <view class='coupons-imgtxt'>
+                        <view class='coupons-imgtxt-item' wx:for='{{item.data.list}}' 
+                        wx:for-item='imgtxt' wx:key='imgtxt' bindtap='onSubGroupClick' data-index='{{index}}'>
+                            <image src='{{imgtxt.logoUrl}}' mode='aspectFill'></image>
+                            <text>{{imgtxt.mainInfo}}</text>
+                        </view>
+                    </view>
+                </view>
+
+            </view>
+
+            <!--普通券-->
+            <view class='coupons-list-cell' hidden='{{item.type!=0}}'>
+                <view class='coupon-image'>
+                    <image class='coupon-icon' src='{{item.data.imgLogoUrl}}' mode="aspectFill"></image>
+                    <view class='fourCircle' hidden='{{item.data.shop==null}}'>
+                        <text>{{item.data.shop.floorId}}</text>
+                    </view>
+                </view>
+                <view class='coupon-info'>
+                    <view class='coupon-info-titles'>
+                        <text class='coupon-info-title'>{{item.data.mainInfo}}</text>
+                        <text class='coupon-info-description'>{{item.data.extendInfo?item.data.extendInfo:''}}</text>
+                        <view class='coupon-info-shopv' hidden='{{item.data.shop==null}}'>
+                            <text class='coupon-info-shop'>{{item.data.shop.name}}</text>
+                        </view>
+
+                        <view class='coupon-info-shopv' hidden='{{item.data.type!=1}}'>
+                            <text class='coupon-info-coll-dist'>还剩{{item.data.pourNum-item.data.getNum}}件</text>
+                        </view>
+
+                        <view class='coupon-info-shopv' hidden='{{item.data.type!=2||!item.data.cashBackFee}}'>
+                            <text class='coupon-info-coll-dist'>推荐奖金{{item.data.cashBackFee/100}}元</text>
+                        </view>
+                    </view>
+                    <view class='coupon-payment-info'>
+
+                        <view class='coupon-info-price'>
+                            <block wx:if="{{ item.data.buyType == 1 ||item.data.price==0}}">
+                                <text class="coupon-info-discount}}">免费</text>
+                            </block>
+                            <block wx:elif="{{ item.data.buyType == 2 }}">
+                                <text style='font: medium; color: #F21B7B; font-size: 24rpx;'>￥</text>
+                                <text wx:if="{{item.data.type==1}}" class="coupon-info-discount number}}">{{item.data.groupBuyingPrice?item.data.groupBuyingPrice/100:''}}</text>
+                                <text wx:else class="coupon-info-discount number}}">{{item.data.price?item.data.price/100:''}}</text>
+                            </block>
+                            <text class='coupon-info-orginprice'>{{item.data.cost?'￥'+item.data.cost/100:''}}</text>
+                        </view>
+                        <block wx:if="{{ item.data.state == 6 }}">
+                            <view class="coupon-gain-button none">
+                                <text>已抢光</text>
+                            </view>
+                        </block>
+                        <block wx:else>
+                            <view class="coupon-gain-button free">
+                                <text>{{item.data.type==0?item.data.buyType == 1 ||item.data.price==0?'领取':'购买':item.data.type==1?'立即拼团':'立即抢购'}}</text>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+
+                <image class='coupon-bg' src='http://res.rtmap.com/wx/couponM/coupon_fg.png'></image>
+
+            </view>
+
+        </view>
+    </view>
+</view>

@@ -1,0 +1,13 @@
+<view class="body">
+    <image class="bgImg" src="{{detail.homeBanner}}"></image>
+    <button class="btn" bindtap="{{validate?'receive': ''}}">立即领取</button>
+
+    <view class="rule_content">
+    <view class="rule_title"><image class="rule_icon" src="../imgs/rule.png"></image><text>活动规则</text></view>
+    <view class="info">
+        <rich-text nodes="{{detail.activityRule}}"></rich-text>
+    </view>    
+    </view>
+</view>
+
+<result wx:if="{{showResult}}" detailBanner="{{detail.detailBanner}}" recordId="{{recordId}}" tenantId="{{tenantId}}" activityId="{{detail.activityId}}"></result>

@@ -1,0 +1,167 @@
+page {
+    background-color: #F2F3F7;
+}
+
+.head {
+    background-color: #fff;
+}
+
+.line {
+    width: 100%;
+    height: 20rpx;
+    background: #F2F3F7;
+}
+
+.body {
+    background-color: #fff;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    padding: 30rpx 40rpx;
+    border-bottom: 2rpx #f5f5f5 solid;
+}
+
+.cell_icon {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 16rpx;
+}
+
+.cell_name {
+    color: #000;
+    font-size: 30rpx;
+    margin-right: auto;
+    font-weight: 500;
+}
+
+.cell_tip {
+    color: #999;
+    font-size: 24rpx;
+    font-weight: 500;
+    margin-right: 16rpx;
+}
+
+.cell_val {
+    color: #333;
+    font-size: 30rpx;
+    font-weight: 500;
+}
+
+.cell_tatol {
+    color: #F21B7B;
+}
+
+.cell .cell_big {
+    font-size: 36rpx;
+}
+
+.cell_icon_right {
+    width: 14rpx;
+    height: 24rpx;
+    margin-left: 16rpx;
+}
+.line-one{
+    width: 100%;
+    height: 40rpx;
+    background: #F2F3F7;
+}
+.excell {
+    /* position: fixed; */
+    /* left: 75rpx; */
+    /* bottom: 32rpx; */
+    height: 128rpx;
+    /* line-height: 88rpx; */
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* z-index: 10; */
+    /* width:600rpx; */
+    background-color: #FFFFFF;
+    padding:12rpx 40rpx 12rpx 60rpx;
+    display:flex;
+    /* justify-content:center; */
+    align-items:center;
+}
+
+.paymsg {
+    flex: 1;
+    height: 100%;
+    /* background: #000; */
+    display: flex;
+    align-items: center;
+    /* padding-left: 50rpx; */
+    /* border-top-left-radius: 100rpx; */
+    /* border-bottom-left-radius: 100rpx; */
+}
+
+.pay-table {
+    display: table-row;
+    vertical-align: bottom;
+}
+
+.paymsg .conv {
+    color: #333333;
+    font-size: 28rpx;
+    font-weight:500;
+}
+.paymsg .conv .conv_pay{
+    color:#EE4C75;
+    font-size:44rpx;
+    font-weight:500;
+    padding-left: 10rpx;
+}
+.paymsg .money {
+    color: #999;
+    font-size: 24rpx;
+    margin-left: 16rpx;
+}
+
+.pay {
+    width: 240rpx;
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    background: #EE4C75;
+    /* display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; */
+    /* border-top-right-radius: 100rpx; */
+    /* border-bottom-right-radius: 100rpx; */
+    border-radius: 100rpx;
+}
+
+.pay text {
+    color: #fff;
+    font-size: 36rpx;
+    font-weight: 500;
+}
+
+.top-icon-car {
+    width:100%;
+    height: 300rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* position: relative; */
+    border-bottom:2rpx #f5f5f5 solid;
+}
+
+.top-icon-car image {
+    width: 151rpx;
+    height: 111rpx;
+}
+
+.top-icon-car text {
+    /* position: absolute; */
+    /* left: 50%; */
+    /* transform: translate(-50%, 0); */
+    /* bottom: 38rpx; */
+    margin-top:33rpx;
+    color: #333333;
+    text-align: center;
+    font-size: 36rpx;
+    font-weight: 500;
+}

@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "券详情",
+    "usingComponents": {
+        "coupon-normal": "../../components/couponNormal/couponNormal",
+        "coupon-group": "../../components/couponGroup/couponGroup",
+        "coupon-group-buy": "../../components/couponGroupBuy/couponGroupBuy",
+        "coupon-dist": "../../components/couponDist/couponDist"
+    }
+}

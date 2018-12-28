@@ -1,0 +1,132 @@
+/* memdetail/components/addcard.wxss */
+
+@keyframes action_scaleOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+}
+
+@keyframes action_scale {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.show {
+  visibility: visible;
+  -webkit-animation: action_scale 0.5s both;
+  animation: action_scale 0.5s both;
+}
+
+.hide {
+  visibility: hidden;
+  -webkit-animation: action_scaleOut 0.5s both;
+  animation: action_scaleOut 0.5s both;
+}
+
+.wx-mask {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.wx-dialog {
+  position: fixed;
+  z-index: 5000;
+  width: 600rpx;
+  max-width: 600rpx;
+  top: 40%;
+  left: 10%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.dialog-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dialog-title-content {
+  height: 294rpx;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  align-items: center;
+}
+
+.dialog-title-content text {
+  color: #333;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.dialog-title-ok {
+  width: 100%;
+  height: 80rpx;
+  background-color: #faba00;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.btn-left {
+  flex: 1;
+  background: #aaa;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: 10px;
+}
+
+.dialog-title-ok text {
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.dialog-title image {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 280rpx;
+  height: 148rpx;
+}
+
+.dialog-convert {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30rpx;
+  align-items: center;
+}
+
+.dialog-convert text {
+  font-size: 50rpx;
+  color: #faba00;
+  font-weight: 500;
+}

@@ -1,0 +1,64 @@
+<!--rtmap/miaosha/page/return/return.wxml-->
+<view>
+	<view class="order_info">
+		<image class="order_img" src='{{order.coupon.couponImageList&&order.coupon.couponImageList[0]&&order.coupon.couponImageList[0].imgUrl||""}}' mode='aspectFill'/>
+		<view class="order_detail">
+			<view class="order_detail_t">
+				<view class="order_detail_title">{{order.coupon.mainInfo}}</view>
+				<view class="order_detail_count">x1</view>
+			</view>
+			<view class="order_detail_info">
+				{{order.coupon.extendInfo}}
+			</view>
+			<view class="order_detail_price">				
+				<!-- <text wx:if="{{order.payType===1}}">免费</text>
+	            <text wx:if="{{order.payType===3}}">{{order.score}}积分</text> -->
+	            <text>￥{{order.price/100}}</text>
+				<text class="order_org_p">￥{{order.priceFace/100}}</text>
+			</view>
+		</view>
+	</view>
+	<view class="return_money">
+		<view class="return_money_w">退款金额</view>
+		<view class="return_money_num">
+			￥{{order.price/100}}
+		</view>
+	</view>
+	<view class="return_cause">
+		<view class="return_cause_t">
+			<text>退款原因</text>
+			<text class="return_cause_tw">(必填)</text>
+		</view>
+		<view bindtap="changeSelect" data-cause="0" class="return_cause_item">
+			<view wx:if="{{cause=='0'}}" class="return_cause_item_radio_select">
+				<view class="rodio_select"></view>
+			</view>
+			<view wx:else class="return_cause_item_radio"></view>
+			<text>{{causeList[0]}}</text>
+		</view>
+		<view bindtap="changeSelect" data-cause="1" class="return_cause_item">
+			<view wx:if="{{cause=='1'}}" class="return_cause_item_radio_select">
+				<view class="rodio_select"></view>
+			</view>
+			<view wx:else class="return_cause_item_radio"></view>
+			<text>{{causeList[1]}}</text>
+		</view>
+		<view bindtap="changeSelect" data-cause="2" class="return_cause_item">
+			<view wx:if="{{cause=='2'}}" class="return_cause_item_radio_select">
+				<view class="rodio_select"></view>
+			</view>
+			<view wx:else class="return_cause_item_radio"></view>
+			<text>{{causeList[2]}}</text>
+		</view>
+		<view bindtap="changeSelect" data-cause="3" class="return_cause_item">
+			<view wx:if="{{cause=='3'}}" class="return_cause_item_radio_select">
+				<view class="rodio_select"></view>
+			</view>
+			<view wx:else class="return_cause_item_radio"></view>
+			<text>{{causeList[3]}}</text>
+		</view>
+	</view>
+	<view style="margin-top:300rpx; text-align: center;">
+		<view bindtap="returnOrder" style="margin:0rpx auto;" class="bt_full">申请退款</view>
+	</view>
+</view>

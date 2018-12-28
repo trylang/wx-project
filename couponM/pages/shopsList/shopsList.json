@@ -1,0 +1,7 @@
+{
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "商场名称",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": true
+}

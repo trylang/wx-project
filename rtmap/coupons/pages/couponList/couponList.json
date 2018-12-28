@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "rt-navbar": "../../components/navbar/navbar",
+    "rt-couponitem": "../../components/couponitem/couponitem"
+  },
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "我的优惠券",
+  "backgroundColor": "#eeeeee"
+}

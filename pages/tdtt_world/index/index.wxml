@@ -1,0 +1,39 @@
+<!-- 
+<view class="body">
+  <view class="content">
+  <view class="outer_sphere "id="leftview">
+    <view class="tdtt_content leftclass" wx:for="{{tdttContent}}" wx:key="{{index}}" bindtap="godetail" data-id="{{item.id}}" wx:if="{{item.sort%2!=0}}" data-sort="{{item.sort}}"  data-index="{{index}}">
+      <image src="{{item.worldImage}}" mode="widthFix"></image>
+      <view class="sotreTitle">{{item.worldTitle}}</view>
+      <view class="content-bottom">
+        <view  class="text_ellipsis" wx:if="{{item.publishers!=null}}">@{{item.publishers}}</view>
+        <view  class="text_ellipsis" wx:elif="{{item.storeNom!=null}}">@{{item.storeNom}}</view>
+        <view wx:else></view>
+        <view class="browse-con">
+          <view><image src="../../../images/brand/browse.png"></image></view>
+          <view>{{item.browse}}</view>
+        </view>
+      </view>
+    </view>
+    </view>
+    <view class="outer_sphere " id="rightview">
+     <view class="tdtt_content rightclass" wx:for="{{tdttContent}}" wx:key="{{index}}" bindtap="godetail"  data-sort="{{item.sort}}" wx:if="{{item.sort%2==0}}"   data-index="{{index}}" data-id="{{item.id}}">
+      <image mode="widthFix" src="{{item.worldImage}}"></image>
+      <view class="sotreTitle">{{item.worldTitle}}</view>
+        <view class="content-bottom">
+          <view  class="text_ellipsis" wx:if="{{item.publishers!=null}}">@{{item.publishers}}</view>
+          <view  class="text_ellipsis" wx:elif="{{item.storeNom!=null}}">@{{item.storeNom}}</view>
+          <view wx:else></view>
+          <view class="browse-con">
+            <view><image src="../../../images/brand/browse.png"></image></view>
+            <view>{{item.browse}}</view>
+          </view>
+      </view>
+      </view>
+    </view> 
+    </view>
+  </view>
+<!--pages/tdtt_world/index/index.wxml-->
+<view class="dltt">
+ <tdlist id="tdlist"></tdlist>
+</view>

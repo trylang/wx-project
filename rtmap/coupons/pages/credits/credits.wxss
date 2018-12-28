@@ -1,0 +1,78 @@
+/* rtmap/coupons/pages/credits/credits.wxss */
+.list-header {
+    background: white;
+    width: 750rpx;
+    margin-bottom: 16rpx;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    padding: 16rpx 0 40rpx;
+    color: black;
+    font-size: 60rpx;
+    font-weight: 500;
+    line-height: 56rpx;
+}
+
+.list {
+    background: white;
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-header {
+    margin-top: 40rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+    font-size: 30rpx;
+}
+
+.section-header text{
+    margin: 0 20rpx;
+}
+
+.h-line {
+    width: 234rpx;
+    height: 2rpx;
+    background: #eee;
+}
+
+.cell {
+    width: 686rpx;
+    padding: 20rpx 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: #eee solid 2rpx;
+}
+
+.cell-detail {
+    margin-left: 22rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    color: black;
+    font-size: 30rpx;
+    font-weight: 500;
+    line-height: 42rpx;
+}
+
+.time {
+    font-size: 24rpx;
+    font-weight: 500;
+    color: #999;
+    line-height: 34rpx;
+    margin-top: 4rpx;
+}
+
+.cell-point {
+    margin-right: 22rpx;
+    color: #F21B7B;
+    font-size: 40rpx;
+    font-weight: 500;
+}

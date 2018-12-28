@@ -1,0 +1,88 @@
+<!--pages/couponInfo/couponInfo.wxml-->
+<wxs module="m1">
+    var getStatusDesc = function(status) {
+        var statusDesc = undefined;
+        var statusMap = {
+            '2': {
+                en: 'ctive'
+            },
+            '3': {
+                en: 'use',
+                tip: '已使用'
+            },
+            '4': {
+                en: 'expired',
+                tip: '已过期'
+            },
+            '7': {
+                en: 'retreat',
+                tip: '已退券'
+            }
+        }
+        return statusMap[status];
+    }
+
+    module.exports.getStatusDesc = getStatusDesc;
+</wxs>
+<view class='couponInfor'>
+    <view class='title'>
+        <text>{{couponInfo.mainInfo}}</text>
+    </view>
+    <view class='rule'>
+        <text>{{couponInfo.extendInfo?couponInfo.extendInfo:''}}</text>
+    </view>
+    <view class="canvas-box">
+        <canvas hidden="{{couponInfo.status!=2}}" style="width: 400rpx;height: 400rpx;background:#f1f1f1; margin: 0 auto;" canvas-id="mycanvas" />
+        <view class='invalid  {{statusMap[couponInfo.status].en}}' hidden="{{couponInfo.status==2}}">
+            <canvas canvas-id='mycanvas' style='width:750rpx;height:960rpx;'></canvas>
+            <view class='model'></view>
+            <view class='invalidIcon'></view>
+            <view class='statusText'>{{statusMap[couponInfo.status].tip}}</view>
+        </view>
+
+    </view>
+    <view class='code'>
+        <text>{{couponInfo.qrCode}}</text>
+    </view>
+    <view class='shops' hidden='{{shops.length==0}}'>
+        <view class='shop'>
+            <view class='shop-logo' bindtap='queryMoreShops'>
+                <image class='logo' src='{{shops[0].imgLogoUrl}}' mode='widthFix'></image>
+                <view class='msg'>
+                    <text class='titleshop'>{{shops[0].shopName?shops[0].shopName:''}}</text>
+                    <text class='floor'>{{bbgFloor}}</text>
+                </view>
+            </view>
+
+            <view class='shop-btn'>
+                <view class='call' style='padding-right:40rpx; border-right:2rpx #eee solid;' bindtap='onCallClick'>
+                    <image src='http://res.rtmap.com/wx/couponM/call.png' mode='widthFix'></image>
+                </view>
+
+                <view class='call' style='margin-left:40rpx;' bindtap='navigationToShop'>
+                    <image src='http://res.rtmap.com/wx/couponM/go.png' mode='widthFix'></image>
+                </view>
+            </view>
+        </view>
+        <text class='maincolor' style='font-size:24rpx;padding:32rpx 0 0 0;' bindtap='queryMoreShops'>查看全部使用店铺</text>
+    </view>
+    <view class="tip">
+        <view class="tip_title" wx:if="{{validTime}}">
+            有效期
+        </view>
+        <text class="tip_content" wx:if="{{validTime}}">{{validTime}}</text>
+        <view class="tip_title" style='margin-top:40rpx;'>
+            使用须知
+        </view>
+
+        <rich-text nodes="{{couponInfo.descClause}}" class="tip_content"></rich-text>
+        <!-- <view class="tip_content" wx:for="{{couponInfo.descClause}}">
+    {{item}}
+  </view> -->
+    </view>
+    <div class="present">
+        <!--  <image class='give' src='http://res.rtmap.com/wx/couponM/give_friend.png' mode='widthFix' bindtap='onGiveFriendClick'></image>
+         <button class="present-share" open-type="share"></button> -->
+    </div>
+
+</view>

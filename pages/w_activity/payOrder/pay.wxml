@@ -1,0 +1,95 @@
+<view class="container">
+	<view class="activity-info" bindtap='linkToDetail'>
+		<view class="activity-img">
+			<image class="image-info" src='{{actionOrder.image}}'></image>
+		</view>
+		<view class="activity-title">
+			<view class="title">{{actionOrder.title}}</view>
+			<view class="sponsor-date" wx:if='{{actionOrder.poiName}}'>
+				<image class="date-icon" style='width: 16rpx;height: 16rpx;' src='../../../images/w_activity/shop_name.png'></image>
+				<view class="date-info">{{actionOrder.poiName}}</view>
+			</view>
+			<view class="sponsor-date" wx:if='{{actionOrder.place}}'>
+				<image class="date-icon" src='../../../images/w_activity/addres.png'></image>
+				<view class="date-info">{{actionOrder.place}}</view>
+			</view>
+		</view>
+	</view>
+	<view class="order-info">
+		<view class="order-status">
+			<view class="order-no">订单号</view>
+			<view class="order-type" >{{actionOrder.ordernum}}</view>
+		</view>
+		<view class="order-status">
+			<view class="order-no">下单时间</view>
+			<view class="order-type" >{{actionOrder.orderdate}}</view>
+		</view>
+		<view class="order-status">
+			<view class="order-no">有效时间</view>
+			<view class="order-type" >{{actionOrder.startDate}}至{{actionOrder.endDate}}</view>
+		</view>
+		<view class="order-status">
+			<view class="order-no">已选门票</view>
+			<view class="order-type" >{{actionOrder.enrolllist[0].ticketTitle}}</view>
+		</view>
+		<view class="order-status">
+			<view class="order-no">购票数量</view>
+			<view class="order-type" >{{actionOrder.number}}</view>
+		</view>
+		<view class="order-status">
+			<view class="order-no">订单金额</view>
+			<view class="order-type" >
+				<block wx:if='{{actionOrder.money>0}}'>
+					￥{{actionOrder.money}}
+				</block>
+				<block wx:if='{{actionOrder.money>0&&actionOrder.score>0}}'>/</block>
+				<block wx:if='{{actionOrder.score>0}}'>{{actionOrder.score}}积分</block>
+			</view>
+		</view>
+	</view>
+	<view class="enroll-info">
+		<view class="enroll-title">
+			报名人信息
+		</view>
+		<view class="enroll-item" wx:for='{{actionOrder.infolist}}' wx:key='{{index}}'>
+			<view class="label" wx:for='{{item}}' wx:for-index='idx' wx:for-item='new_item' wx:key='{{idx}}'>
+				<view class="enroll-info-list">{{new_item.infoname}}</view>
+				<view class="enroll-info-list">{{new_item.value}}</view>
+			</view>
+		</view>
+	</view>
+	<view wx:if='{{actionOrder.status==2}}'>
+		<view class="order-btn" wx:if='{{actionOrder.score>0||actionOrder.money>0}}'>
+			<view class="pay-money-btn pay-money {{actionOrder.score>0?'left-btn':''}}" bindtap='payMoney' wx:if='{{actionOrder.money>0}}'>￥<block style='font-size:36rpx;'>{{actionOrder.money}}</block></view>
+			<view class="pay-score-btn pay-money  {{actionOrder.money>0?'right-btn':''}}" bindtap='payScore'  wx:if='{{actionOrder.score>0}}'><block style='font-size:36rpx;'>{{actionOrder.score}}</block>积分</view>
+			
+		</view>	
+		<view wx:else class="order-btn" bindtap='payFree'>
+			<view class="pay-money"  style='font-size:36rpx;'>
+				免费
+			</view>
+		</view>
+	</view>
+	<view wx:if='{{actionOrder.status==3}}'>
+		<view class="order-btn">
+			<view class="pay-money" bindtap='handleSeeQrcode'>
+				查看二维码
+			</view>
+		</view>
+	</view>
+</view>
+<view wx:if='{{qrcodeBtn}}'>
+	<view class="cover-modal" bindtap='hiddenModal'>
+		<view class="comment-write">
+			<swiper
+			  autoplay="{{autoplay}}" interval="{{interval}}">
+			  <block  wx:for='{{actionOrder.enrolllist}}' wx:key='{{index}}'>
+			    <swiper-item>
+			      <canvas class="code" canvas-id="qrcCanvas{{index}}"/> 
+			    </swiper-item>
+			  </block>
+			</swiper>
+			
+		</view>
+	</view>
+</view>

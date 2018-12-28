@@ -1,0 +1,45 @@
+@import "../../style/quill.wxss"
+
+::-webkit-scrollbar {
+     width: 0;
+     height: 0;
+     color: transparent;
+}
+.body{
+	width: 100%;
+	background-color: #F5F5F5;
+	box-sizing: border-box;
+	font-size: 36rpx;
+	color: #000;
+}
+.detail-con{
+	background: #fff;
+	padding: 32rpx;
+	font-size: 24rpx;
+}
+.detail-title{
+	font-size: 36rpx;
+}
+.sotre_img{
+	display: flex;
+}
+.sotre_img image{
+	width: 40rpx;
+	height: 40rpx;
+	border-radius: 50%;
+	margin-right: 16rpx;
+}
+.detail-bot{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 32rpx;
+	
+}
+.details_time{
+	color: #999;
+}
+.detail-html{
+	background: #fff;
+	margin-top: 16rpx;
+	padding: 32rpx;
+}

@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="contents">
+	<view class="con-all"  wx:for="{{conAll}}" wx:key="{{index}}" data-text="{{item.id}}" data-poiNo="{{item.poiNo}}" data-poiNumber="{{item.poiNumber}}" data-floor="{{item.floor}}"	bindtap="goDetails">
+		<image class="con-img"  src="{{item.poiLogo}}">
+			<view class="garden-yellow">{{item.floorview?item.floorview:item.floor}}</view>
+		</image>
+		<view class="con-text">
+			<view class="text-tit">{{item.poiName}}</view>
+			<view class="text-describe">
+			<text  wx:key="{{index}}" wx:for="{{item.classlist}}">{{item.className}}   </text>
+			</view>
+			<view class="bor-prant" wx:if="{{couponDetails[index]}}">
+				<view class="bor-icon bor-red">劵</view>
+				<text class="bor-con">{{couponDetails[index]}}</text>
+			</view>
+			<view class="bor-prant" wx:if="{{activity[index]}}">
+				<view class="bor-icon bor-yellow">活</view>
+				<text class="bor-con">{{activity[index]}}</text>
+			</view>
+		</view>
+	</view>
+</view>

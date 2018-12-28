@@ -1,0 +1,16 @@
+<!--pages/orderlist/orderlist.wxml-->
+<view>
+    <rt-navbar init="{{status}}" tabs="{{tabs}}" bind:change="navchange"></rt-navbar>
+    <view class='item'>
+        <rt-orderitem bind:detail="toDetail" wx:for="{{orderData.list}}" data='{{item}}' index='{{index}}' wx:key="index"></rt-orderitem>
+    </view>
+    <view class='noitem' wx:if="{{orderData.list.length==0}}">
+        <image src="../../images/noitem.png" mode='aspectFit'></image>
+        <view class='tip'>
+            <text>暂无订单</text>
+        </view>
+        <view class='lookother'>
+            <navigator url="/pages/index/index" open-type='switchTab' hover-class="navigator-hover">去逛逛吧</navigator>
+        </view>
+    </view>
+</view>

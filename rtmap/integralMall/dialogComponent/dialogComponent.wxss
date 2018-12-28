@@ -1,0 +1,85 @@
+/* dialogComponent.wxss */
+
+.wx-mask {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.wx-dialog {
+    position: fixed;
+    z-index: 200;
+    width: 80%;
+    max-width: 600rpx;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dialog-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dialog-title-content {
+    height: 280rpx;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dialog-title .btnrow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 480rpx;
+    margin-bottom: 80rpx;
+    justify-content: space-between;
+}
+
+.cancle {
+    width: 200rpx;
+    height: 72rpx;
+    border: 2rpx #f21b7b solid;
+    border-radius: 36rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f21b7b;
+    font-size: 30rpx;
+}
+
+.okbtn {
+    width: 200rpx;
+    height: 72rpx;
+    border-radius: 36rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f21b7b;
+    color: #fff;
+    font-size: 30rpx;
+}
+
+.dialog-image {
+    position: fixed;
+    left: 50%;
+    top: 0;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 192rpx;
+    height: 262rpx;
+    z-index: 300;
+}

@@ -1,0 +1,30 @@
+<view class='record_container'>
+    <view class='top'>
+        <view class='top_record'>本月有 <text>{{total}}</text> 条记录</view>
+        <picker mode="date" start="2010-01-01" end='{{endTime}}' bindchange="bindDateChange" fields='month'>
+            <view class='top-time'>
+                    <image src='http://res.rtmap.com/wx/parking/date.png' mode='widthFix'></image>
+                    <text>{{timeView}}</text>
+            </view>
+        </picker>
+    </view>
+    <view class='line'></view>
+    <view class='list'>
+        <view class='cell' wx:for='{{records}}' wx:key='{{index}}' data-id="{{item.id}}" bindtap='onDetailClick'>
+            <view class='cell-line line1'>
+                <text class='carNo'>{{item.carNo}}</text>
+                <view class='money'>
+                    <text style='font-size:30rpx;'>￥</text>
+                    <text>{{item.total}}</text>
+                </view>
+            </view>
+            <view class='cell-line line2'>
+                <text>{{item.startTime}}</text>
+                <view class='paring-duration'>
+                    <text>停车时长：</text>
+                    <text style='color:#000;font-weight:500;'>{{item.duration}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

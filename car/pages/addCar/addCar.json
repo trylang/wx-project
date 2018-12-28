@@ -1,0 +1,10 @@
+{
+    "navigationBarBackgroundColor": "#EE4C75",
+    "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "绑定车牌",
+  "usingComponents": {
+    "car-input": "../../components/carInputComponent/carInputComponent",
+    "dialog": "../../components/dialogComponent/dialogComponent",
+    "key-board": "../../components/keyboardComponent/keyboardComponent"
+  }
+}

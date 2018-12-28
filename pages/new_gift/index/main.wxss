@@ -1,0 +1,117 @@
+@import "../../components/modal_btn/modal.wxss";
+@import "../../components/wxparse/wxparse.wxss";
+.img-container{
+	width: 100%;
+}
+.img-url{
+	width: 100%;
+	display: block;
+}
+.content-container{
+	width: 100%;
+	height: auto;
+	padding-top: 48rpx;
+	border-radius: 20rpx;
+	text-align: center;
+	background: #fff;
+	padding-bottom: 20rpx;
+
+}
+.content-container::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.gift-btn{
+	width: 488rpx;
+	height: 90rpx;
+	background: #ff6559;
+	box-shadow: 0px 5px 3px #fdf1f0;
+	color: #fff;
+	font-size: 36rpx;
+	border-radius: 45rpx;
+	
+}
+.logo-icon{
+	width: 38rpx;
+	height: 38rpx;
+	vertical-align: middle;
+}
+.icon-title{
+	font-size: 36rpx;
+	color: #333;
+	vertical-align: middle;
+	line-height: 1;
+	padding-bottom: 40rpx;
+}
+.content-title{
+	margin-top: 64rpx;
+}
+.content-list{
+	padding: 0 50rpx;
+	text-align: left;
+}
+.number{
+	display: inline-block;
+	font-size: 25rpx;
+	width: 34rpx;
+	height: 34rpx;
+	text-align: center;
+	line-height: 34rpx;
+	border-radius: 50%;
+	background: #eee;
+	margin-right: 10rpx;
+}
+.content{
+	font-size: 25rpx;
+	color: #666666;
+}
+.back-index{
+	text-align: center;
+	padding-bottom: 10rpx;
+}
+.market-index{
+    width: 282rpx;
+    height: 66rpx;
+    background: #2d2d2d;
+    box-shadow: 0 4rpx 0 #000;
+    color: #fff;
+    font-size: 22rpx;
+    line-height: 66rpx;
+    padding: 0;
+    border-radius: 33rpx;
+    margin-top: 42rpx;
+    margin-bottom: 10rpx;
+}
+.go-home {
+    position: fixed;
+    right: 15rpx;
+    top: 60%;
+    width: 100rpx;
+    height: 103rpx;
+}
+.go-home-hide {
+    position: fixed;
+    right: 0;
+    top: 60%;
+    transform: translate(50%, 0);
+    width: 100rpx;
+    height: 103rpx;
+    opacity: 0.5;
+}
+@keyframes dialogSlipToUp {
+    0% {
+        top: 100%;
+        opacity: 0.3;
+    }
+
+    100% {
+        top: 88%;
+        opacity: 1;
+    }
+}
+
+.show {
+    visibility: visible;
+    animation: dialogSlipToUp 0.3s linear both;
+}

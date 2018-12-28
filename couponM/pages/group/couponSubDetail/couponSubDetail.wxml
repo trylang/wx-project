@@ -1,0 +1,65 @@
+<view class='detail' bindtouchmove='onPageMove' bindtouchend='onPageEnd'>
+    <image class='banner' src='{{coupon.couponImageList?coupon.couponImageList[0]?coupon.couponImageList[0].imgUrl:coupon.imgLogoUrl:coupon.imgLogoUrl}}' mode='aspectFill' lazy-load></image>
+
+    <view class='message'>
+
+        <view class='title-content'>
+            <view class="main-c">
+                <text class='main'>{{coupon.mainInfo}}</text>
+                <button open-type="share" class='main-share'>
+                    <image src='http://res.rtmap.com/wx/couponM/share.png' bindtap="sharePage"></image>
+                </button>
+            </view>
+            <text class='extend'>{{coupon.extendInfo}}</text>
+        </view>
+
+        <view class='tag' hidden='{{!coupon.buyType}}'>
+            <view class='tag-xian'>限{{ coupon.buyType == 2 ?'购':'领' }}{{ coupon.getLimit }}件</view>
+
+            <view hidden='{{coupon.buyType!= 2 || coupon.refundType!=1}}' class='tag-xian'>过期自动退</view>
+        </view>
+    </view>
+
+    <view class='shops' hidden='{{shopDetail.length<=0}}'>
+        <view class='shop'>
+            <view class='shop-logo'>
+                <image class='logo' src='{{shopDetail[0].imgLogoUrl}}' mode='widthFix'></image>
+                <view class='msg'>
+                    <text class='title'>{{shopDetail[0].shopName?shopDetail[0].shopName:''}}</text>
+                    <text class='floor'>{{shopDetail[0].floorId?shopDetail[0].floorId:''}}</text>
+                </view>
+            </view>
+
+            <view class='shop-btn'>
+                <view class='call' style='padding-right:40rpx; border-right:2rpx #eee solid;' bindtap='onCallClick'>
+                    <image src='http://res.rtmap.com/wx/couponM/call.png' mode='widthFix'></image>
+                </view>
+
+                <view class='call' style='margin-left:40rpx;' bindtap='navigationToShop'>
+                    <image src='http://res.rtmap.com/wx/couponM/go.png' mode='widthFix'></image>
+                </view>
+            </view>
+        </view>
+        <text style='color:#F21B7B;font-size:24rpx;padding:32rpx 0 0 0;' bindtap='queryMoreShops' hidden='{{shopDetail.length<=1}}'>查看全部使用店铺</text>
+    </view>
+
+    <view wx:if="{{coupon.descClause}}" class='line'></view>
+
+    <view wx:if="{{coupon.descClause}}" class='message'>
+        <text class="message_t">使用说明</text>
+        <text class="tip_content" hidden='{{!coupon.validTime}}'>有效期：{{coupon.validTime}}</text>
+        <rich-text nodes='{{coupon.descClause}}' style='font-size:28rpx;white-space:pre-wrap;'></rich-text>
+    </view>
+    <view wx:if="{{coupon.imgtxtInfo}}" class='line'></view>
+    <view wx:if="{{coupon.imgtxtInfo}}" class='message'>
+        <text class="message_t">图文详情</text>
+        <block wx:for="{{coupon.imgtxtInfo}}" wx:key="index">
+            <rich-text wx:if='{{item}}' nodes='{{item}}' class="message_content"></rich-text>
+        </block>
+    </view>
+
+    <navigator url="/pages/index/index" open-type="switchTab" wx:if="{{isFromShare}}">
+        <image class="{{isMove?'go-home-hide':'go-home'}}" src='http://res.rtmap.com/wx/couponM/go_home.png' mode='widthFix'></image>
+    </navigator>
+
+</view>

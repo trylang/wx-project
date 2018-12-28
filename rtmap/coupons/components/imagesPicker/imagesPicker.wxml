@@ -1,0 +1,14 @@
+<!--rtmap/coupons/components/imagesPicker/imagePicker.wxml-->
+<view class='images-picker'>
+    <view class='images-preview-area'>
+        <block wx:if='{{isMulti}}'>
+            <view class='image-size image-cell' wx:for='{{images}}' wx:key='{{index}}'>
+                <image src='{{item}}' style='width:100%;height:100%;'></image>
+            </view>
+        </block>
+        <view class='images-add image-size' bindtap='chooseImage'>
+            <image class='bg-image' src="{{(isMulti !=true) && (images.length > 0) ? images[images.length-1]:'../../static/images/images_picker_bg.png'}}"></image>
+            <image hidden='{{ (isMulti !=true) && (images.length > 0) }}' class='add-image' src='../../static/images/images_picker_add.png'></image>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,2 @@
+<!--pages/sign/sign.wxml-->
+<sign-in class='signin' id="sign"/>

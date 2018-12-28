@@ -1,0 +1,27 @@
+<view>
+    <view class="img-container">
+      <image src="{{bannerUrl}}" class="img-url" mode="widthFix" alt=""/>
+    </view>
+    <view class="content-container">
+      <button class="gift-btn" bindtap='handleRegiter' style="background: {{activity_color}}">注册会员领取新人大礼包</button>
+      <view class="content-title">
+        <image src="{{logoIcon}}" class="logo-icon" alt=""/>
+        <span class="icon-title">活动规则</span>
+      </view>
+      <view class="content-list">
+        <import src="../../components/wxparse/wxparse.wxml"/>
+        <template is="wxParse" data="{{wxParseData:activityRule.nodes}}"/>
+      </view>
+      <!-- <view class="back-index" wx:if='{{showBackBtn}}'>
+        <button class="market-index" bindtap='handleLinkIndex'>返回首页参与更多活动</button>
+      </view> -->
+      
+    </view>
+    <include src="../../components/modal_btn/modal.wxml" />
+
+    <navigator url="/pages/index/index" open-type="switchTab" wx:if="{{isFromShare == 'true'}}">
+    <image class="{{isMove?'go-home-hide':'go-home'}}" src='http://res.rtmap.com/wx/couponM/go_home.png' mode='widthFix'></image>
+  </navigator>
+
+
+</view>

@@ -1,0 +1,48 @@
+<!--rtmap/coupons/pages/userInfo/wxml-->
+<view class='container'>
+    <view class='cell'>
+        <view class='cell-main'>
+            <text class='cell-font-normal cell-title'>姓名</text>
+            <input placeholder='请填写名字' value='{{name}}' class='cell-font-normal cell-info' placeholder-class='name-input-placeholder' bindinput="nameInput" maxlength='6'></input>
+        </view>
+    </view>
+    <view class='cell'>
+        <view class='cell-main'>
+            <text class='cell-font-normal cell-title'>生日</text>
+            <text wx:if="{{birthdayChangedTimes!==0}}" class='cell-font-normal cell-info'>{{birthday}}</text>
+            <picker style="flex:1" wx:else class='cell-font-normal cell-info' mode="date" value="{{birthday}}" start="1900-01-01" end="{{endtime}}" bindchange="bindDateChange">
+                <view class="picker">
+                    {{birthday}}
+                </view>
+            </picker>
+        </view>
+        <text wx:if="{{birthdayChangedTimes!==0}}" class='cell-font-prompt cell-prompt'>修改生日请到服务台</text>
+    </view>
+    <view class='cell' bindtap='changeGender'>
+        <view class='cell-main'>
+            <text class='cell-font-normal cell-title'>性别</text>
+            <text class='cell-font-normal cell-info'>{{gender == 'M'?'男':'女'}}</text>
+        </view>
+        <image class='cell-accessory-icon cell-prompt' src='../../static/images/mine_apps_arrow.png'></image>
+    </view>
+    <view class='cell'>
+        <view class='cell-main'>
+            <text class='cell-font-normal cell-title'>地址</text>
+            <!-- <view class='operation' style="{{ isIos? 'padding: 0;':'padding: 16rpx;' }}">
+                <textarea class="input{{isIos?' ios-textarea':' textarea'}}" value='{{address}}' placeholder-class='name-input-placeholder' placeholder='请填写常住地址' bindinput='addressInput' maxlength='100' auto-height></textarea>
+            </view> -->
+            <input placeholder='请填写常住地址' value='{{address}}' class='cell-font-normal cell-info' placeholder-class='name-input-placeholder' bindinput="addressInput" maxlength='100'></input>
+        </view>
+        <!-- <image class='cell-accessory-icon cell-prompt' src='../../static/images/mine_apps_arrow.png'></image> -->
+    </view>
+    <view class='cell'>
+        <view class='cell-main'>
+            <text class='cell-font-normal cell-title'>手机</text>
+            <text class='cell-font-normal cell-info'>{{phone}}</text>
+        </view>
+        <text class='cell-font-prompt cell-prompt'>不可修改</text>
+    </view>
+    <view class='upgrade-button' bindtap='updateInfo'>
+        <text>更新会员资料</text>
+    </view>
+</view>

@@ -1,0 +1,105 @@
+<!--rtmap/miaosha/page/order/order.wxml-->
+<view>
+	<view class="order_status">
+		<image class="order_status_bg" src="http://res.rtmap.com/wx/seckill/order_bg.png"></image>
+		<view class="order_status_t">
+			<view class="order_status_t_icon">!</view>{{order.statusname.title}}
+		</view>
+		<view wx:if="{{order.status==1}}" class="order_status_i">
+			请在 {{countdown.remainhour}}:{{countdown.remainminute}}:{{countdown.remainsecond}} 内付款，逾期自动关闭
+		</view>
+		<view wx:else class="order_status_i">
+			{{order.statusname.desc}}
+		</view>
+	</view>
+	<view class="order_stop">
+		<view class="order_stop_t">
+			适用门店
+		</view>
+		<navigator url="/rtmap/coupons/pages/shopsList/shopsList?couponId={{order.couponId}}" opentype="navigate" class="order_stop_i">
+			{{order.coupon&&order.coupon.couponApplyShopList&&order.coupon.couponApplyShopList[0]?order.coupon.couponApplyShopList[0].shopName:''}}<view class="to_right"></view>
+		</navigator>
+	</view>
+
+	<view class="order_detail">
+		<image src='{{order.coupon.couponImageList&&order.coupon.couponImageList[0]&&order.coupon.couponImageList[0].imgUrl||""}}' mode='aspectFill' class="order_detail_img"></image>
+		<view class="order_detail_info">
+			<view class="order_detail_info_t">
+				<view class="order_info_t_name">{{order.coupon.mainInfo}}</view>
+				<view class="order_count">x1</view>
+			</view>
+			<view class="order_detail_info_m">
+				{{order.coupon.extendInfo}}
+			</view>
+			<view class="order_detail_info_p">
+				<text wx:if="{{order.payType===1}}">免费</text>
+	            <text wx:if="{{order.payType===3}}">{{order.score}}积分</text>
+	            <text wx:if="{{order.payType===2}}">￥{{order.price/100}}</text>
+				<text class="order_org_p">￥{{order.priceFace/100}}</text>
+			</view>
+		</view>
+	</view>
+	<view style="min-height: 500rpx;">
+		<view class="order_bts">
+			<view wx:if="{{order.status==5}}" class="bt_empty_pink">退款成功</view>
+		</view>
+
+		<view class="order_msg" wx:if="{{order.status==2||order.status==3||order.status==5}}">
+			<view class="order_msg_item">
+				<view class="order_msg_item_label">
+					兑换码
+				</view>
+				<navigator opentype="navigate" url="../use/use?orderId={{orderId}}" class="order_msg_item_value">
+					{{order.qrcode}}
+					<image class="code_img" src="http://res.rtmap.com/wx/seckill/code.png"></image>
+					<view class="to_right"></view>
+				</navigator>
+			</view>
+			<view class="order_msg_item">
+				<view class="order_msg_item_label">
+					有效期
+				</view>
+				<view class="order_msg_item_value">
+					{{order.coupon.effectiveStartTime}} 至 {{order.coupon.effectiveEndTime}}
+				</view>
+			</view>
+		</view>
+		<view class="order_msg">
+			<view class="order_msg_item">
+				<view class="order_msg_item_label">
+					下单时间
+				</view>
+				<view class="order_msg_item_value">
+					{{ordertime}}
+				</view>
+			</view>
+			<view class="order_msg_item">
+				<view class="order_msg_item_label">
+					订单编号
+				</view>
+				<view class="order_msg_item_value">
+					{{order.tradeNo}}
+				</view>
+			</view>
+			<view class="order_msg_item" style="color:black;">
+				<view class="order_msg_item_label">
+					订单金额
+				</view>	            
+				<view class="order_msg_item_value">
+					<text wx:if="{{order.payType===1}}">免费</text>
+					<text wx:if="{{order.payType===3}}">{{order.score}}积分</text>
+		            <text wx:if="{{order.payType===2}}">￥{{order.price/100}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="bt_c">
+		<block wx:if="{{order.status==1}}">
+			<view style="width:280rpx;" bindtap="cancelOrder" class="bt_empty">取消订单</view>
+			<view style="width:280rpx;" bindtap="payOrder" class="bt_full">立即支付</view>
+		</block>
+		<navigator open-type="navigate" url="../return/return?orderId={{orderId}}" wx:if="{{order.status==2&&order.canRefund}}" class="bt_full">申请退款</navigator>
+		<navigator wx:if="{{order.status==3||order.status==5||order.status==7}}" open-type="navigate" url="../detail/detail?Id={{order.batchItemId}}&couponId={{order.couponId}}" class="bt_full">再次购买</navigator>
+		<view wx:if="{{order.status==4&&order.canRefund}}" class="bt_disable">申请退款</view>
+	</view>
+</view>

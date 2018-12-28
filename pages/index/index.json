@@ -1,0 +1,9 @@
+{
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark",
+    "usingComponents": {
+        "dialog": "/rtmap/coupons/components/dialogComponent/dialogComponent",
+        "coupon-collage": "/couponM/components/couponCollage/couponCollage",
+        "tdlist": "../components/tdlist/tdlist"
+    }
+}

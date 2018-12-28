@@ -1,0 +1,154 @@
+<!--rtmap/groupon/detail/detail.wxml-->
+<view>
+    <view class="head">
+        <image class="img" src="{{couponDetail.data.detail.couponImageList?couponDetail.data.detail.couponImageList[0]?couponDetail.data.detail.couponImageList[0].imgUrl:couponDetail.data.detail.imgLogoUrl:couponDetail.data.detail.imgLogoUrl}}" mode="aspectFill"
+            binderror="" bindload="" lazy-load=''></image>
+    </view>
+    <view class="coupon_info">
+        <view class="coupon_info_haed">
+            <view class="title">
+                <text class="title_text">{{couponDetail.data.detail.mainInfo}}</text>
+                <button open-type="share" class="share">
+                    <image class="img" src="../images/share.png" mode="aspectFill" binderror="" bindload=""></image>
+                </button>
+            </view>
+            <view class="tips">{{couponDetail.data.detail.extendInfo}}</view>
+            <view class="num">还剩{{couponDetail.data.detail.pourNum-couponDetail.data.detail.getNum}}件</view>
+            <view class="rule">
+                <view>限购 {{couponDetail.data.product.getLimit}} 张</view>
+                <view>{{couponDetail.data.product.groupBuyingMemberCount}} 人团</view>
+            </view>
+            <view class="shop" hidden='{{shops.length<=0}}'>
+                <view class="shop_img">
+                    <image class="img" wx:if="{{shops[0].imgLogoUrl}}" src="{{shops[0].imgLogoUrl}}" mode="aspectFill" binderror="" bindload=""></image>
+                    <image class="img" wx:else src="../images/test.png" mode="aspectFill" binderror="" bindload=""></image>
+                </view>
+                <view class="shopName">
+                    <view class="shop_name">{{shops[0].shopName}}</view>
+                    <view class="shop_code">{{shops[0].floorId}}</view>
+                </view>
+                <view class="shopTel" bindtap='onCallClick'>
+                    <view>
+                        <image class="img" src="{{'../images/call.png'}}" mode="aspectFill" binderror="" bindload=""></image>
+                    </view>
+                </view>
+                <view class="shopAd" bindtap='navigationToShop'>
+                    <view>
+                        <image class="img" src="{{'../images/go.png'}}" mode="aspectFill" binderror="" bindload=""></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="member">
+            <view class="mem_head">
+                <view class="mem_haed_info">
+                    <text class="peopleNum">{{groupbuyList.length}}</text>
+                    <text>人在拼团</text>
+                    <text bindtap="modelHandle" class="more">更多</text>
+                </view>
+            </view>
+            <view class="mem_item" wx:for="{{groupbuyListSlice}}" wx:key="index">
+                <view class="mem_img">
+                    <image class="img" src="{{item.members[0].avatarUrl||'http://res.rtmap.com/sences/images/20180817/1534475906961.png'}}" mode="aspectFill" binderror="" bindload=""></image>
+                </view>
+                <view class="memName">
+                    <view class="mem_name">
+                        {{item.members[0].name}}
+                    </view>
+                    <view class="tips" wx:if="{{!item.status}}">
+                        <text>还差</text>
+                        <text>{{item.memberCount-item.followMemberCount}}</text>
+                        <text>人拼成</text>
+                        <text>剩余</text>
+                        <text>{{item.time}}</text>
+                    </view>
+                    <view class="tips" wx:if="{{item.state==2||item.status}}">
+                        已结束
+                    </view>
+                </view>
+                <view class="btn" bindtap='couponBuy' id="{{item.id}}">
+                    去拼团
+                </view>
+            </view>
+            <view class="groupon_rule" bindtap='grouponRule'>
+                查看拼团规则
+            </view>
+            <modal class="grouponRule" title="拼团规则" confirm-text="取消" hidden="{{modalHidden}}" bindconfirm="modalConfirm" no-cancel="ture">
+                <text>1.在成团有效期内，未达成相应参团人数，则该团失败</text>
+                <text>2.在成团有效期内，商品已提前售罄，若还未拼团成功，则该团失败</text>
+                <text>3.高峰期间，同时支付的人过多，团人数有限制，则以接收支付信息时间先后为准，超出该团人数限制的部分用户会拼团失败</text>
+                <text class='ruleNum'>4. 拼团失败的订单，系统会在3-5个工作日内处理订单，系统处理后1-7个工作日内退款将原路返回至原支付账户中。</text>
+                <text class='ruleNum'>5. 拼团成功的订单，不予以退款处理。</text>
+            </modal>
+        </view>
+        <view class="buy_rule">
+            <view class="buy_rule_title">
+                购买须知
+            </view>
+            <view class="buy_rule_content">
+                <view class="" wx:for="{{couponDetail.data.detail.descClause}}" wx:key="index">
+                    {{item}}
+                </view>
+            </view>
+        </view>
+        <view class="use_rule">
+            <view class="use_rule_title">使用须知</view>
+            <view class="use_rule_content"  wx:for="{{couponDetail.data.detail.imgtxtInfo}}" wx:key="index">
+                    <block wx:if="{{item.img}}">
+                        <image class='use_rule_img' src="{{item.img}}" mode="widthFix"></image>
+                    </block>
+                    <view wx:for="{{item.html}}" wx:key="index">{{item}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="model" wx:if="{{modelShow}}">
+        <view class="model_body">
+            <view class="model_close">
+                <text bindtap="modelHandle">X</text>
+            </view>
+            <view class="model_title">拼团列表</view>
+            <view class="model_num">
+                <text>还有{{groupbuyList.length}}</text>
+                <text>人在拼团</text>
+            </view>
+            <view class="mem_item" wx:for="{{groupbuyList}}" wx:key="index">
+                <view class="mem_img">
+                    <image class="img" src="{{item.members[0].avatarUrl||'http://res.rtmap.com/sences/images/20180817/1534475906961.png'}}" mode="aspectFill" binderror="" bindload=""></image>
+                </view>
+                <view class="memName">
+                    <view class="mem_name">
+                        {{item.members[0].name}}
+                    </view>
+                    <view class="tips" wx:if="{{!item.status}}">
+                        <text>还差</text>
+                        <text>{{item.memberCount-item.followMemberCount}}</text>
+                        <text>人拼成</text>
+                        <text>剩余</text>
+                        <text>{{item.time}}</text>
+                    </view>
+                    <view class="tips" wx:if="{{item.state==2||item.status}}">
+                        已结束
+                    </view>
+                </view>
+                <view class="btn" bindtap='couponBuy' id="{{item.id}}">
+                    去拼团
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="button show">
+        <view class="left" bindtap='couponBuy' id="normal">
+            <text class="cost">￥{{couponDetail.data.product.price/100}} </text>
+            <text> 单独购买</text>
+        </view>
+        <view class="right" bindtap='couponBuy' id="groupon">
+            <text class="cost">￥{{couponDetail.data.product.groupBuyingPrice/100}} </text>
+            <text> 拼团购买</text>
+        </view>
+    </view>
+
+    <navigator url="/pages/index/index" open-type="switchTab" wx:if="{{isFromShare == 'true'}}">
+        <image class="{{isMove?'go-home-hide':'go-home'}}" src='http://res.rtmap.com/wx/couponM/go_home.png' mode='widthFix'></image>
+    </navigator>
+
+</view>

@@ -1,0 +1,99 @@
+<view class="parking">
+    <view class='topColor'></view>
+    <view class="head">
+        <view class="model">
+            <view class="modal-head">
+                <image class='p_icon' src="http://res.rtmap.com/wx/car/park_p.png" mode="widthFix"></image>
+                <text>剩余车位</text>
+                <!-- <image class='cost' src="http://res.rtmap.com/wx/car/cost.png" mode="widthFix"></image> -->
+            </view>
+            <view class="sur_num">
+                {{carsInfo.surplus}}
+            </view>
+            <view class="num">
+                总车位：<text class='total_num'>{{carsInfo.total}}</text>
+            </view>
+            <scroll-view class="modal-foot" scroll-x style="width: 100%">
+                <view class="modal" wx:for="{{carsInfo.list}}" wx:key="item">
+                    <text class="floor">{{item.location}}：</text>
+                    <text class="f_num">{{item.surplusNum}}</text>
+                </view>
+            </scroll-view>      
+        </view>
+    </view>
+    <view class='line'></view>
+    <view class="body" wx:if="{{isLogin}}">
+        <view class="body_head">
+            <image class='c_icon ' src="http://res.rtmap.com/wx/car/park_mycar.png" mode="widthFix"></image>
+            <view class="my_car">
+                我的车辆
+            </view>
+            <view class="max">
+                最多绑定{{surplusCarNum}}辆车牌
+            </view>
+        </view>
+        <view class='pic' hidden='{{myCars.length>0}}'>
+            <image src='http://res.rtmap.com/wx/car/park_add_car.png'></image>
+            <text>暂无绑定车辆</text>
+        </view>
+        <view wx:for='{{myCars}}' wx:key='item' data-index='{{index}}' hidden='{{myCars.length<=0}}'>
+            <view class="body_mid">
+                <view class="car_num">
+                    {{item.label}}
+                </view>
+                <view class="btn_con">
+                    <text class="relieve" data-item='{{item}}' bindtap='onUnbindClick'>解绑</text>
+                    <text class="play" data-item='{{item}}' bindtap='onSearchCarClick'>缴费</text>
+                </view>
+            </view>
+        </view>
+        <view class='plate_car'>
+            <view class="add_car back" bindtap='onAddCarClick'>
+               添加车辆
+            </view>
+            <view class="add_car back1" bindtap='onInputCarClick'>
+                输入车牌缴费
+            </view>
+        </view>
+    </view>
+    <view class="body" wx:else>
+        <view class='banner'>
+            <view class='banner-head' bindtap='onLoginClick'>
+                <!-- <button open-type='getUserInfo' bindgetuserinfo='getUserInfo'></button> -->
+                <image class='head-image' src='{{avatar}}' binderror='headLoadFail'></image>
+                <text>点击登录</text>
+            </view>
+        </view>
+    </view>
+    <view class='line_one'></view>
+    <view class="foot">
+
+        <view class="foot_head" bindtap='toParkingRules'>
+            <image class='cl_icon' src="http://res.rtmap.com/wx/car/park_info.png" mode="widthFix"></image>
+            <view class="my_car">
+                收费说明
+            </view>
+            <!-- <view class='car_pay'>激活和查看悦米券</view> -->
+            <image class='r_icon ' src="http://res.rtmap.com/wx/car/park_right.png" mode="widthFix"></image>
+        </view>
+
+        <view class="foot_head" bindtap='toParkingRecords'>
+            <image class='cl_icon ' src="http://res.rtmap.com/wx/car/park_stop.png" mode="widthFix"></image>
+            <view class="my_car">
+                缴费记录
+            </view>
+            <!-- <view class='car_pay'>开电子发票</view> -->
+            <image class='r_icon ' src="http://res.rtmap.com/wx/car/park_right.png" mode="widthFix"></image>
+        </view>
+        <!-- <view class="foot_head" bindtap='toParkingRecords'>
+            <image class='cl_icon ' src="http://res.rtmap.com/wx/car/park_car.png" mode="widthFix"></image>
+            <view class="my_car"> 无感停车 </view>
+            <view class='car_pay'>开启微信小额免密支付</view>
+            <image class='r_icon ' src="http://res.rtmap.com/wx/car/park_right.png" mode="widthFix"></image>
+        </view> -->
+    </view>
+    <dialog-act id='dialogAct' title="{{unbindTitle}}" bind:confirmEvent='confirmEvent' bind:cancelEvent='cancelEvent'/>
+
+    <dialog id='dialog' payResult='{{payResult}}' bind:cancelEvent='onLeftClick' bind:confirmEvent='onRightClick'></dialog> 
+</view>
+

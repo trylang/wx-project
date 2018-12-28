@@ -1,0 +1,27 @@
+/* pages/orderlist/orderlist.wxss */
+.item{
+  padding: 0 30rpx;
+}
+.noitem{
+  margin-top: 170rpx;
+  text-align: center;
+}
+.noitem image{
+  width: 192rpx;
+  height: 262rpx;
+}
+.tip{
+  font-size: 32rpx;
+  color: #ccc;
+  margin-bottom: 170rpx;
+}
+.lookother{
+  line-height: 100rpx;
+  height: 100rpx;
+  width: 440rpx;
+  background-color: #F21B7B;
+  color: #fff;
+  font-size: 36rpx;
+  margin: 0 auto;
+  border-radius: 100rpx;
+}

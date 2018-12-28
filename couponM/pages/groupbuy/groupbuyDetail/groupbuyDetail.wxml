@@ -1,0 +1,34 @@
+<view class='detail' bindtouchmove='onPageMove' bindtouchend='onPageEnd'>
+    <image class='banner' src='{{coupon.couponImageList?coupon.couponImageList[0]?coupon.couponImageList[0].imgUrl:coupon.imgLogoUrl:coupon.imgLogoUrl}}' mode='widthFix' lazy-load></image>
+    <text class='main'>{{coupon.mainInfo}}</text>
+    <text class='price'>￥34.9<text style='color:#999;font-size:24rpx;margin-left:8rpx;'>价值120</text></text>
+    <view class='result'>
+        <view class='user'>
+            <view class='item' wx:for='{{coupon.user}}' wx:key='item'>
+                <image class='img' src='{{item.img}}' mode='widthFix' lazy-load></image>
+            </view>
+        </view>
+
+        <view class='time'>
+            <text class='cutdown'>00</text>:
+            <text class='cutdown'>00</text>:
+            <text class='cutdown'>00</text>后结束
+        </view>
+
+        <text class='share'>邀请好友拼团</text>
+    </view>
+
+    <view class='rule'>
+        <text class='title'>拼团规则</text>
+        <text>1.在成团有效期内，未达成相应参团人数，则该团失败</text>
+        <text>2.在成团有效期内，商品已提前售罄，若还未拼团成功，则该团失败</text>
+        <text>3.高峰期间，同时支付的人过多，团人数有限制，则以接收支付信息时间先后为准，超出该团人数限制的部分用户会拼团失败</text>
+        <text class='ruleNum'>4. 拼团失败的订单，系统会在3-5个工作日内处理订单，系统处理后1-7个工作日内退款将原路返回至原支付账户中。</text>
+        <text class='ruleNum'>5. 拼团成功的订单，不予以退款处理。</text>
+    </view>
+
+    <navigator url="/pages/index/index" open-type="switchTab" wx:if="{{isFromShare}}">
+        <image class="{{isMove?'go-home-hide':'go-home'}}" src='http://res.rtmap.com/wx/couponM/go_home.png' mode='widthFix'></image>
+    </navigator>
+
+</view>

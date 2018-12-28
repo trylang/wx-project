@@ -1,0 +1,138 @@
+/* rtmap/groupon/result/result.wxss */
+.head .img{
+  width: 100%;
+  height: 750rpx;
+}
+.content{
+  padding: 0 32rpx;
+}
+.title{
+  font-size: 36rpx;
+  font-weight:500;
+  color:rgba(0,0,0,1);
+}
+.tips{
+  font-size: 30rpx;
+  text-align: center;
+  margin-bottom: 38rpx;
+}
+.imgList{
+  text-align: center;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.imgItem{
+  display: inline-block;
+  position: relative;
+  padding-right: 32rpx;
+}
+
+.master{
+  position: absolute;
+  background-color: #F21B7B;
+  color: #fff;
+  font-size: 20rpx;
+  padding: 0 10rpx;
+  border-radius: 50rpx;
+  top: 0;
+  right: 0;
+}
+.imgList .img{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100rpx;
+}
+.userImg{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100rpx;
+}
+.time{
+  text-align: center;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+.Atime{
+  color: #fff;
+  background-color: #000;
+}
+.warp{
+  padding-top: 100rpx;
+}
+.info-price .price{
+  font-size: 30rpox;
+  font-weight:500;
+  color:#F21B7B;
+}
+.info-price .cost{
+  font-size: 24rpx;  
+  color:#000;
+  text-decoration:line-through;
+  padding-left: 8rpx;
+}
+.btn{
+  width: 400rpx;
+  line-height: 88rpx;
+  margin: 40rpx auto;
+  text-align: center;
+  border: 1rpx solid #F21B7B;
+  color: #F21B7B;
+  border-radius: 800rpx;
+  overflow: hidden;
+}
+.share{
+  background-color: #F21B7B;
+  color: #fff;
+}
+.rule{
+  margin-top: 16rpx;
+  background-color: #fff;
+  padding: 32rpx;
+}
+.rule_content{
+  margin-top: 5rpx;
+}
+.rule_content text{
+  display: block;
+  font-weight:400;
+  color:rgba(0,0,0,1);
+  margin-bottom: 5rpx;
+}
+.rule_content .ruleNum{
+    color:red;
+}
+.go-home {
+    position: fixed;
+    right: 15rpx;
+    top: 60%;
+    width: 100rpx;
+    height: 103rpx;
+}
+
+.go-home-hide {
+    position: fixed;
+    right: 0;
+    top: 60%;
+    transform: translate(50%, 0);
+    width: 100rpx;
+    height: 103rpx;
+    opacity: 0.5;
+}
+
+@keyframes dialogSlipToUp {
+    0% {
+        top: 100%;
+        opacity: 0.3;
+    }
+
+    100% {
+        top: 88%;
+        opacity: 1;
+    }
+}
+
+.show {
+    visibility: visible;
+    animation: dialogSlipToUp 0.3s linear both;
+}

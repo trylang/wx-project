@@ -1,0 +1,75 @@
+<import src="./comp/index.wxml" />
+<view class="container">
+    <view class="header">
+        <view class="tab {{cateState?cateState:'unuse'}}">
+            <view data-type="unuse" catchtap="headerHandler">未使用
+                <text hidden="{{!countOfUnuse}}">({{countOfUnuse}})</text>
+            </view>
+            <view data-type="used" catchtap="headerHandler">已使用
+                <text hidden="{{!countOfUsed}}">({{countOfUsed}})</text>
+            </view>
+            <view data-type="invalid" catchtap="headerHandler">已过期
+                <text hidden="{{!countOfInvalid}}">({{countOfInvalid}})</text>
+            </view>
+        </view>
+    </view>
+    <view class="body">
+        <view is="coupon_summary" wx:for="{{couponSummary}}" wx:key="{{item.id||item.couponId}}">
+        <view class="couponSummary {{item.class}} {{item.status==3?'used':''}} {{item.status==4?'invalid':''}}" data-couponId="{{item.id||item.couponId}}" data-couponActivityId="{{item.couponActivityId}}" data-qrCode="{{item.qrCode}}" catchtap="couponViewHandler">
+		<view class="main">
+			<view wx:if="{{item.categoryId==0}}">
+				<text class="title" style="font-size: 60rpx">{{item.discount}}</text>
+				<text>折</text>
+				<text class="type">{{item.categoryDesc}}</text>
+			</view>
+			<view wx:if="{{item.categoryId==1 || item.categoryId==7}}">
+				<text>￥</text>
+				<text class="title" style="font-size: 60rpx">{{item.unitPrice/100}}</text>
+				<text class="type">{{item.categoryDesc}}</text>
+			</view>
+			<view wx:if="{{item.categoryId==2}}">
+				<text>￥</text>
+				<text class="title" style="font-size: 60rpx">{{item.facePrice/100}}</text>
+				<text class="type">{{item.categoryDesc}}</text>
+			</view>
+			<view wx:if="{{item.categoryId==6}}">
+				<text class="title">免费</text>
+				<text class="type">{{item.categoryDesc}}</text>
+			</view>
+			<view wx:if="{{item.categoryId==700}}">
+				<text class="title">单品</text>
+				<text class="type">{{item.categoryDesc}}</text>
+			</view>
+			<view wx:if="{{item.categoryId==8}}">
+				<text class="title">品牌</text>
+				<text class="type">{{item.categoryDesc}}</text>
+			</view>
+			<view wx:if="{{item.categoryId==9}}">
+				<text class="title">通用</text>
+				<text class="type">{{item.categoryDesc}}</text>
+			</view>
+		</view>
+		<view class="extend">
+			<view>
+				<text class="title">{{item.mainInfo}}</text>
+				<text class="limit" wx:if="{{item.conditionType==1}}">满{{item.conditionPrice/100}}元可用</text>
+				<text class="limit" wx:else>无门槛</text>
+				<text class="date" wx:if="{{item.effectiveStartTime && item.effectiveEndTime}}">有效期: {{item.effectiveStartTime}} 至 {{item.effectiveEndTime}}</text>
+				<text class="date" wx:if="{{item.effectiveStartTime && !item.effectiveEndTime}}">有效期: 自{{item.effectiveStartTime}}起</text>
+			</view>
+			<view class="tag">
+				<image
+					class="used"
+					mode="aspectFit"
+					src="./assets/icon_used.png"></image>
+				<image
+					class="invalid"
+					mode="aspectFit"
+					src="./assets/icon_invalid.png"></image>
+			</view>
+		</view>
+	</view>
+        </view>
+        <text class="noMore">没有更多了</text>
+    </view>
+</view>

@@ -1,0 +1,46 @@
+<!--pages/shops/shops.wxml-->
+<view class='shop-container'>
+    <view class='shops'>
+        <view class="{{index==shops.length-1?'shoplast':'shop'}}" wx:for='{{shops}}' wx:key='item' data-index='{{index}}'>
+            <view class='shop-item'>
+                <view class='shop-logo'>
+                    <image class='logo' src='{{item.imgLogoUrl}}'></image>
+
+                    <view class='msg'>
+                        <text class='title'>{{item.shopName}}</text>
+                        <text class='floor'>{{item.floorId}}</text>
+                    </view>
+                </view>
+
+                <view class='shop-btn'>
+                    <view class='call' bindtap='onCallClick' style='padding-right:40rpx; border-right:2rpx #eee solid;' data-index='{{index}}'>
+                        <image src='../../../integralMall/images/call.png' mode='widthFix'></image>
+                    </view>
+
+                    <view class='call' style='margin-left:40rpx;' bindtap='navigationToShop' data-index='{{index}}'>
+                        <image src='../../../integralMall/images/go.png' mode='widthFix'></image>
+                    </view>
+                </view>
+            </view>
+
+        </view>
+    </view>
+    <!-- <view class='shop-info' wx:for="{{shops}}" wx:for-item="shop" wx:key="{{index}}">
+            <image class='shop-info-icon' src='{{shop.logoUrl}}' mode="scaleToFill"></image>
+            <view class='shop-info-content'>
+                <text class='shop-info-title'>{{shop.shopName}}</text>
+                <label class='shop-info-description'>
+                    <image src='../../static/images/location.png'></image>
+                    <text> {{shop.address?shop.address:''}}</text>
+                </label>
+                <view class='shop-info-navigation' bindtap='navigationToShop' data-index='{{index}}' wx:if="{{ shop.floorId && shop.x && shop.y && shop.buildId}}">
+                    <text>去这里</text>
+                </view>
+            </view>
+            <view class='shop-info-phone'>
+                <label bindtap='callShopPhone' data-index='{{index}}'>
+                    <image src='../../static/images/phone.png'></image>
+                </label>
+            </view>
+        </view>-->
+</view>

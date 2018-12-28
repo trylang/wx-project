@@ -1,0 +1,119 @@
+<!--pages/couponInfo/couponInfo.wxml-->
+<wxs module="m1">
+    var getStatusDesc = function(status) {
+        var statusDesc = undefined;
+        var statusMap = {
+            '2': {
+                en: 'ctive'
+            },
+            '3': {
+                en: 'use',
+                tip: '已使用'
+            },
+            '4': {
+                en: 'expired',
+                tip: '已过期'
+            },
+            '7': {
+                en: 'retreat',
+                tip: '已退券'
+            }
+        }
+        return statusMap[status];
+    }
+
+    module.exports.getStatusDesc = getStatusDesc;
+</wxs>
+<view class='couponInfor' ontouchstart="echossTouchStart" ontouchmove="echossTouchMove" ontouchend="echossTouchEnd" ontouchcancel="echossTouchCancel">
+    <view class='title'>
+        <text>{{couponInfo.mainInfo}}</text>
+    </view>
+    <view class='rule'>
+        <text>{{couponInfo.extendInfo?couponInfo.extendInfo:''}}</text>
+    </view>
+    <view class="canvas-box" style="display: block;">
+        <canvas wx:if="{{!imagePath}}" hidden="{{couponInfo.status!=2}}" style="width: 400rpx;height: 400rpx;background:#f1f1f1; margin: 0 auto;" canvas-id="mycanvas" />
+        <view wx:else hidden="{{couponInfo.status!=2}}">
+           <image  class="code-img" src="{{imagePath}}"/>
+        </view>
+        <view class='invalid  {{statusMap[couponInfo.status].en}}' hidden="{{couponInfo.status==2}}">
+            <image class='invalidImg' src="../../images/tmp_qrcode.jpg"></image>
+            <view class='model'></view>
+            <view class='invalidIcon'></view>
+            <view class='statusText'>{{statusMap[couponInfo.status].tip}}</view>
+        </view>
+
+    </view>
+    <view class='code'>
+        <text>{{couponInfo.qrCode}}</text>
+    </view>
+    <view class='shops' hidden='{{shops.length<=0}}'>
+        <view class='shop'>
+            <view class='shop-logo' bindtap='queryMoreShops'>
+                <image class='logo' src='{{shops[0].imgLogoUrl}}' mode='widthFix'></image>
+                <view class='msg'>
+                    <text class='titleshop'>{{shops[0].shopName?shops[0].shopName:''}}</text>
+                    <text class='floor'>{{bbgFloor}}</text>
+                </view>
+            </view>
+
+            <view class='shop-btn'>
+                <view class='call' style='padding-right:40rpx; border-right:2rpx #eee solid;' bindtap='onCallClick'>
+                    <image src='../../../integralMall/images/call.png' mode='widthFix'></image>
+                </view>
+
+                <view class='call' style='margin-left:40rpx;' bindtap='navigationToShop'>
+                    <image src='../../../integralMall/images/go.png' mode='widthFix'></image>
+                </view>
+            </view>
+        </view>
+        <text style='color:#F21B7B;font-size:24rpx;padding:32rpx 0 0 0;' bindtap='queryMoreShops'  hidden='{{shops.length<=1}}'>查看全部使用店铺</text>
+    </view>
+    <view class="tip">
+        <view class="tip_title" wx:if="{{validTime}}">有效期</view>
+        <text class="tip_content" wx:if="{{validTime}}">{{validTime}}</text>
+        <view class="tip_title" style='margin-top:40rpx;'>
+            使用须知
+        </view>
+
+        <rich-text nodes="{{couponInfo.descClause}}" class="tip_content"></rich-text>
+        <view class="write-off" hidden="{{couponInfo.status!=2||showBtn}}">
+            <image bindtap="callCkitPage" v-if="showSeal == true" src="http://res.rtmap.com/wx/seal/writeoff.png"></image>
+        </view>
+         <!--弹窗-->
+    <view hidden='{{!isShow}}' catchtouchmove='start'>
+        <view class='wx-mask'></view>
+        <view class="{{isShow?'wx-dialog show':'wx-dialog hide'}}">
+            <view class='dialog-title'>
+                <view class='dialog-title-content'>
+
+                    <text style='margin-top:150rpx;'>{{convertData.title}}</text>
+                    <text style='margin-top:30rpx;' hidden='{{!convertData.content}}'>{{convertData.content}}</text>
+
+                    <view class='dialog-convert' hidden='{{!convertData.convert}}'>
+                        <text>{{convertData.convert}}</text>
+                    </view>
+                </view>
+
+                <view class='dialog-title-ok' bindtap='hideALert'>
+                    <text>确定</text>
+                </view>
+
+                <image src='{{convertData.titleImg}}'></image>
+            </view>
+        </view>
+    </view>
+        <!-- <view class="tip_content" wx:for="{{couponInfo.descClause}}">
+    {{item}}
+  </view> -->
+    </view>
+  <!--   <div class="present" hidden='{{!couponInfo.couponActivityId}}'>
+         <image class='give' src='../../images/give_friend.png' mode='widthFix' bindtap='onGiveFriendClick'></image>
+         <button class="present-share" open-type="share"></button>
+    </div> -->
+
+    <import src="../../../../utils/certificationKit/ckit.wxml" />
+    <template is="certificationKit" data="{{echossData: echossData}}"></template>
+    <import src="../../../../utils/certificationKit/echoss/echossAuth.wxml" />
+    <template is="echossAuth" data="{{echossData: echossData}}"></template>
+</view>

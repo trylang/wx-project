@@ -1,0 +1,56 @@
+<view class="_signin_">
+    <view class="header" wx:if="{{banner}}">
+        <image class="banner" mode="aspectFill" src="{{banner}}" />
+        <view class="moon" wx:if="{{today}}">
+            <view class="month">{{todayMonth}}</view>
+            <view class="date">{{todayDate}}</view>
+        </view>
+        <view class="sign">已累计签到
+            <view>{{continuity}}</view>天</view>
+        <view class="wave wave10"></view>
+        <view class="wave wave7"></view>
+    </view>
+    <view class="calendar">
+        <view class="week">
+            <view>日</view>
+            <view>一</view>
+            <view>二</view>
+            <view>三</view>
+            <view>四</view>
+            <view>五</view>
+            <view>六</view>
+        </view>
+        <view class="day" wx:for="{{weekDays}}" wx:key="item">
+            <view wx:for="{{item}}" wx:for-item="aItem" wx:for-index="aIndex" wx:key="aItem" class="{{[aItem.disabled?'disabled':'', aItem.signIn?'signIn':'']}}">{{aItem.date}}</view>
+        </view>
+    </view>
+    <view class="confirm">
+        <view class="{{['button round', todaySignIn?'disabled':'']}}" bindtap="signIn">{{todaySignIn?buttonDisabled:buttonNormal}}</view>
+    </view>
+
+
+    <view class="rules">
+        <!-- <view class="rule" wx:for="{{rules}}" wx:key="item">{{item}}</view> -->
+
+        <rich-text nodes='{{rules}}'></rich-text>
+    </view>
+
+    <view hidden='{{!isShow}}' catchtouchmove='start'>
+        <view class='wx-mask'></view>
+        <view class="{{isShow?'wx-dialog show':'wx-dialog hide'}}">
+            <view class='dialog-title'>
+                <view class='dialog-title-content'>
+
+                    <text style='color:#333;font-size:36rpx;margin-top:110rpx;'>签到成功</text>
+                    <text style='color:#333;font-size:36rpx;margin-top:30rpx;'>{{signContent}}</text>
+                </view>
+
+                <view class='dialog-title-ok' bindtap='_cancelEvent'>
+                    <text>确定</text>
+                </view>
+
+                <image src='/rtmap/sign/images/icon_alert_signin.png'></image>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,50 @@
+<!--rtmap/coupons/components/outCouponList/outCouponList.wxml-->
+<!-- 优惠券 -->
+<view class='coupons' wx:if='{{ businessTypes.length > 0}}'>
+    <!--业态列表-->
+    <scroll-view scroll-x class='businesstypes-list'>
+        <view class='businesstypes-list-content'>
+            <view class="businesstypes-list-item{{ businessTypesCurrent === index?' selected-item':''}}" wx:for='{{ businessTypes }}' wx:key="{{index}}" wx:for-item="type" bindtap='_selectedBusinessType' data-index='{{index}}'>
+                <text>{{type.name}}</text>
+            </view>
+        </view>
+    </scroll-view>
+    <!--优惠券列表-->
+    <view class='coupons-list'>
+        <view class='coupons-list-cell' wx:for="{{ coupons[businessTypes[businessTypesCurrent].id].list }}" wx:key="coupon" wx:for-item="coupon" bindtap='selectedCoupon' data-index='{{index}}'>
+            <image class='coupon-bg' src='/rtmap/coupons/static/images/coupon_fg.png'></image>
+            <image class='coupon-icon' src='{{coupon.imgUrl}}' mode="scaleToFill"></image>
+            <view class='coupon-info'>
+                <view class='coupon-info-titles'>
+                    <text class='coupon-info-title'>{{coupon.mainInfo}}</text>
+                    <text class='coupon-info-description'>{{coupon.extendInfo}}</text>
+                    <view class='coupon-info-shopv' hidden='{{coupon.isAllshops==1||coupon.applyShops.length>1}}'>
+                        <text class='coupon-info-shop'>{{coupon.applyShops[0].shopName}}</text>
+                    </view>
+                </view>
+                <view class='coupon-payment-info'>
+                    <view class='coupon-info-price'>
+                        <block wx:if="{{ coupon.buyType == 1 }}">
+                            <text class="coupon-info-discount}}">免费</text>
+                        </block>
+                        <block wx:elif="{{ coupon.buyType == 2 }}">
+                            <text style='font: medium; color: #F21B7B; font-size: 24rpx;'>￥</text>
+                            <text class="coupon-info-discount number}}">{{coupon.buyPrice?coupon.buyPrice/100:''}}</text>
+                        </block>
+                        <text class='coupon-info-orginprice'>{{coupon.facePrice?'价值￥'+coupon.facePrice/100:''}}</text>
+                    </view>
+                    <block wx:if="{{ coupon.buyType == 1 }}">
+                        <view class="coupon-gain-button free">
+                            <text>领取</text>
+                        </view>
+                    </block>
+                    <block wx:elif="{{ coupon.buyType == 2 }}">
+                        <view class="coupon-gain-button payment">
+                            <text>购买</text>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

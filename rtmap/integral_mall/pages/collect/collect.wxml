@@ -1,0 +1,19 @@
+<view class='collectWrapper'>
+    <scroll-view scroll-y="{{false}}">
+        <view class="collect_list {{item.state == 1?'back':''}}" wx:for="{{collectList}}" wx:key="unique" data-data="{{item}}" bindtap='enterDetail'>
+            <view class='logo'><image src='{{item.logoUrl}}'></image></view>
+            <view class='right'>
+                <view class='title'>{{item.mainInfo}}</view>
+                <view class='price'><text>{{item.minPrice}}</text> 积分</view>
+                <view class='collect_num'>{{item.collectionNum}}人收藏</view>
+            </view>
+            <view class='xiajia' wx-if="{{item.state == 1}}"><image src='http://res.rtmap.com/wx/integral_mall/xiajia.png' mode='widthFix'></image></view>
+        </view>
+        <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+        <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+    </scroll-view>  
+    <view class='noData' wx:if='{{collectList.length<=0}}'>
+        <image src='http://res.rtmap.com/wx/integral_mall/fail.png' mode='widthFix'></image>
+        <text>暂无数据</text>
+    </view>
+</view>

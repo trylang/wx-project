@@ -1,0 +1,104 @@
+/* rtmap/coupons/pages/setting/setting.wxss */
+
+.list-head {
+    width: 750rpx;
+    background: white;
+    margin-bottom: 16rpx;
+    padding: 80rpx 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list-head image {
+    width: 120rpx;
+    height: 120rpx;
+    /* border-radius: 60rpx; */
+}
+
+.app-name {
+    margin-top: 40rpx;
+    color: black;
+    font-size: 36rpx;
+    font-weight: 500;
+    line-height: 50rpx;
+}
+
+.app-version {
+    margin-top: 16rpx;
+    color: #999;
+    font-size: 30rpx;
+    line-height: 42rpx;
+}
+
+.list {
+    width: 750rpx;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cell {
+    box-sizing: border-box;
+    width: 686rpx;
+    height: 100rpx;
+    padding: 0 16rpx;
+    border-bottom: #eee 2rpx solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cell-detail {
+    display: flex;
+    align-items: center;
+}
+
+.cell-detail text {
+    color: black;
+    font-size: 30rpx;
+    line-height: 42rpx;
+    font-weight: 500;
+    margin-left: 16rpx;
+}
+
+.cell-accessory {
+    display: flex;
+    align-items: center;
+}
+
+.cell-accessory text {
+    color: #999;
+    font-size: 30rpx;
+    line-height: 42rpx;
+    font-weight: 500;
+    margin-right: 26rpx;
+}
+
+.cell-accessory-icon {
+    width: 14rpx;
+    height: 24rpx;
+}
+
+.exit {
+    position: fixed;
+    bottom: 152rpx;
+    left: 50%;
+    width: 372rpx;
+    height: 80rpx;
+    border-radius: 40rpx;
+    border: 2rpx #f21b7b solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    background: white;
+}
+
+.exit text {
+    font-weight: 500;
+    font-size: 36rpx;
+    color: #f21b7b;
+}

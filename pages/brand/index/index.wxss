@@ -1,0 +1,275 @@
+/* *index.wxss* */
+@import "../../components/band_con/index.wxss";
+page .body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+page{
+	overflow-x:hidden;
+}
+page .scroll-fixed{
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.body{
+	width: 100%;
+	background-color:#fff;
+	font-family:PingFangSC;
+	box-sizing: border-box;
+}
+.top-search{
+	width:686rpx;
+	height:88rpx;
+	background-color: #F5F5F5;
+	margin: 32rpx  32rpx;
+	position: relative;
+}
+.ion-search{
+	font-weight: 3px;
+	position: absolute;
+	top:30rpx ;
+	left: 33rpx;
+	font-weight: bold;
+	box-sizing: border-box;
+}
+.input-search{
+	height: 100%;
+	font-size: 30rpx;
+	margin-left: 82rpx;
+	box-sizing: border-box;
+}
+.top-navigator{
+	display: -webkit-flex;
+    flex-direction: row;
+    height: 88rpx;
+    width: 750rpx;
+    font-size: 30rpx;
+    border-top: 2rpx solid #EEE;
+    border-bottom: 2rpx solid #EEE;
+    box-sizing: border-box;
+}
+.top-navigator view{
+	text-align: center;
+	flex: 1;
+	line-height: 88rpx;
+    /* font-weight: bold; */
+}
+.bor-con{
+	color: #999999;
+}
+.conHide{
+	display: none;
+}
+.search-history{
+	color: #999999;
+	font-size: 30rpx;
+	margin: 32rpx;
+	font-size: 30rpx;
+}
+.history-cons{
+	display: -webkit-flex;
+	white-space:normal;
+	word-wrap: break-word;
+	width: 750rpx;
+	padding: 16rpx;
+}
+.con-history{
+	padding-left: ;
+	background-color: #F5F5F5;
+	padding: 16rpx 32rpx;
+	white-space:nowrap;
+	font-size: 24rpx;
+	margin: 16rpx;
+}
+.navigator-brand{
+	display: -webkit-flex;
+	flex-direction:column;
+	width: 100%;
+	z-index: 10;
+	position: absolute;
+	top : 238rpx;
+	/* height: 600rpx; */
+	overflow: auto;
+	white-space:nowrap;
+}
+.navigator-brand .navigator-content{
+	font-size: 30rpx;
+	padding: 32rpx 0;
+	text-align: center;
+	background-color: #fff;
+	border-bottom: 2rpx solid rgba(238,238,238,1);
+}
+.body .navigator-name{
+	color: #F21B7B;
+}
+.navigator-content{
+	color: #000;
+}
+.opacityNavigator{
+	position: absolute;
+	top: 239rpx;
+	background:rgba(0,0,0,1);
+	opacity:0.5;
+	z-index: 1;
+	width: 100%;
+	min-height: 1800rpx;
+	z-index: 1;
+}
+.triangleParent{
+	position: relative;	
+}
+.top_title{
+	width: 150rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap; 
+	margin-left: 32rpx;
+}
+.triangle{
+	height: 0;
+	width: 0;
+	border-bottom:6rpx solid #fff;
+	border-right:6rpx solid #fff;
+	position: absolute;
+	right: 43rpx;
+}
+.rorate-bot{
+	transform: rotate(47deg);
+	border-top: 6rpx solid  #F21B7B;
+	border-left:6rpx solid  #F21B7B;
+	top: 43rpx;
+}
+.rorate-top{
+	transform: rotate(-135deg);
+	border-top: 6rpx solid #000;
+	border-left:6rpx solid #000;
+	top: 35rpx;
+}
+.navigator-letter{
+	padding: 10rpx 10rpx;
+	border: 2rpx solid #333;
+	font-size: 30rpx;
+	border-radius: 12rpx;
+	margin: 10rpx 20rpx;
+
+}
+.letter-panter{
+	z-index: 10;
+	position: absolute;
+	top : 212rpx;
+	display:-webkit-flex;
+	padding: 4rpx 8rpx;
+	background-color: #fff;
+	flex-wrap: wrap;
+	padding: 10rpx;
+}
+.record-con{
+	font-size: 30rpx;
+	text-align: center;
+}
+.search-no image{
+	height: 99rpx;
+	width: 90rpx;
+	margin:80rpx 336rpx;
+}
+.all-title{
+	padding: 32rpx;	
+}
+.all-logo{
+	display: flex;
+	width: 36rpx;
+	height: 34rpx;
+	flex-wrap: wrap;
+	margin-top: 10rpx;
+}
+.baby-basic{
+	border-bottom: 16rpx solid #F5F5F5;	
+	padding-bottom: 32rpx;
+}
+.basic-title{
+	display: -webkit-flex;
+	flex-direction:row;
+	justify-content: space-between;
+	padding: 32rpx;
+	box-sizing: border-box;
+}
+.pan-logo{
+	display: flex;
+	font-size: 36rpx;
+	color: #000;
+	font-weight:500;
+	height: 42rpx;
+	line-height: 42rpx;
+}
+.basic-logo{
+	width: 26rpx;
+	height: 42rpx;
+	margin-right: 16rpx;
+}
+.even-more{
+	font-size: 24rpx;
+}
+.all-logo{
+	margin-right: 14rpx;
+}
+.all-logo view{
+	width: 13rpx;
+	height: 13rpx;
+	background: #000;
+	margin: 0 2rpx;
+}
+.garden-yellow{
+	height: 38rpx;
+	width: 50rpx;
+	background: #F8C71D;
+	border-bottom-left-radius:50rpx;
+	font-size: 20rpx;
+	text-align:center;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.brand-img{
+	overflow-x: auto;
+	white-space:nowrap; 
+	display: flex;
+}
+.brand-img::-webkit-scrollbar {
+        display: none;
+}
+.brand-img image{
+	width: 170rpx;
+	height: 170rpx;
+}
+.basic-name{
+	font-size: 30rpx;
+	width: 170rpx;
+	white-space:normal;
+}
+.basic-con{
+	text-align: center;
+	width: 170rpx;
+	margin:0 25rpx;
+}
+.all-logo .logo-fff{
+	border: 2rpx solid #000;
+	background: #fff;
+	box-sizing: border-box;
+}
+.all-title{
+	display: flex;
+	font-size: 36rpx;
+	color: #000;
+	font-weight:500;
+	padding: 32rpx 32rpx 0;
+	height: 44rpx;
+	line-height: 44rpx;
+}
+.navigator-brand-list{
+    height:650rpx;
+}

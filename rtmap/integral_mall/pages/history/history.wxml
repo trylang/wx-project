@@ -1,0 +1,15 @@
+<view class='historyWrapper'>
+    <scroll-view scroll-y="{{false}}">
+        <view class="history_list" wx:for="{{historyList}}" wx:key="unique" data-data="{{item}}" bindtap='enterDetail'>
+            <view class='title'>{{item.mainInfo}}</view>
+            <view class='time'>{{item.orderTime}}</view>
+            <view class='integral_num'><text wx-if='item.price>0'>-</text>{{item.price}}</view>
+        </view>
+        <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+        <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+    </scroll-view>  
+    <view class='noData' wx:if='{{historyList.length<=0}}'>
+        <image src='http://res.rtmap.com/wx/integral_mall/fail.png' mode='widthFix'></image>
+        <text>暂无数据</text>
+    </view>
+</view>

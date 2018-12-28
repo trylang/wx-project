@@ -1,0 +1,51 @@
+/* couponM/pages/couponDist/couponDistShare/couponDistShare.wxss */
+
+.share-top {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0 96rpx;
+}
+
+.share-top .txt{
+    font-size: 28rpx;
+    color: #010101;
+}
+
+.share-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 32rpx 0 0 0;
+}
+
+.share-friend{
+    width: 250rpx;
+    height: 88rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2rpx #F21B7B solid;
+    border-radius: 44rpx;
+}
+
+.share-friend text{
+    color: #F21B7B;
+    font-size: 36rpx;
+}
+
+.share-save{
+    width: 250rpx;
+    height: 88rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F21B7B;
+    border-radius: 44rpx;
+}
+
+.share-save text{
+    color: #fff;
+    font-size: 36rpx;
+}

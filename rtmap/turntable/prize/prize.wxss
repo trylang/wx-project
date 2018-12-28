@@ -1,0 +1,93 @@
+page{
+	background: #F5F5F5;
+}
+button:after{
+	border: none;
+}
+.header{
+	width: 100%;
+	height: 100rpx;
+	margin-top: 20rpx;
+	background: #fff;
+	line-height: 100rpx;
+}
+.tab-list{
+	display: flex;
+}
+.tab-item{
+	flex: 1;
+	text-align: center;
+	font-size: 30rpx;
+}
+.tab-status{
+	display: inline-block;
+	line-height: 100rpx;
+}
+.status-active{
+	border-bottom: 1rpx solid #FF455E; 
+	color: #FF455E;
+}
+.coupon-item{
+	width: 670rpx;
+	margin: 0 auto;
+	margin-top: 22rpx;
+	position: relative;
+}
+.coupon-bg{
+	width: 670rpx;
+}
+.coupon-content{
+	width: 100%;
+	height: 160rpx;
+	position: absolute;
+	left: 0rpx;
+	top: 0rpx;
+	z-index: 4;
+	display: flex;
+	justify-content: space-between;
+}
+.coupon-left{
+	width: 466rpx;
+	font-size: 20rpx;
+	padding-left: 40rpx;
+	padding-top: 30rpx;
+	line-height: 28rpx;
+	color: #fff;
+}
+.title{
+	font-size: 24rpx;
+	line-height: 34rpx;
+	padding-bottom: 10rpx;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.use-btn{
+	color: #FD6159;
+	width: 138rpx;
+	height: 40rpx;
+	background: #fff;
+	padding: 0;
+	border-radius: 20rpx;
+	font-size: 24rpx;
+	text-align: center;
+	line-height: 40rpx;
+	margin-right:26rpx;
+	margin-top: 64rpx;
+}
+.no-price-image{
+	width: 192rpx;
+	margin-top: 148rpx;
+}
+.no-coupon{
+	text-align: center;
+	line-height: 40rpx;
+	font-size: 28rpx;
+	color: #999;
+	margin-top: 50rpx;
+}
+.coupon-update-logo{
+	margin-right: 32rpx;
+	margin-top: 22rpx;
+	width: 116rpx;
+}

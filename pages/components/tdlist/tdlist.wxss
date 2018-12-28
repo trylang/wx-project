@@ -1,0 +1,86 @@
+/* pages/components/tdlist/tdlist.wxss */
+
+page .body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+page{
+	overflow-x:hidden;
+}
+page .scroll-fixed{
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.body{
+	width: 100%;
+	background-color:#f5f5f5;
+	font-family:PingFangSC;
+	box-sizing: border-box;
+	font-size: 24rpx;
+}
+/* .content{
+  margin:32rp 16rpx;
+  column-count:2;
+  column-gap: 0px;
+  width: 100%;
+} */
+/* .content{
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+	padding:16rpx 24rpx ;
+	box-sizing: border-box;
+	justify-content : space-between;
+} */
+.content{
+	overflow: hidden;
+	margin: 0rpx auto 32rpx;
+	width: 700rpx;
+}
+.outer_sphere{
+	float: right;
+}
+.tdtt_content{
+	background: #fff;
+	width: 334rpx;
+	margin: 16rpx 8rpx;
+}
+.content image{
+	width: 334rpx;
+}
+.sotreTitle{
+	padding: 16rpx;
+}
+.content-bottom{
+	display: flex;
+	justify-content: space-between;
+	padding:0 16rpx;
+	height: 44rpx;
+	line-height: 44rpx;
+	box-sizing: border-box;
+}
+.text_ellipsis{
+	flex: 1;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap; 
+}
+.browse-con{
+	display: flex;
+	color: #999;
+	font-size: 24rpx;
+	height: 44rpx;
+	line-height: 44rpx;
+	justify-content:flex-end;
+	width: 40%;
+}
+.browse-con image{
+	width:30rpx;
+	height: 20rpx;
+}
+/* pages/tdtt_world/index/index.wxss */

@@ -1,0 +1,69 @@
+<!--index.wxml-->
+<view class="body  {{scrollfixed}}">
+	<view class="top-search">
+		<icon color="#000" type="search" size="14" class="ion-search" ></icon>
+		<input class="input-search" placeholder="请输入店铺名称查询" bindtap="inputbind" disabled/>
+	</view>
+  <view class="top-navigator">
+      <view class="{{levelC}} triangleParent" bindtap="level">
+        <view class="top_title">{{levelName}}</view>
+        <view  class="triangle {{levelCtriangleRotate}}"></view>
+      </view>
+      <view class="{{businessC}} triangleParent" bindtap="business">
+        <view class="top_title">{{businessName}}</view>
+        <view class="triangle {{businessCtriangleRotate}}"></view>
+      </view>
+      <view class="{{discountsC}} triangleParent" bindtap="discounts">{{discountsName}}<view class="triangle {{discountsCtriangleRotate}}"></view></view>
+  </view>
+  <view class="baby-basic" wx:if="{{poilist.length!=0}}">
+    <view class="basic-title">
+      <view class="pan-logo">
+        <image class="basic-logo" src="../../../images/brand/basic-logo.png"></image >
+        <view>推荐品牌</view>
+      </view>
+    </view>
+      <view class="brand-img" style="">
+        <view class="basic-con" wx:for="{{poilist}}" wx:key="{{index}}" bindtap="goDetails"   data-poiNo="{{item.poiNo}}" data-floor="{{item.floor}}" data-text="{{item.id}}">
+            <image class="con-img" src="{{item.poiLogo}}">
+              <view class="garden-yellow">{{item.floorview?item.floorview:item.floor}}</view>
+            </image>
+            <view class="basic-name">{{item.poiName}}</view>
+        </view>
+      </view>
+  </view>
+  <view >
+    <view class="all-title">
+      <view class="all-logo">
+        <view></view><view></view><view></view><view class="logo-fff"></view>
+      </view>
+      <view>所有品牌</view>
+    </view>
+  <include src="../../components/band_con/index.wxml"  style="height:{{heibody}}px;"/> 
+  </view>
+  <!-- 导航栏 -->
+  <view class="{{navigatorBrand}} opacityNavigatorPanter" catchtouchmove='handleclick'>
+    <view class="{{navigatorOld}}" catchtouchmove="myTouchmove">
+      <view class="navigator-brand">
+        <scroll-view scroll-y>
+            <view class="navigator-brand-list">
+         <view  class="navigator-content" data-text="{{navigatorName}}+{{item.name}}+{{item.vlaue}}" bindtap="navigatorHideName" wx:if="{{navigatorName}}">{{navigatorName}}</view>
+         <view class="navigator-content {{bindCont==item.vlaue?'navigator-name':''}}"  data-text="{{navigatorName}}+{{item.name}}+{{item.vlaue}}" bindtap="getItems" wx:key="{{index}}" wx:for="{{navigatorContent}}">{{item.vlaue}}</view>
+            </view>
+         </scroll-view>
+       </view>
+    </view>
+     <!-- 优惠信息 -->
+     <view class="{{navigatorLetter}}">
+        <view class=" letter-panter ">
+          <view class="navigator-letter {{bindCont==item.vlaue?'navigator-name':''}}" wx:key="{{index}}" wx:for="{{navigatordiscounts}}"  data-text="{{item.vlaue}}+{{item.name}}" bindtap="getItemsDiscounts">{{item.vlaue}}</view>
+        </view>
+      </view>
+    <view class="opacityNavigator" bindtap="navigatorHide"  > </view>
+ </view>
+
+ <view class="{{noItems}} record-con search-no">
+      <image src="../../../images/brand/seach-no.png"></image>
+      <view clas="">抱歉，没有找到</view>
+      <view clas="">{{delVal}}相关的品牌或店铺</view>
+ </view>
+</view>

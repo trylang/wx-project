@@ -1,0 +1,109 @@
+<view class='group-container'>
+    <view class='tips'>
+        <image src='http://res.rtmap.com/wx/couponM/tip.png' mode='widthFix'></image>
+        <text>本组合可为您节省{{(product.product.costPrice-product.product.price)/100}}元</text>
+    </view>
+
+    <view class='coupons-list-cell' wx:for="{{ product.list }}" wx:key="coupon" wx:for-item="coupon" bindtap='selectedCoupon' data-index='{{index}}'>
+        <view class='coupon-image'>
+            <image class='coupon-icon' src='{{coupon.logoUrl}}' mode="aspectFill"></image>
+            <view class='fourCircle' hidden='{{coupon.shop==null}}'>
+                <text>{{coupon.shop.floorId}}</text>
+            </view>
+        </view>
+        <view class='coupon-info'>
+            <view class='coupon-info-titles'>
+                <text class='coupon-info-title'>{{coupon.mainInfo}}</text>
+                <text class='coupon-info-description'>{{coupon.extendInfo}}</text>
+                <view class='coupon-info-shopv' hidden='{{coupon.shop==null}}'>
+                    <text class='coupon-info-shop'>{{coupon.shop.name}}</text>
+                </view>
+            </view>
+            <view class='coupon-payment-info'>
+                <view class='coupon-info-price'>
+                    <block wx:if="{{ coupon.price == 0 }}">
+                        <text class="coupon-info-discount}}">免费</text>
+                    </block>
+                    <block wx:else>
+                        <text style='font: medium; color: #F21B7B; font-size: 24rpx;'>价值</text>
+                        <text class="coupon-info-discount number}}">{{coupon.price?coupon.price/100+'元':''}}</text>
+                    </block>
+                </view>
+            </view>
+        </view>
+
+        <image class='coupon-bg' src='http://res.rtmap.com/wx/couponM/coupon_fg.png'></image>
+    </view>
+
+    <view class='coupon-buy'>
+        <view class='buy-title'>
+            <text>购买须知</text>
+            <view class='buy-title-right'>
+                <view class='line'></view>
+                <label>
+                    <image src='http://res.rtmap.com/wx/couponM/share.png' mode='widthFix'></image>
+                    <button open-type='share'></button>
+                </label>
+            </view>
+        </view>
+
+        <rich-text nodes='{{product.product.descClause}}'></rich-text>
+    </view>
+    <view class="excell show" hidden="{{hideBuy=='true'}}">
+        <view class='paymsg'>
+            <view class='pay-table'>
+                <text class='conv'>{{product.product.price?'￥'+product.product.price/100:''}}</text>
+                <text class='money' hidden="{{!product.product.costPrice}}">价值￥{{product.product.costPrice/100}}</text>
+            </view>
+        </view>
+        <view class='pay {{buttonClicked == "no" ? "" : "disabled" }}' bindtap='buyCoupon' style="background: #f21b7b;">
+            <text>立即购买</text>
+        </view>
+    </view>
+
+    <!--弹窗-->
+    <view class='modal-dialog' bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}">
+        <view class="modal-mask"></view>
+        <view class="modal-content{{modalType !== 'login'?' coupon':''}}" catchtap='tapModalContent'>
+
+            <!-- 领取优惠券成功 -->
+            <block wx:if="{{modalType === 'coupon_success'}}">
+                <image class='modal-dialog-coupon-top-image' src='http://res.rtmap.com/wx/couponM/smile.png'></image>
+                <text class='modal-dialog-coupon-title'>优惠券购买成功</text>
+                <view class='modal-dialog-coupon-buttons'>
+                    <view class='modal-dialog-coupon-button other' bindtap='useCoupon'>
+                        <text>去使用</text>
+                    </view>
+                    <view class='modal-dialog-coupon-button use' bindtap='showOtherCoupons'>
+                        <text>继续购买</text>
+                    </view>
+                </view>
+            </block>
+
+            <!-- 领取优惠券失败 超过规定数量 -->
+            <block wx:elif="{{modalType == 'coupon_fail_upper'}}">
+                <image class='modal-dialog-coupon-top-image' src='http://res.rtmap.com/wx/couponM/lower.png'></image>
+                <text class='modal-dialog-coupon-title'>{{message}}</text>
+                <view class='modal-dialog-coupon-buttons'>
+                    <view class='modal-dialog-coupon-button fail-other' bindtap='showOtherCoupons'>
+                        <text>看看其他</text>
+                    </view>
+                </view>
+            </block>
+
+            <!-- 领取优惠券失败 库存不足 -->
+            <block wx:elif="{{modalType === 'coupon_fail_understock'}}">
+                <image class='modal-dialog-coupon-top-image' src='http://res.rtmap.com/wx/couponM/lower.png'></image>
+                <text class='modal-dialog-coupon-title'>商品已售罄</text>
+                <view class='modal-dialog-coupon-buttons'>
+                    <view class='modal-dialog-coupon-button fail-other' bindtap='showOtherCoupons'>
+                        <text>看看其他</text>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <navigator url="/pages/index/index" open-type="switchTab" wx:if="{{isFromShare == 'true'}}">
+        <image class="{{isMove?'go-home-hide':'go-home'}}" src='http://res.rtmap.com/wx/couponM/go_home.png' mode='widthFix'></image>
+    </navigator>
+</view>

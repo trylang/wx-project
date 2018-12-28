@@ -1,0 +1,119 @@
+
+  .wrap {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 99999999;
+  }
+  .cover {
+    background: #000;
+    opacity: .5;
+    position: fixed;
+    z-index: 998;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+  .dialog-content {
+    width: 600rpx;
+    position: fixed;
+    background: #fff;
+    text-align: center;
+    top: 20%;
+    left: 50%;
+    margin-left: -300rpx;
+    z-index: 99999;
+    border-radius: 30rpx;
+    padding-bottom: 40rpx;
+  }
+  .icon{
+      width: 190rpx;
+  }
+  .dialog-close {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .dialog-close:hover {
+    color: #4fc08d;
+  }
+  .title{
+      font-size: 40rpx;
+      color: #E53A3A;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 60rpx;
+      padding-bottom: 36rpx;
+  }
+  .sorry-title{
+      width: 320rpx;
+      margin: 0 auto;
+      margin-top: 60rpx;
+      line-height: 56rpx;
+      color: #999999;
+  }
+  .wrap{
+     position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .modal-content{
+      font-size: 36rpx;
+      color: #666;
+      line-height: 50rpx;
+      padding-bottom: 34rpx;
+  }
+ .market_name{
+    width: 252rpx;
+    height: 66rpx;
+    background: #2d2d2d;
+    color: #fff;
+    font-size: 28rpx;
+    line-height: 66rpx;
+    border-radius: 33rpx;
+    margin-top: 42rpx;
+}
+.market-index{
+    width: 262rpx;
+    height: 66rpx;
+    background: #2d2d2d;
+    box-shadow: 0 4rpx 0 #000;
+    color: #fff;
+    font-size: 22rpx;
+    line-height: 66rpx;
+    padding: 0;
+    border-radius: 33rpx;
+    margin-top: 42rpx;
+    margin-bottom: 10rpx;
+}
+.share-name{
+    background: #ff2941;
+    box-shadow: 0 4rpx 0 #fff;
+}
+.btn-container{
+  display: flex;
+  width: 100%;
+  text-align: center;
+}
+.share-info{
+  width: 200rpx;
+  margin: 0 auto;
+  font-size: 24rpx;
+  background: transparent;
+  padding: 0;
+  line-height: 34rpx;
+  color: #FD6159;
+  padding: 0 10rpx;
+  border-radius: 0;
+  padding-top: 40rpx;
+  border-bottom: 2rpx  solid #FD6159;
+}
+.share-info::after{
+  border: none;
+}

@@ -1,0 +1,21 @@
+<!--components/couponitem/couponitem.wxml-->
+<view class="couponitem {{data.status!==2?'expired':''}}" id="{{data.qrCode}}" bindtap="tolink">
+    <view class='content'>
+        <view class='title'>
+            {{data.mainInfo}}
+        </view>
+        <view wx:if="{{data.extendInfo}}" class='rule'>
+            <view class='rule_befor'>
+                <view></view>
+            </view>
+            <view>{{data.extendInfo||""}}</view>
+        </view>
+        <view class='rule'>
+            <view class='rule_befor'>
+                <view></view>
+            </view>
+            <view>有效期：{{data.effectiveStartTime+'至'+data.effectiveEndTime}}</view>
+        </view>
+    </view>
+    <button class='use' size="mini">{{statusMap[data.status]||""}}</button>
+</view>

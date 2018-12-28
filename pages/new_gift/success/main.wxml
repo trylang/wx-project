@@ -1,0 +1,66 @@
+<view>
+    <view class="top-container">
+        <image src="{{logoImage}}" class="banner-url"  mode="widthFix" alt=""/>
+    </view>
+    <view class="score_grow">
+        <view class="grow-item" wx:if='{{receive.integralReward}}'>
+            <view>
+                <image class="item-icon" src="{{score_icon}}" alt=""/>
+            </view>
+            <view class="item-right">
+                <view class="item-title">
+                    <view>积分</view>
+                    <view class="score">+{{receive.integralReward}}</view>
+                </view>
+                <view class="item-content">可用于商城礼品兑换</view>
+            </view>
+        </view>
+        <view class="grow-item"  wx:if='{{receive.growthValueAward}}'>
+            <view>
+                <image class="item-icon" src="{{grow_icon}}" alt=""/>
+            </view>
+            <view class="item-right">
+                <view class="item-title">
+                    <view>成长值</view>
+                    <view  class="score">+{{receive.growthValueAward}}</view>
+                </view>
+                <view class="item-content">可用于商城礼品兑换</view>
+            </view>
+        </view>
+    </view>
+    <button class="gift-btn" open-type="share" style="background: {{activity_color}}">邀请好友注册会员</button>
+    <view class="content-title"  wx:if='{{couponName}}'>
+        <image src="{{logoIcon}}" class="logo-icon" alt=""/>
+        <span class="icon-title">成功领取新人优惠券礼包</span>
+    </view>
+    <view  wx:if='{{couponName}}' class="coupon-list" wx:for="{{couponName}}" wx:key='{{index}}'>
+        <view>
+            <image  class="line-left" src="{{lineUrl}}" alt=""/>
+        </view>
+        <view class="content-right">
+            <view style="width:100%;display:flex">
+                <view class="list">
+                    <view class="title">
+                         {{item.mainInfo}}
+                    </view>
+                    <view class="content-info">
+                    <view>
+                        <view class="list-item" wx:if='{{item.extendInfo}}'>
+                            <image class="dott" src="{{dott}}" alt=""/>
+                            <view class="item-content1">{{item.extendInfo}}</view> 
+                        </view>
+                        <view class="list-item">
+                            <image class="dott" src="{{dott}}" alt=""/>
+                            <view  class="item-content1">有效期：{{item.effectiveStartTime}}至{{item.effectiveEndTime}}</view>
+                        </view>
+                    </view>
+                    </view>
+                </view>
+                <view class="button">
+                    <button class="use" bindtap='handleLinkDetail' data-qrCode='{{item.qrCode}}' data-extendInfo='{{item.extendInfo}}' data-couponActivityId='{{item.couponActivityId}}' style="background: {{activity_color}}">立即使用</button>
+                </view>
+            </view>
+        </view>
+        <view class="cirle"></view>
+    </view>
+</view>

@@ -1,0 +1,26 @@
+<view wx:if="{{isGetShow}}">
+    <view class="wrap">
+        <view class="cover" catchtouchmove='handleTouchMove' bindtap='hiddenModal'></view>
+        <view class="dialog-content"style='background: {{bgColor}}' catchtouchmove='handleTouchMove'>
+            <view class='{{modal_content?"title":"title sorry-title"}}'>
+                {{modal_title}}
+            </view>
+            <view class="modal-content">
+                {{modal_content}}
+            </view>
+            <image style='margin: 0 auto;' src="{{modal_logo}}" alt="" class="icon"  mode="widthFix"/>
+            <view class="turnable-info">
+                <view class="btn-container">
+                    <block wx:if='{{backBtn}}'>
+                        <button class="market-index" bindtap='handleLinkIndex'>返回首页参与更多活动</button>
+                    </block>
+                    <block wx:else>
+                        <button class="market_name" wx:if='{{modal_content}}' bindtap='handleLinkPrice'>查看奖品详情</button>
+                        <button class="market_name" wx:else  bindtap='hiddenModal'>再来一次</button>
+                    </block>
+                    <button class="market-index share-name" open-type="share" >分享获得抽奖机会</button>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

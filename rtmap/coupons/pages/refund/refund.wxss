@@ -1,0 +1,118 @@
+/* pages/refund/refund.wxss */
+.refund{
+  padding: 30rpx;
+}
+.body {
+  padding: 30rpx 20rpx;
+  background-color: #f9f9f9;
+  border-radius: 10rpx;
+  display: flex;
+}
+
+.describe {
+  margin-left: 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+.describe_head {
+  width: 100%;
+  font-size: 36rpx;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.name {
+  /* display: block; */
+}
+
+.num {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.price {
+  font-size: 36rpx;
+  color: #333;
+  margin-right: 16rpx;
+}
+
+.discount {
+  font-size: 24rpx;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.describe_foot {
+  font-size: 28rpx;
+}
+
+.img {
+  width: 144rpx;
+  height: 120rpx;
+  border-radius: 8rpx;
+}
+
+.foot {
+  padding: 0 20rpx 0 194rpx;
+}
+
+.foot_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25rpx 0;
+}
+
+.total_label {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.total_num {
+  font-size: 36rpx;
+  color: #F21B7B;
+}
+
+.payment {
+  border-radius: 65rpx;
+  background-color: #F21B7B;
+  color: #fff;
+}
+.radio{
+display: block;
+margin: 30rpx 0;
+font-size: 28rpx;
+color: #333;
+}
+.reason{
+  margin-top: 40rpx;
+  padding: 50rpx 20rpx;
+  border-top: 2rpx #eee solid;
+}
+.operation {
+  width: 100%;
+  position: fixed;
+  bottom: 60rpx;
+  display: flex;
+  justify-content: space-around;
+}
+
+.operation view {
+  width: 280rpx;
+}
+.operation button{
+  line-height: 2;
+  border-radius: 100rpx;
+}
+.operation button::after{
+  border: none;
+}
+.cancel button{
+background-color: #F21B7B;
+color: #fff;
+border: 1rpx #F21B7B solid;
+}

@@ -1,0 +1,83 @@
+/* components/couponitem/couponitem.wxss */
+
+.couponitem {
+    border-left: #f21b7b 8rpx solid;
+    border-radius: 8rpx;
+    display: flex;
+    align-items: center;
+    padding: 30rpx 60rpx;
+    background-color: #fff;
+    position: relative;
+    margin: 22rpx 0;
+    height: 146rpx;
+}
+
+.couponitem::after {
+    content: '';
+    display: inline-block;
+    width: 30rpx;
+    height: 30rpx;
+    background-color: #f4f4f4;
+    border-radius: 50%;
+    position: absolute;
+    right: -15rpx;
+}
+
+.content {
+    width: 71%;
+}
+
+.title {
+    color: #4a4a4a;
+    font-size: 36rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    margin-bottom: 14rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.rule {
+    display: flex;
+}
+
+.rule_befor {
+    padding-top: 15rpx;
+    width: 15rpx;
+}
+
+.rule_befor view {
+    height: 5rpx;
+    width: 5rpx;
+    background-color: #d8d8d8;
+}
+
+.content {
+    color: #b8b8b8;
+    font-size: 24rpx;
+}
+
+button.use {
+    border-radius: 100rpx;
+    background: #f21b7b;
+    color: #fff;
+    font-size: 24rpx;
+    padding: 0 24rpx;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.use::after {
+    border: none;
+}
+
+.expired {
+    border-left-color: #a4a6af;
+}
+
+.expired button.use {
+    background-color: #ccc;
+}
+
+

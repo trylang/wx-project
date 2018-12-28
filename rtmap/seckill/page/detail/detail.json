@@ -1,0 +1,7 @@
+{
+    "navigationBarBackgroundColor": "white",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "券详情",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle":"dark"
+}

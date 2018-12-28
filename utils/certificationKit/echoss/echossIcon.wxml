@@ -1,0 +1,226 @@
+<template name="echossIcon">
+  <view class="wx-view_KhyBNz {{echossData.echossIconShowView === true ? 'on' : ''}} {{echossData.echossIconShowView === false ? 'off' : ''}}">
+    <image catchtap="echossIconEvent" class="wx-image_MTRldF {{echossData.echossIconPosition ? 'echoss_icon_up' : 'echoss_icon_dn'}}" data-event="1"  mode="aspectFit" src="{{echossData.echossIconImage01 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage01}}" binderror="" style="background-color:{{echossData.echossIconColor}};"/>
+    <view id="echoss_icon_wrap">
+      <view id="echoss_icon_view01" class="c-minheight wx-view_e1yprd {{echossData.echossIconShowView_1 === true ? 'echoss_icon_show_view' : 'echoss_icon_hide_view'}}">
+        <view class="c-minheight wx-view_WsNp9v"  style="background-color:{{echossData.echossIconColor}};">
+          <image class="wx-image_BRgsuC" mode="aspectFit" src="{{echossData.echossIconImage02 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage02}}" />
+          <image catchtap="echossIconEvent" class="wx-image_gSBGgT" data-event="2" mode="aspectFill" src="{{echossData.echossIconImage03 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage03}}" />
+        </view>
+        <view class="echoss_icon_body_frame">
+          <view class="c-minheight wx-view_EFL3xU echoss_icon_default echoss_icon_delay1" >
+            <swiper class="wx-swiper_4GtVPF" autoplay="{{echossData.echossIconAutoplay}}" circular="true" duration="600" indicator-dots="true" indicator-color="rgba(255, 255, 255, .2)" indicator-active-color="{{echossData.echossIconColor}}" interval="3000" lower-threshold="50">
+              <swiper-item class="c-full wx-swiper-item_iCjxgI">
+                <text class="c-block wx-text_OP0vld" style="margin-bottom:80rpx;">{{echossData.echossIconMsg["ICON001"]}}</text>
+                <image class="wx-image_Eoynqk" mode="aspectFit" src="{{echossData.echossIconImage04 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage04}}" />
+              </swiper-item>
+              <swiper-item class="c-full wx-swiper-item_iCjxgI">
+                <text class="c-block wx-text_OP0vld">{{echossData.echossIconMsg["ICON002"]}}</text>
+                <text class="c-block wx-text_TkHg63">{{echossData.echossIconMsg["ICON003"]}}</text>
+                <image class="wx-image_Eoynqk" mode="aspectFit" src="{{echossData.echossIconImage05 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage05}}" />
+              </swiper-item>
+            </swiper>
+          </view>
+          <view id="echoss_icon_auth_no" class="c-minheight wx-view_E3YX55 {{echossData.echossIconType === '1' ? 'on' : ''}}" >
+            <view class="c-minheight wx-view_NzeZtj" >
+              <text class="c-block wx-text_aR9x4L echoss_icon_default echoss_icon_delay2" >____</text>
+              <text class="c-block wx-text_EBFx6s echoss_icon_default echoss_icon_delay2" >{{echossData.echossIconMsg["ICON010"]}}</text>
+              <text class="c-block wx-text_Yaqv95 echoss_icon_default echoss_icon_delay3" >{{echossData.echossIconMsg["ICON011"]}}</text>
+            </view>
+            <view  class="c-minheight wx-view_noQ4fV echoss_icon_default echoss_icon_delay4" style="background-color:{{echossData.echossIconColor}};">
+              <text catchtap="echossIconEvent" class="c-block wx-text_r5Tuva" data-event="3">{{echossData.echossIconMsg["ICON012"]}}</text>
+            </view>
+          </view>
+          <view id="echoss_icon_stamp_no" class="c-minheight wx-view_E3YX55 {{echossData.echossIconType === '3' ? 'on' : ''}}" >
+            <view class="c-minheight wx-view_NzeZtj" >
+              <text class="c-block wx-text_aR9x4L echoss_icon_default echoss_icon_delay2" >____</text>
+              <text class="c-block wx-text_EBFx6s echoss_icon_default echoss_icon_delay2" >{{echossData.echossIconMsg["ICON010"]}}</text>
+              <text class="c-block wx-text_Yaqv95 echoss_icon_default echoss_icon_delay3" >{{echossData.echossIconMsg["ICON011"]}}</text>
+            </view>
+            <view  class="c-minheight wx-view_noQ4fV echoss_icon_default echoss_icon_delay4" style="background-color:{{echossData.echossIconColor}};">
+              <text catchtap="echossIconEvent" class="c-block wx-text_r5Tuva" data-event="7">{{echossData.echossIconMsg["ICON032"]}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view id="echoss_icon_view02" class="c-minheight wx-view_SNLA5E {{echossData.echossIconShowView_2 ? 'echoss_icon_show_view' : 'echoss_icon_hide_view'}}">
+        <view class="c-minheight wx-view_WsNp9v" style="background-color:{{echossData.echossIconColor}};">
+          <image class="wx-image_BRgsuC" mode="aspectFit" src="{{echossData.echossIconImage02 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage02}}" />
+          <image catchtap="echossIconEvent" class="wx-image_gSBGgT" data-event="2" mode="scaleToFill" src="{{echossData.echossIconImage03 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage03}}" />
+        </view>
+        <view class="echoss_icon_body_frame">
+          <view class="c-minheight wx-view_oQ6pso">
+            <image class="wx-image_unLJd6" mode="aspectFit" src="{{echossData.echossIconImage06 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage06}}" />
+            <text class="c-block wx-text_szL024">{{echossData.clock}}</text>
+            <text class="c-block wx-text_dAN4JN">{{echossData.isOtpFail != true ? echossData.echossIconMsg["ICON013"] : echossData.otpFailMsg}}</text>
+          </view>
+          <view class="c-minheight wx-view_E3YX55">
+            <view class="c-minheight wx-view_NzeZtj">
+              <text class="c-block wx-text_aR9x4L">____</text>
+              <text class="c-block wx-text_EBFx6s">{{echossData.echossIconMsg["ICON010"]}}</text>
+              <text class="c-block wx-text_Yaqv95">{{echossData.echossIconMsg["ICON011"]}}</text>
+            </view>
+            <view class="c-minheight wx-view_noQ4fV" style="background-color:{{echossData.echossIconColor}};">
+              <text catchtap="echossIconEvent" class="c-block wx-text_r5Tuva" data-event="4">{{echossData.otpNumber}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view id="echoss_icon_view03" class="c-minheight wx-view_SNLA5E {{echossData.echossIconShowView_3 ? 'echoss_icon_show_view' : 'echoss_icon_hide_view'}}">
+        <view class="c-minheight wx-view_WsNp9v" style="background-color:{{echossData.echossIconColor}};">
+          <image class="wx-image_BRgsuC" mode="aspectFit" src="{{echossData.echossIconImage02 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage02}}" />
+          <image catchtap="echossIconEvent" class="wx-image_gSBGgT" data-event="2" mode="scaleToFill" src="{{echossData.echossIconImage03 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage03}}" />
+        </view>
+        <view class="echoss_icon_body_frame">
+          <view class="c-minheight wx-view_HSpTxZ">
+            <image class="wx-image_used_tail" src="{{echossData.echossIconImage07 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage07}}" />
+            <image class="wx-image_G0G1I3" src="{{echossData.echossIconImage08 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage08}}" style="background-color:{{echossData.echossIconColor}};" />
+            <text class="c-block wx-text_SdXWtS">{{echossData.echossIconMsg["ICON016"]}}</text>
+          </view>
+          <view  class="c-minheight wx-view_E3YX55">
+            <view class="c-minheight wx-view_NzeZtj">
+              <text class="c-block wx-text_aR9x4L">____</text>
+              <text class="c-block wx-text_EBFx6s">{{echossData.echossIconMsg["ICON010"]}}</text>
+              <text class="c-block wx-text_Yaqv95">{{echossData.echossIconMsg["ICON011"]}}</text>
+            </view>
+            <view class="c-minheight wx-view_noQ4fV" style="background-color:{{echossData.echossIconColor}};">
+              <text catchtap="echossIconEvent" class="c-block wx-text_r5Tuva" data-event="2">{{echossData.echossIconMsg["ICON017"]}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view id="echoss_icon_view04" class="c-minheight wx-view_e1yprd {{echossData.echossIconShowView_4 === true ? 'echoss_icon_show_view' : 'echoss_icon_hide_view'}}">
+        <view class="c-minheight wx-view_WsNp9v" style="background-color:{{echossData.echossIconColor}};">
+          <image class="wx-image_BRgsuC" mode="aspectFit" src="{{echossData.echossIconImage02 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage02}}" />
+          <image catchtap="echossIconEvent" class="wx-image_gSBGgT" data-event="2" mode="aspectFill" src="{{echossData.echossIconImage03 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage03}}" />
+        </view>
+        <view class="echoss_icon_body_frame">
+          <view class="c-minheight wx-view_E3YX55">
+            <view class="c-minheight wx-view_NzeZtj">
+              <text class="c-block wx-text_aR9x4L echoss_icon_default echoss_icon_delay1">____</text>
+              <text class="c-block wx-text_EBFx6s echoss_icon_default echoss_icon_delay1">{{echossData.echossIconMsg["ICON028"]}}</text>
+              <text class="c-block wx-text_Yaqv95 echoss_icon_default echoss_icon_delay2">{{echossData.echossIconMsg["ICON029"]}}
+                {{echossData.echossIconMsg["ICON030"]}}</text>
+            </view>
+            <input class="c-block wx-input_r5Tuva echoss_icon_default echoss_icon_delay3" type="number" maxlength="6" bindinput="echossIconInputEvent" data-event="1" value="{{echossData.otpNoForMerchant}}" />
+            <view  class="c-minheight wx-view_noQ4fV echoss_icon_default echoss_icon_delay3" style="background-color:{{echossData.echossIconColor}};">
+              <text catchtap="echossIconEvent" class="c-block wx-text_r5Tuva" data-event="5">{{echossData.echossIconMsg["ICON017"]}}</text>
+            </view>
+            <view class=" echoss_icon_default echoss_icon_delay4" style="width: 100%; text-align: center; margin-top: 30px;">
+              <image src="{{echossData.echossIconImage09 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage09}}" style="width: 270px; height: 111px;" />
+            </view>
+          </view>
+        </view>
+      </view>
+      <view id="echoss_icon_view05" class="c-minheight wx-view_e1yprd {{echossData.echossIconShowView_5 === true ? 'echoss_icon_show_view' : 'echoss_icon_hide_view'}}">
+        <view class="c-minheight wx-view_WsNp9v" style="background-color:{{echossData.echossIconColor}};">
+          <image class="wx-image_BRgsuC" mode="aspectFit" src="{{echossData.echossIconImage02 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage02}}" />
+          <image catchtap="echossIconEvent" class="wx-image_gSBGgT" data-event="2" mode="aspectFill" src="{{echossData.echossIconImage03 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage03}}" />
+        </view>
+        <view class="echoss_icon_body_frame">
+          <view class="c-minheight wx-view_E3YX55">
+            <view class="wx-view_NzeZtj">
+              <text class="c-block wx-text_aR9x4L echoss_icon_default echoss_icon_delay1">____</text>
+              <text class="c-block wx-text_EBFx6s echoss_icon_default echoss_icon_delay1">{{echossData.echossIconMsg["ICON031"]}}</text>
+            </view>
+            <input class="c-block wx-input_r5Tuva echoss_icon_default echoss_icon_delay2" placeholder-style="letter-spacing: 0px; font-size: 0.96em; font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;" type="number" maxlength="3" bindinput="echossIconInputEvent" data-event="2" value="{{echossData.stampAccuForMerchant}}" />
+            <view  class="c-minheight wx-view_noQ4fV echoss_icon_default echoss_icon_delay3" style="background-color:{{echossData.echossIconColor}};">
+              <text catchtap="echossIconEvent" class="c-block wx-text_r5Tuva" data-event="6">{{echossData.echossIconMsg["ICON017"]}}</text>
+            </view>
+            <view class=" echoss_icon_default echoss_icon_delay4" style="width: 100%; text-align: center; margin-top: 30px;">
+              <image src="{{echossData.echossIconImage09 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage09}}" style="width: 270px; height: 111px;" />
+            </view>
+          </view>
+        </view>
+      </view>
+      <view id="echoss_icon_view06" class="c-minheight wx-view_e1yprd {{echossData.echossIconShowView_6 === true ? 'echoss_icon_show_view' : 'echoss_icon_hide_view'}}">
+        <view class="c-minheight wx-view_WsNp9v" style="background-color:{{echossData.echossIconColor}};">
+          <image class="wx-image_BRgsuC" mode="aspectFit" src="{{echossData.echossIconImage02 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage02}}" />
+          <image catchtap="echossIconEvent" class="wx-image_gSBGgT" data-event="2" mode="aspectFill" src="{{echossData.echossIconImage03 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage03}}" />
+        </view>
+        <view class="echoss_icon_body_frame">
+          <view class="c-minheight wx-view_E3YX55">
+            <view class="c-minheight wx-view_NzeZtj">
+              <text class="c-block wx-text_aR9x4L echoss_icon_default echoss_icon_delay1">____</text>
+              <text class="c-block wx-text_EBFx6s echoss_icon_default echoss_icon_delay1">{{echossData.echossIconMsg["ICON010"]}}</text>
+              <text class="c-block wx-text_Yaqv95 echoss_icon_default echoss_icon_delay2">{{echossData.echossIconMsg["ICON011"]}}</text>
+            </view>
+            <input class="c-block wx-input_r5Tuva echoss_icon_default echoss_icon_delay3" placeholder-style="letter-spacing: 0px; font-size: 0.96em; font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;" style="font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;" type="password" placeholder="{{echossData.echossIconMsg['ICON033']}}" bindinput="echossIconInputEvent" data-event="3" value="{{echossData.stampNoForCustomer}}" />
+            <view  class="c-minheight wx-view_noQ4fV echoss_icon_default echoss_icon_delay3" style="background-color:{{echossData.echossIconColor}};">
+              <text catchtap="echossIconEvent" class="c-block wx-text_r5Tuva" data-event="8">{{echossData.echossIconMsg["ICON017"]}}</text>
+            </view>
+            <view class=" echoss_icon_default echoss_icon_delay4" style="width: 100%; text-align: center; margin-top: 30px;">
+              <image src="{{echossData.echossIconImage09 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage09}}" style="width: 270px; height: 111px;" />
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view id="echoss_icon_view07" class="c-minheight wx-view_7xMF4c {{echossData.echossIconErrorView === true ? 'echoss_icon_error_show' : ''}} {{echossData.echossIconErrorViewClose === true ? 'echoss_icon_error_hide' : ''}}">
+    <view class="c-minheight wx-view_UdUaUl {{echossData.echossIconErrorView_1 === true ? 'echoss_icon_show_view' : ''}}">
+      <image catchtap="echossIconEvent" class="wx-image_gSBGgT" data-event="9" style="position: absolute;" mode="aspectFill" src="{{echossData.echossIconImage03 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage03}}" />
+      <view class="c-minheight wx-view_KmAtty">
+        <image class="wx-image_cl2W5z" mode="aspectFill" src="{{echossData.echossIconImage10 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage10}}" />
+        <text class="c-block wx-text_WyBuL5">{{echossData.echossIconMsg["ICON019"]}}</text>
+      </view>
+    </view>
+    <view class="c-minheight wx-view_UdUaUl {{echossData.echossIconErrorView_2 === true ? 'echoss_icon_show_view' : ''}}">
+      <image catchtap="echossIconEvent" class="wx-image_gSBGgT" data-event="9" style="position: absolute;" mode="aspectFill" src="{{echossData.echossIconImage03 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage03}}" />
+      <view class="c-minheight wx-view_KmAtty">
+        <image class="wx-image_cl2W5z" mode="aspectFill" src="{{echossData.echossIconImage11 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage11}}" />
+        <text class="c-block wx-text_WyBuL5">{{echossData.echossIconMsg["ICON020"]}}</text>
+      </view>
+    </view>
+    <view class="c-minheight wx-view_UdUaUl {{echossData.echossIconErrorView_3 === true ? 'echoss_icon_show_view' : ''}}">
+      <image catchtap="echossIconEvent" class="wx-image_gSBGgT" data-event="9" style="position: absolute;" mode="aspectFill" src="{{echossData.echossIconImage03 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage03}}" />
+      <view class="c-minheight wx-view_KmAtty">
+        <image class="wx-image_cl2W5z" mode="aspectFill" src="{{echossData.echossIconImage12 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage12}}" />
+        <text class="c-block wx-text_WyBuL5">{{echossData.echossIconMsg["ICON021"]}}</text>
+      </view>
+    </view>
+    <view class="c-minheight wx-view_UdUaUl {{echossData.echossIconErrorView_4 === true ? 'echoss_icon_show_view' : ''}}">
+      <image catchtap="echossIconEvent" class="wx-image_gSBGgT" data-event="9" style="position: absolute;" mode="aspectFill" src="{{echossData.echossIconImage03 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage03}}" />
+      <view class="c-minheight wx-view_KmAtty">
+        <image class="wx-image_cl2W5z" mode="aspectFill" src="{{echossData.echossIconImage13 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage13}}" />
+        <text class="c-block wx-text_WyBuL5">{{echossData.echossIconMsg["ICON022"]}}</text>
+      </view>
+    </view>
+    <view class="c-minheight wx-view_UdUaUl {{echossData.echossIconErrorView_5 === true ? 'echoss_icon_show_view' : ''}}">
+      <image catchtap="echossIconEvent" class="wx-image_gSBGgT" data-event="9" style="position: absolute;" mode="aspectFill" src="{{echossData.echossIconImage03 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage03}}" />
+      <view class="c-minheight wx-view_KmAtty">
+        <image class="wx-image_cl2W5z" mode="aspectFill" src="{{echossData.echossIconImage14 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage14}}" />
+        <text class="c-block wx-text_WyBuL5">{{echossData.echossIconMsg["ICON023"]}}</text>
+      </view>
+    </view>
+    <view class="c-minheight wx-view_UdUaUl {{echossData.echossIconErrorView_6 === true ? 'echoss_icon_show_view' : ''}}">
+      <image catchtap="echossIconEvent" class="wx-image_gSBGgT" data-event="9" style="position: absolute;" mode="aspectFill" src="{{echossData.echossIconImage03 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage03}}" />
+      <view class="c-minheight wx-view_KmAtty">
+        <image class="wx-image_cl2W5z" mode="aspectFill" src="{{echossData.echossIconImage15 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage15}}" />
+        <text class="c-block wx-text_WyBuL5">{{echossData.echossIconMsg["ICON024"]}}</text>
+      </view>
+    </view>
+    <view class="c-minheight wx-view_UdUaUl {{echossData.echossIconErrorView_7 === true ? 'echoss_icon_show_view' : ''}}">
+      <image catchtap="echossIconEvent" class="wx-image_gSBGgT" data-event="9" style="position: absolute;" mode="aspectFill" src="{{echossData.echossIconImage03 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage03}}" />
+      <view class="c-minheight wx-view_KmAtty">
+        <image class="wx-image_cl2W5z" mode="aspectFill" src="{{echossData.echossIconImage15 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage15}}" />
+        <text class="c-block wx-text_WyBuL5">{{echossData.echossIconMsg["ICON025"]}}</text>
+      </view>
+    </view>
+    <view class="c-minheight wx-view_UdUaUl {{echossData.echossIconErrorView_8 === true ? 'echoss_icon_show_view' : ''}}">
+      <image catchtap="echossIconEvent" class="wx-image_gSBGgT" data-event="9" style="position: absolute;" mode="aspectFill" src="{{echossData.echossIconImage03 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage03}}" />
+      <view class="c-minheight wx-view_KmAtty">
+        <image class="wx-image_cl2W5z" mode="aspectFill" src="{{echossData.echossIconImage16 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage16}}" />
+        <text class="c-block wx-text_WyBuL5">{{echossData.echossIconMsg["ICON026"]}}</text>
+      </view>
+    </view>
+    <view class="c-minheight wx-view_UdUaUl {{echossData.echossIconErrorView_9 === true ? 'echoss_icon_show_view' : ''}}">
+      <image catchtap="echossIconEvent" class="wx-image_gSBGgT" data-event="9" style="position: absolute;" mode="aspectFill" src="{{echossData.echossIconImage03 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage03}}" />
+      <view class="c-minheight wx-view_KmAtty">
+        <image class="wx-image_cl2W5z" mode="aspectFill" src="{{echossData.echossIconImage17 == undefined ? 'https://web.echoss.cn/platform/echossIcon/xiaochengxu/blank.png' : echossData.echossIconImage17}}" />
+        <text class="c-block wx-text_WyBuL5">{{echossData.echossIconMsg["ICON027"]}}</text>
+      </view>
+    </view>
+  </view>
+</template>

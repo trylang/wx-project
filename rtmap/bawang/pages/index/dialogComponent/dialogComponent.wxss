@@ -1,0 +1,185 @@
+/* dialogComponent.wxss */
+
+.wx-mask {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.wx-dialog {
+    position: fixed;
+    z-index: 200;
+    width: 650rpx;
+    max-width: 650rpx;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dialog-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background: #fff;
+    border-radius: 10rpx;
+}
+
+.dialog-title-content {
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    width: 485rpx;
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+    left: 50%;
+    background: #ffaa31;
+    border-radius: 35rpx;
+    height: 70rpx;
+    transform: translate(-50%, -50%);
+}
+
+.content-title {
+    color: #fff;
+    font-size: 34rpx;
+    font-weight: 500;
+}
+
+.dialog-title .btnrow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 480rpx;
+    margin-bottom: 80rpx;
+    justify-content: space-between;
+}
+
+.cancle {
+    width: 200rpx;
+    height: 72rpx;
+    border: 2rpx #f21b7b solid;
+    border-radius: 36rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f21b7b;
+    font-size: 30rpx;
+}
+
+.okbtn {
+    width: 650rpx;
+    height: 90rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FF5E57;
+    color: #fff;
+    border-bottom-right-radius: 10rpx;
+    border-bottom-left-radius: 10rpx;
+    font-size: 36rpx;
+}
+
+.card-list {
+    display: flex;
+    width: 650rpx;
+    height: 225rpx;
+    margin-top: 61rpx;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card-list-center {
+    display: flex;
+    width: 650rpx;
+    /* height: 225rpx; */
+    margin-top: 40rpx;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding:50rpx 0;
+}
+
+.cards{
+    position: relative;
+    width: 94rpx;
+    height: 94rpx;
+}
+
+.card-sel{
+    position: absolute;
+    bottom: 0;
+    width: 94rpx;
+    height: 66rpx;
+    transform: translate(0,50%);
+    z-index: 204;
+}
+
+.card-list-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 103rpx;
+    height: 103rpx;
+    border: 2rpx solid #ffaa31;
+    border-radius: 10rpx;
+    background: #fff0d8;
+}
+
+.card-list-item.gray {
+    border: 2rpx solid #eee;
+    background: #eee;
+}
+.card-list-center .hint{
+    font-size: 28rpx;
+    margin-top: 50rpx;
+    margin-bottom: 10rpx;
+}
+.card-list-center .result{
+     font-size: 24rpx;
+     color:red;
+}
+.badge {
+    position: absolute;
+    top: -13rpx;
+    right: -8rpx;
+    width: 26rpx;
+    height: 26rpx;
+    background-color: #ff644b;
+    font-size: 18rpx;
+    color: #fff;
+    line-height: 26rpx;
+    text-align: center;
+    border-radius: 26rpx;
+}
+
+.dialog-close{
+    width: 58rpx;
+    height: 58rpx;
+    margin-top: 60rpx;
+}
+
+.no-card{
+    height:292rpx;
+    width:650rpx;
+    background: white;
+    display: flex;
+    border-radius: 10rpx;
+    align-items: center;
+    justify-content: center;
+}
+.no-card text{
+    color: #666;
+    font-size: 34rpx;
+    font-weight: 500;
+}

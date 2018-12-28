@@ -1,0 +1,133 @@
+<!--index.wxml-->
+<view class="lunch">
+    <view class="swiper">
+        <swiper class='top-swiper' indicator-dots="{{couponList.length>1}}" indicator-active-color='#fff' previous-margin="40rpx" next-margin="40rpx" circular="true" bindchange="swiperHandler" autoplay interval='3000'>
+            <block wx:for="{{couponList}}" wx:key="index">
+                <swiper-item item-id="{{index}}">
+                    <view class="header">
+                        <image src="{{item.cover}}" mode="aspectFill" class="cover"></image>
+                        <view class="title">{{item.title}}</view>
+                    </view>
+                </swiper-item>
+            </block>
+        </swiper>
+        <!-- <view class='activity_rule' bindtap='ruleHandler'>
+            <text>活动规则</text>
+        </view> -->
+    </view>
+    <view class="body">
+
+        <view class='scroll_view_border'>
+            <image src='./images/lampbg.png'></image>
+            <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
+                <block wx:for="{{getCouponList}}" wx:key='item'>
+                    <swiper-item catchtouchmove="stopSwiper">
+                        <view class='srcoll_view_item'>
+                            <image class='user_icon' src='./images/lampicon.png' mode='widthFix'></image>
+                            <text class='srcoll_view_item_user'>用户:{{item.mobile}}获得<text class='srcoll_view_item_coupon'>{{item.couponName}}</text></text>
+                        </view>
+                    </swiper-item>
+                </block>
+            </swiper>
+        </view>
+        <view class="main">
+            <view class="card-list">
+                <view class="card-list-item {{item.amount>0?'':'gray'}}" wx:for="{{cardList}}" wx:key="index" bindtap='onGiveClick' data-index='{{index}}'>
+                    <image class='cards' src='{{item.cover}}' mode='widthFix' style="opacity: {{item.amount>0?1:0.4}}; filter:alpha(opacity = {{item.amount>0?100:40}};)"></image>
+                    <view class="badge" hidden="{{item.amount<=0}}">{{item.amount}}</view>
+                    <image class='card-give' src='./images/give.png' mode='widthFix' hidden='{{item.amount<=0}}'></image>
+                </view>
+            </view>
+            <button class="take-card" bindtap="drawHandler">
+                <text>抽卡</text>
+                <text class="btn-tip">（可抽卡{{drawMax}}次）</text>
+            </button>
+            <button class="exchange" bindtap="exchangeHandler">
+                <text>抽奖</text>
+                <text class="btn-tip">（可抽奖{{exchangeMax}}次）</text>
+            </button>
+
+            <view class="formBtn-con">
+                <view class="button-con {{ifRegist?'isregister':'register'}}" bindtap="registHanler">
+                    <text disabled="{{ifRegist}}" hover-class="hover">{{ifRegist? '已':''}}注册</text>
+                </view>
+                <label class="button-con share">
+                    <view bindtap='onShareClick'>
+                        <text>分享</text>
+                        <button open-type='share'></button>
+                    </view>
+                </label>
+            </view>
+        </view>
+
+        <view class='myback' bindtap="walletHandler">
+            <image src='./images/myback.png' mode='widthFix' lazy-load></image>
+            <text>我的卡包</text>
+        </view>
+
+        <view class="log">
+            <view class="log-head">活动规则</view>
+            <view class="log-body">
+                <rich-text nodes="{{rule}}"></rich-text>
+            </view>
+        </view>
+        <view class="log">
+            <view class="log-head">好友赠送记录</view>
+            <view class="log-body"  wx:if="{{isLoginSucc}}">
+                <view class="log-item none" wx:if="{{!shareList.length}}">暂时没有好友赠送记录哦!</view>
+                <block wx:else>
+                    <view class="log-item" wx:for="{{shareList}}" wx:key="index">
+                        <image src="{{item.avatar}}" mode="scaleToFill" binderror="" bindload="" class="log-img"></image>
+                        <view class="log-info">
+                            <view class="log-content">
+                                <text class="name">{{item.name?item.name:'您的好友'}}</text>送给了你{{item.amount}}次抽卡次数
+                            </view>
+                            <view class="log-time">{{item.name?item.name:'您的好友'}}</view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+
+    <view class="popup" hidden="{{drawHidden}}">
+        <view class="popup-body">
+            <view class="title red">获得卡片</view>
+            <block>
+                <view class="card-list-item" style="margin:0 auto;">
+                    <image class='cards' src='{{getDrawData}}' mode='widthFix'></image>
+                </view>
+                <view class="result">恭喜你获得1张卡片</view>
+            </block>
+            <button type="warn" bindtap="drawCloseHandler" class="confirm">我知道了</button>
+        </view>
+    </view>
+
+    <view class="popup" hidden="{{exchangeHidden}}">
+        <view class="popup-body">
+            <view class="title green">成功集卡</view>
+            <block>
+                <view class="exchange-success">恭喜抽到“{{getExchangeData}}”优惠券一张</view>
+                <view class="exchange-tips">请在小程序卡包中查看并使用</view>
+            </block>
+            <button type="warn" bindtap="exchangeCloseHandler" class="confirm">确认</button>
+        </view>
+    </view>
+
+    <!-- <view class="popup close" hidden="{{ruleHidden}}">
+        <view class="popup-body">
+            <image src="./images/icon-close.png" mode="aspectFit" bindtap="ruleHandler" class="close"></image>
+            <view class="title yellow">活动规则</view>
+            <view class="rule">
+                <rich-text nodes="{{rule}}"></rich-text>
+            </view>
+        </view>
+    </view> -->
+
+    <dialog id='dialog' payResult='{{payResult}}' cardList='{{cardList}}' bind:selCarClick='selCarClick' bind:confirmEvent='onIKnowCLick' bind:onUserInfoClick='onUserInfoClick'></dialog>
+
+    <navigator url="/pages/index/index" open-type="switchTab" wx:if="{{isFromShare == 'true'}}">
+    <image class="{{isMove?'go-home-hide':'go-home'}}" src='http://res.rtmap.com/wx/couponM/go_home.png' mode='widthFix'></image>
+  </navigator>
+
+</view>

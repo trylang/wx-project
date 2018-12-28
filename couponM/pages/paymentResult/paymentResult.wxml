@@ -1,0 +1,34 @@
+<!--pages/paymentResult/paymentResult.wxml-->
+<view class='container'>
+    <view class='top-info'>
+        <block wx:if="{{status === 'success'}}">
+            <image src="http://res.rtmap.com/wx/couponM/purchase_success.png"></image>
+            <text>购买成功</text>
+        </block>
+        <block wx:else>
+            <image src="http://res.rtmap.com/wx/couponM/purchase_fail.png"></image>
+            <text class='fail'>购买失败</text>
+        </block>
+    </view>
+    <view class='buttons'>
+        <block wx:if="{{status === 'success'}}">
+            <!-- <view class='button-common level1' bindtap='useConpon'>
+                <text>{{group ? "查看优惠券" : "使用优惠券"}}</text>
+            </view> -->
+            <view class='button-common level1' bindtap='checkOrder'>
+                <text>使用优惠券</text>
+            </view>
+            <view class='button-common level2' bindtap='showMoreCoupons'>
+                <text>继续购买</text>
+            </view>
+        </block>
+        <block wx:else>
+            <view class='button-common level1' bindtap='showMoreCoupons'>
+                <text>看看其他</text>
+            </view>
+        </block>
+        <view class='checkorder' bindtap='checkOrder'>
+            <text>查看订单</text>
+        </view>
+    </view>
+</view>

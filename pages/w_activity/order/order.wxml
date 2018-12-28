@@ -1,0 +1,80 @@
+<view class="order-container">
+	<view class="order-notice">
+		<image class="notice-order" src='../../../images/w_activity/notice.png'></image>
+		<view class="notice">在活动入场时出示入场券二维码即可</view>
+	</view>
+	<view class="mine-tab">
+		<view class="tab-item tab-left {{isActive==index?'active-tab':''}}" bindtap='handleChangeTap' data-index='{{index}}' wx:for='{{tablist}}' wx:key='{{index}}'>
+			{{item.name}}
+			<view class="tab-left-border" wx:if='{{isActive==index}}'></view>
+		</view>
+	</view>
+
+	<view class="mine-activity-order" wx:if='{{isActive==0}}'>
+		<view wx:if='{{orderList.length}}'>
+			<view class="mine-activity-item" bindtap='handleLinkOrder' data-id='{{item.id}}' wx:for='{{orderList}}' wx:key='{{index}}'>
+				<view class="mine-activity-left1">
+					<view class="mine-order-title">{{item.title}}</view>
+					<view class="mine-order-data">活动时间：{{item.orderdate}}</view>
+				</view>
+				<view class="mine-activity-right">
+					<image wx:if='{{item.status==0||item.status==1||item.status==2}}' class="status-logo" src='../../../images/w_activity/daijoin.png'></image>
+					<image wx:if='{{item.status==4}}' src='../../../images/w_activity/join.png'></image>
+					<image wx:if='{{item.status==5}}' src='../../../images/w_activity/update.png'></image>
+				</view>
+			</view>
+		</view>
+		<view class="noitem" wx:else>
+			<image src="../../../rtmap/coupons/images/noitem.png" mode='aspectFit'></image>
+	        <view class='tip'>
+	            <text>暂无参与活动</text>
+	        </view>
+		</view>
+	</view>
+	<view class="mine-activity-list" wx:if='{{isActive==1}}'>
+		<scroll-view scroll-y>
+			<view class="activity-list" wx:if='{{savelist.length}}'>
+				<view class="activity-info" wx:for='{{savelist}}' wx:key='{{index}}'>
+					<view class="activity-title">
+						{{item.title}}
+					</view>
+					<view class="activity-time">
+						{{item.createDate}}
+					</view>
+					<navigator url="/pages/w_activity/detail/detail?id={{item.id}}" hover-class="navigator-hover">
+						<view class="item-image">
+							<image class="image-info" src='{{item.image}}'></image>
+						</view>
+					</navigator>
+					<view class="eyes-info">
+						<view class="eyes-left">
+							<view class="eyes icon-item">
+								<image class="icon-default icon-eyes" src='../../../images/w_activity/eye.png'></image>
+								<view class="eye-num">{{item.readnum}}</view>
+							</view>
+							<view class="star icon-item">
+								<image bindtap='handleSaveActivity' wx:if='{{item.flag==0}}' data-save='{{item.id}}' class="icon-default" src='../../../images/w_activity/sav.png'></image>
+								<image bindtap='handleSaveActivity' wx:if='{{item.flag==1}}' data-save='{{item.id}}' class="icon-default" src='../../../images/w_activity/star_active.png'></image>
+								<view class="eye-num">{{item.storenum}}</view>
+							</view>
+							<view class="good icon-item">
+								<image bindtap='handleGoodActivity' class="icon-default" src='../../../images/w_activity/zan.png'  data-good='{{item.id}}' wx:if='{{item.goodflag==0}}'></image>
+								<image class="icon-default" src='../../../images/w_activity/zan_active.png'  wx:else></image>
+								<view class="eye-num">{{item.goodnum}}</view>
+							</view>
+						</view>
+						<view class="eyes-right"  wx:if='{{item.enrollStatus==1}}'>
+							<button class="eyes-btn" catchtap='handleEnroll' data-id='{{item.id}}' wx:if='{{item.status==1}}'>立即报名</button>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="noitem" wx:else>
+				<image src="../../../rtmap/coupons/images/noitem.png" mode='aspectFit'></image>
+		        <view class='tip'>
+		            <text>暂无收藏活动</text>
+		        </view>
+			</view>
+		</scroll-view>
+	</view>
+</view>

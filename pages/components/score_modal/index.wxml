@@ -1,0 +1,32 @@
+<view wx:if="{{isScoreShow}}">
+    <view class="wrap">
+        <view class="cover" catchtouchmove='handleTouchMove' bindtap='hiddenModal'></view>
+        <view class="dialog-content" catchtouchmove='handleTouchMove'>
+            <block wx:if='{{!changeBtn}}'>
+                <image class="score_change_img" src='../../../images/turntable/score_icon.png'></image>
+                <view class="change-count" wx:if="{{integralSX - score_count>0}}">
+                    本次兑换将消耗{{pre_score}}积分
+                    <view>是否继续？</view> 
+                </view>
+                <view class="change-count" wx:else>
+                    本次兑换不消耗积分
+                </view>
+                <view class="score-btn">
+                    <button class='score-btn-type score-btn-false' bindtap='closeScoreModal'>取消</button>
+                    <button class='score-btn-type' bindtap='handleReduceScore'>确定</button>
+                </view>
+                <view class="bottom-count">
+                    <view class="my-score">我的积分：<text class='modal-count'>{{score}}积分</text></view>
+                    <view class="my-score">今日还可兑换：<text class='modal-count'>{{integralSX - score_count}}次</text></view>
+                </view>
+            </block>
+            <block  wx:else>
+                <icon type="{{type_icon}}" class='succ-icon' size="33" color='{{type_icon=="success"?"#62C635":"#F44545"}}'/>
+                <view class="succ-word">{{icon_title}}!</view>
+                <view class="score-btn">
+                    <button class='score-btn-type' bindtap='closeScoreModal'>确定</button>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,40 @@
+/* components/navbar/navbar.wxss */
+
+.navbar {
+    display: flex;
+    align-items: flex-end;
+    background-color: #fff;
+    padding-top: 46rpx;
+}
+
+.navbar_item {
+    flex: auto;
+    text-align: center;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.narbar_active {
+    color: #f21b7b;
+    font-size: 30rpx;
+}
+
+.navbar_item::after {
+    content: '';
+    display: block;
+    width: 48rpx;
+    height: 6rpx;
+    border-radius: 6rpx;
+    background-color: transparent;
+    margin: 8rpx auto 0;
+}
+
+.narbar_active::after {
+    content: '';
+    display: block;
+    width: 48rpx;
+    height: 6rpx;
+    background-color: #f21b7b;
+    border-radius: 6rpx;
+    margin: 8rpx auto 0;
+}

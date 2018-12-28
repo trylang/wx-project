@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "rt-navbar": "../../components/navbar/navbar",
+    "rt-orderitem": "../../components/orderitem/orderitem"
+  },
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "我的订单",
+  "backgroundColor": "#ffffff",
+  "backgroundTextStyle": "dark"
+}

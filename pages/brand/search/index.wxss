@@ -1,0 +1,96 @@
+/* *index.wxss* */
+@import "../../components/band_con/index.wxss";
+::-webkit-scrollbar {
+     width: 0;
+     height: 0;
+     color: transparent;
+}
+
+.body{
+	width: 100%;
+	background-color: #FFF;
+	font-family:PingFangSC;
+}
+.top-search{
+	width:686rpx;
+	height:88rpx;
+	background-color: #F5F5F5;
+	margin:0 32rpx  32rpx;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+
+}
+.ion-search{
+	font-weight: 3px;
+	position: absolute;
+	top:30rpx ;
+	left: 33rpx;
+	font-weight: bold;
+}
+.ion-clear{
+	
+/* 	z-index: 10; */
+	/* font-weight: bold; */
+}
+.ion-clear image{
+	height: 32rpx;
+	width: 32rpx;
+	margin: 32rpx;
+}
+.input-search{
+	width: 100%;
+	height: 100%;
+	font-size: 12px;
+	margin-left: 32rpx;
+}
+.conHide{
+	display: none;
+}
+.think-search{
+	border-bottom: 2rpx solid #eee;
+	font-size: 30rpx;
+	padding: 32rpx;
+}
+.think{
+	border-top: 2rpx solid #eee;
+}
+.search-history{
+	color: #999999;
+	font-size: 30rpx;
+	margin: 32rpx;
+	font-size: 30rpx;
+	display: flex;
+}
+.search-history view{
+
+}
+.search-history image{
+	height: 37rpx;
+	width: 30rpx;
+	margin-left: 500rpx;
+}
+.search-no image{
+	height: 99rpx;
+	width: 90rpx;
+	margin:80rpx 336rpx 15px;
+}
+.history-cons{
+	display: -webkit-flex;
+	flex-wrap: wrap;
+	/* width: 750rpx; */
+	padding: 16rpx;
+	box-sizing: box-border;
+}
+.con-history{
+	padding-left: ;
+	background-color: #F5F5F5;
+	padding: 16rpx 32rpx;
+	white-space:nowrap;
+	font-size: 24rpx;
+	margin: 16rpx;
+}
+.record-con{
+	font-size: 30rpx;
+	text-align: center;
+}

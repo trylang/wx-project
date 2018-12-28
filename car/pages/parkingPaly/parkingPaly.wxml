@@ -1,0 +1,67 @@
+<view class="parkingPaly">
+    <view class="head">
+        <view class='top-icon-car' hidden='{{myCars.length>0}}'>
+            <image src='http://res.rtmap.com/wx/parking/park_add_car.png' mode='widthFix' lazy-load></image>
+            <text>{{carInfo.carNumber}}</text>
+        </view>
+
+        <view class="cell">
+            <image class="cell_icon" src="{{'http://res.rtmap.com/wx/parking/park_clock.png'}}" mode="widthFix" binderror="" bindload=""></image>
+            <text class="cell_name">入场时间</text>
+            <text class="cell_val">{{carInfo.passTime}}</text>
+        </view>
+        <view class="cell">
+            <image class="cell_icon" src="{{'http://res.rtmap.com/wx/parking/park_sa.png'}}" mode="widthFix" binderror="" bindload=""></image>
+            <text class="cell_name">待缴费时长</text>
+            <text class="cell_val">{{carInfo.parkingLongTime}}</text>
+        </view>
+        <view class="cell">
+            <image class="cell_icon" src="{{'http://res.rtmap.com/wx/parking/park_sa.png'}}" mode="widthFix" binderror="" bindload=""></image>
+            <text class="cell_name">停车时长</text>
+            <text class="cell_val">{{carInfo.totalLongTime}}</text>
+        </view>
+        <view class="cell">
+            <image class="cell_icon" src="{{'http://res.rtmap.com/wx/parking/park_rmb.png'}}" mode="widthFix" binderror="" bindload=""></image>
+            <text class="cell_name">应付金额</text>
+            <text class="cell_val">￥{{carInfo.receivable}}</text>
+        </view>
+    </view>
+    <view class='line'></view>
+    <view class="body">
+        <view class="cell" bindtap='onConvertClick'>
+            <image class="cell_icon" src="{{'http://res.rtmap.com/wx/parking/park_coupon.png'}}" mode="widthFix" binderror="" bindload=""></image>
+            <text class="cell_name">积分抵扣</text>
+            <text class="cell_tip">已自动使用{{convertScore}}积分</text>
+            <text class="cell_val">减￥{{convertPrice}}</text>
+            <image class="cell_icon_right" src="{{'http://res.rtmap.com/wx/parking/park_right.png'}}" mode="widthFix" binderror="" bindload=""></image>
+        </view>
+        <view class="cell" wx:if="{{carInfo.formatMemberDeductible>0}}">
+            <image class="cell_icon" src="{{'http://res.rtmap.com/wx/parking/park_dollar.png'}}" mode="widthFix" binderror="" bindload=""></image>
+            <text class="cell_name">会员优惠</text>
+            <text class="cell_val cell_tatol">￥{{carInfo.formatMemberDeductible}}</text>
+        </view>
+        <view class="cell" wx:if="{{carInfo.formatFullDeductible>0}}">
+            <image class="cell_icon" src="{{'http://res.rtmap.com/wx/parking/park_dollar.png'}}" mode="widthFix" binderror="" bindload=""></image>
+            <text class="cell_name">全场优惠</text>
+            <text class="cell_val cell_tatol">￥{{carInfo.formatFullDeductible}}</text>
+        </view>
+        <view class="cell">
+            <image class="cell_icon" src="{{'http://res.rtmap.com/wx/parking/park_dollar.png'}}" mode="widthFix" binderror="" bindload=""></image>
+            <text class="cell_name">优惠合计</text>
+            <text class="cell_val cell_tatol">￥{{preferenceTotal}}</text>
+        </view>
+    </view>
+    <view class='line-one'></view>
+    <view class='excell'>
+        <view class='paymsg'>
+            <view class='pay-table'>
+                <text class='conv'>实付金额<text class='conv_pay'>￥{{actualPrice > 0 ? actualPrice : 0 }}</text></text>
+            </view>
+        </view>
+        <view class='pay' bindtap='pay'>
+            <text>立即支付</text>
+        </view>
+    </view>
+    <dialog id='dialog' payResult='{{payResult}}' bind:cancelEvent='onLeftClick' bind:confirmEvent='onRightClick'></dialog>
+    <dialog id='dialogPay' payResult='{{payResult}}' bind:cancelEvent='onLeftClick' bind:confirmEvent='onPayClick'></dialog>
+</view>

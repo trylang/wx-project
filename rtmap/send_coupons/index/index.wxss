@@ -1,0 +1,43 @@
+.bgImg {
+    width: 750rpx;
+    height: 952rpx;
+}
+
+.btn {
+    margin-top: 40rpx;
+    width: 520rpx;
+    height: 88rpx;
+    background: rgba(242, 27, 123, 1);
+    border-radius: 44px;
+    color: #fff;
+}
+
+.rule_content {
+    margin-top: 40rpx;
+}
+
+.rule_title {
+    text-align: center;
+    font-size: 36rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: rgba(51, 51, 51, 1);
+    line-height: 36rpx;
+}
+
+.rule_icon {
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 10rpx;
+    vertical-align: middle;
+}
+
+.info {
+    margin-top: 30rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    letter-spacing: 1rpx;
+    padding: 0 92rpx;
+}

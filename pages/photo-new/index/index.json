@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "拍照积分",
+    "usingComponents": {
+        "search": "../select/index"
+    }
+}

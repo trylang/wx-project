@@ -1,0 +1,123 @@
+<view>	
+	<view class="banner">
+		<image class="shop-image" src='{{action.image}}' mode="widthFix"></image>
+	</view>
+	<view class="detail">
+		<view class="detail-container">
+			<view class="shop-info">
+				<view class="shop-title"><text wx:if='{{action.poiName}}'>【{{action.poiName}}】</text>{{action.title}}</view>
+				<button class="activity-share" open-type="share">
+					<image class="share-image" src='../../../images/w_activity/share.png'></image>
+				</button>
+			</view>
+			<!-- <view class="eyes-info">
+				<view class="eyes-left">
+					<view class="eyes pv-num">
+						<image class="icon-default" src='../../../images/w_activity/eye.png'></image>
+						<view class="eye-num">{{action.readnum}}</view>
+					</view>
+					<view class="star pv-num">
+						<image class="icon-default" src='../../../images/w_activity/sav.png'></image>
+						<view class="eye-num">{{action.storenum}}</view>
+					</view>
+					<view class="good pv-num">
+						<image class="icon-default" src='../../../images/w_activity/zan.png'></image>
+						<view class="eye-num">{{action.goodnum}}</view>
+					</view>
+				</view>
+			</view> -->
+			<view class="had-enroll"  hidden='{{action.enrollStatus==0}}'>
+				<view class="had-enroll-left">
+					已有{{action.ordernumber}}人报名
+				</view>
+				<view class="had-enroll-img" style='margin-right:-{{headDiatance}}rpx'>
+					<image wx:for='{{orderList}}' style='position: relative;right: {{index*20}}rpx' wx:key='{{index}}' class="enroll-head" src="{{item.headimgurl?item.headimgurl:'../../../images/head_default.png'}}"></image>
+				</view>
+			</view>
+			
+		</view>
+		<view class="sponsor">
+            
+			<view class="sponsor-title">
+				主办方 {{projectTitle}}
+			</view>
+			<view class="sponsor-date">
+				<image class="date-icon" src='../../../images/w_activity/date.png'></image>
+				<text class="date-info">{{action.startDate}}至{{action.endDate}}</text>
+			</view>
+			<view class="sponsor-date">
+				<image class="date-icon" src='../../../images/w_activity/time.png'></image>
+				<text class="date-info">{{action.starttime}}-{{action.endtime}}</text>
+			</view>
+			<view class="sponsor-date">
+				<image class="date-icon" src='../../../images/w_activity/address.png'></image>
+				<text class="date-info">{{action.place}}</text>
+			</view>
+			<block wx:if='{{action.enrollStatus==1}}'>
+				<view class="sponsor-date" style='display: inline;padding-right: 140rpx;'>
+					<image class="date-icon" src='../../../images/w_activity/people.png'></image>
+					<text class="date-info">{{action.enrollnumber}}人</text>
+				</view>
+				<view class="sponsor-date" style='display: inline;'>
+					<image class="date-icon" src='../../../images/w_activity/coupon.png'></image>
+					<text class="date-info">{{action.minmoney>0?action.minmoney:0}}元起</text>
+				</view>
+			</block>
+		</view>
+		<view style='padding-bottom: 120rpx;'>
+			<view>
+				<view class="activity-detail" wx:for='{{list}}' wx:key='{{index}}'>
+					<view class="model-title">{{modellist[index].modelname}}</view>
+					<import src="../../components/wxparse/wxparse.wxml"/>
+					<template is="wxParse" data="{{wxParseData:item}}"/>
+				</view>
+			</view>
+			
+			<view class="comment" wx:if='{{commentList.length}}'>
+				<view class="comment-title">评论</view>
+				<view class="comment-content" wx:for='{{commentList}}' wx:key='{{index}}'>
+					<view class="head-container">
+						<image class="head-img" src="{{item.headimg?item.headimg:'../../../images/head_default.png'}}"></image>
+					</view>
+					<view class="comment-right">
+						<view class="comment-name">{{item.username}}</view>
+						<view class="comment-word">{{item.connect}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		
+		<view class="bottom-operation">
+			<view class="operation-left">
+				<view class="save" bindtap='handleSaveActivity' >
+					<image class="save-img" wx:if='{{action.flag==1}}' src='../../../images/w_activity/star_active.png'></image>
+					<image class="save-img"   wx:else src='../../../images/w_activity/sav.png'></image>
+					<view class="save-word">收藏</view>
+				</view>
+				<view class="save" bindtap="{{action.goodflag==1?'':'handleGoodActivity'}}">
+					<image class="save-img" wx:if='{{action.goodflag==1}}' src='../../../images/w_activity/zan_active.png'></image>
+					<image class="save-img" wx:else src='../../../images/w_activity/zan.png'></image>
+					<view class="save-word">点赞</view>
+				</view>
+				<view class="save" bindtap='handleShowComment' wx:if='{{action.commentStatus==1}}'>
+					<image class="save-img" src='../../../images/w_activity/comment.png'></image>
+					<view class="save-word">评论</view>
+				</view>
+			</view>
+			<view class="operation-right" wx:if='{{action.enrollStatus==1}}'>
+				<button class="{{canEnroll?'enroll-activity':'no-activity'}}" bindtap='{{canEnroll?"handleEnroll":"canNotEnroll"}}'>立即报名</button>
+			</view>
+		</view>
+	</view>
+	<view class="cover-modal" bindtap='hiddenModal'  wx:if='{{commentBtn}}' catchtouchmove="preventScroll">
+		<view class="comment-write" catchtap='handleTap'>
+			<input type="text" class="comment-input" placeholder-class='comment-info-content' placeholder="写点什么..." value="{{commentValue}}" bindinput='handleGetComment'/>
+			<button class="send-message {{commentValue?'message-active':''}}" catchtap='handleSendMessage'>发送</button>
+		</view>
+	</view>
+
+    <navigator url="/pages/index/index" open-type="switchTab" wx:if="{{isFromShare == 'true'}}">
+    <image class="{{isMove?'go-home-hide':'go-home'}}" src='http://res.rtmap.com/wx/couponM/go_home.png' mode='widthFix'></image>
+  </navigator>
+
+</view>	

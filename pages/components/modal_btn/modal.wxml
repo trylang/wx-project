@@ -1,0 +1,18 @@
+<view>
+    <view class="wrap" wx:if="{{isShow}}" >
+        <view class="cover" catchtouchmove='handleTouchMove'></view>
+        <view class="dialog-content">
+            <image src="{{modal_logo}}" alt="" class="icon"/>
+            <view class="title">
+                {{modal_title}}
+            </view>
+            <view class="content">
+                {{modal_content}}
+            </view>
+            <button class="market_name" bindtap='handleConfirm' wx:if="{{modal_title=='抱歉'}}" style="background: {{activity_color}}">确定</button>
+            <button class="market_name" wx:if="{{modal_title=='恭喜'}}" bindtap='handleGetGift' style="background: {{activity_color}}">查看礼包</button>
+            <button class="market_name" wx:if="{{modal_title=='已领取'}}" bindtap='handleSeeGift' style="background: {{activity_color}}">查看礼包</button>
+            <button class="market_name" wx:if="{{modal_title=='领取成功'}}" bindtap='handleSeeCoupon' style="background: {{activity_color}}">查看优惠券</button>
+        </view>
+    </view>
+</view>

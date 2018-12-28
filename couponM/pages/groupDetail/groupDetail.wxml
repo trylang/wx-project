@@ -1,0 +1,15 @@
+<!--couponM/pages/groupDetail/groupDetail.wxml-->
+<!--优惠券组合-->
+<coupon-group wx:if="{{product.data.type==1}}" hideBuy='{{hideBuy}}' coupon='{{product.data.data}}'  isFromShare='{{isFromShare}}' productId='{{productId}}' product='{{product.data.data}}' type='{{type}}'></coupon-group>
+
+<view wx:elif='{{product.data.type==0}}'>
+    <!--普通券-->
+    <coupon-normal wx:if='{{product.data.data.product.marketingType==0}}' coupon='{{product.data.data}}' isFromShare='{{isFromShare}}' productId='{{productId}}' shopDetail='{{shopDetail}}' type='{{type}}'></coupon-normal>
+
+    <!--拼团券-->
+
+    <coupon-group-buy wx:elif='{{product.data.data.product.marketingType==1}}' coupon='{{product.data.data}}' productId='{{productId}}' couponProduct='{{product.data}}' shopDetail='{{shopDetail}}' type='{{type}}'></coupon-group-buy>
+
+    <!--分销返现券-->
+    <coupon-dist wx:if='{{product.data.data.product.marketingType==2}}' coupon='{{product.data.data}}' isFromShare='{{isFromShare}}' productId='{{productId}}' shopDetail='{{shopDetail}}' type='{{type}}'></coupon-dist>
+</view>

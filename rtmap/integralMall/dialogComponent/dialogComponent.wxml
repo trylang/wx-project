@@ -1,0 +1,22 @@
+<!--dialogComponent.wxml-->
+<view class='wx_dialog_container' hidden="{{!isShow}}" catchtouchmove='start'>
+    <view class='wx-mask' bindtap='_confirmEvent'></view>
+    <view class='wx-dialog'>
+        <view class='dialog-title'>
+            <view class='dialog-title-content'>
+                <text style='color:#333;font-size:36rpx;margin-top:80rpx;'>{{payResult.content}}</text>
+            </view>
+
+            <view class='btnrow' wx:if="{{payResult.leftText!=''}}">
+                <view class='cancle' bindtap='_cancelEvent'>{{payResult.leftText}}</view>
+                <view class='okbtn' bindtap='_confirmEvent'>{{payResult.rightText}}</view>
+            </view>
+
+            <view wx:else class='okbtn' style='margin-bottom:80rpx;' bindtap='_confirmEvent'>{{payResult.rightText}}</view>
+
+        </view>
+        <image class='dialog-image' wx:if="{{payResult.type==1}}" src='../images/success.png' mode='widthFix'></image>
+
+        <image class='dialog-image' wx:if="{{payResult.type!=1}}" src='../images/fail.png' mode='widthFix'></image>
+    </view>
+</view>

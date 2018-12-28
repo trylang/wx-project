@@ -1,0 +1,325 @@
+page{
+	background: #f0f0f0;
+}
+
+.noMore{
+	color: #ccc;
+	width: 100%;
+	font-size: 24rpx;
+	line-height: 80rpx;
+	text-align: center;
+	clear: both;
+	display: block;
+}
+.textOverflow{
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.header{
+	width: 100%;
+	background: #fff;
+	border-bottom: #e1e1e1 solid 1rpx;
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+}
+.tab{
+	color: #2e2e2e;
+	background: #fff;
+	border: #e1e1e1 solid 1px;
+	border-radius: 70rpx;
+	margin: 20rpx 30rpx;
+	display: -webkit-flex;
+	display: flex;
+	overflow: hidden;
+}
+.tab > view{
+	font-size: 30rpx;
+	line-height: 70rpx;
+	text-align: center;
+	-webkit-flex: 1;
+	flex: 1;
+}
+.tab > view:nth-of-type(2){
+	border-left: #e1e1e1 solid 1px; 
+	border-right: #e1e1e1 solid 1px; 
+}
+.tab.unuse > view:nth-of-type(1),
+.tab.used > view:nth-of-type(2),
+.tab.invalid > view:nth-of-type(3){
+	color: #fff;
+	background: linear-gradient(180deg, #4e4d58, #464552 50%, #383747);
+}
+.body{
+	margin-top: 130rpx;
+	overflow: hidden;
+}
+
+
+/********* couponSummary ********/
+.couponSummary{
+	margin: 0 25rpx 20rpx;
+	display: -webkit-flex;
+	display: flex;
+	position: relative;
+}
+.couponSummary:before,
+.couponSummary:after{
+	content: " ";
+	width: 30rpx;
+	height: 30rpx;
+	border-radius: 50%;
+	background: #f0f0f0;
+	margin-left: -15rpx;
+	display:block;
+	position: absolute;
+	left: 205rpx;
+	top: -15rpx;
+	z-index: 9;
+}
+.couponSummary:after{
+	top: auto;
+	bottom: -15rpx;
+	-webkit-box-shadow: 5rpx 5rpx 6rpx #e0e0e0 inset;
+	box-shadow: 5rpx 5rpx 6rpx #e0e0e0 inset;
+}
+.couponSummary .main{
+	font-size: 22rpx;
+	color: #fff;
+	width: 205rpx;
+	height: 200rpx;
+	border-top-left-radius: 8rpx;
+	border-bottom-left-radius: 8rpx;
+	text-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	display: flex;
+	position: relative;
+	float: left;
+	webkit-box-shadow: 5rpx 5rpx 6rpx #e0e0e0;
+	box-shadow: 5rpx 5rpx 6rpx #e0e0e0;
+}
+.couponSummary .main .title{
+	font-size: 65rpx;
+	font-weight: bold;
+}
+.couponSummary .main .type{
+	line-height: 30rpx;
+	display: block;
+}
+.couponSummary .extend{
+	-webkit-flex: 1;
+	flex: 1;
+	height: 200rpx;
+	background: #fff;
+	border-radius: 8rpx;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	display: flex;
+	position: relative;
+	float: left;
+	webkit-box-shadow: 5rpx 5rpx 6rpx #e0e0e0;
+	box-shadow: 5rpx 5rpx 6rpx #e0e0e0;
+}
+.couponSummary .extend .tag{
+	width: 126rpx;
+	height: 126rpx;
+	overflow: hidden;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.couponSummary .extend:before{
+	content: " ";
+	width: 7rpx;
+	height: 85%;
+	background:radial-gradient(#fff 0, #fff 4rpx, transparent 4rpx);
+	background-size:14rpx 14rpx;
+	display:block;
+	position: absolute;
+	left: -5rpx;
+	top: 9%;
+}
+.couponSummary.new .extend:after{
+	content: "新";
+	color: #fff;
+	width: 60rpx;
+	height: 60rpx;
+	line-height: 40rpx;
+	background: linear-gradient(225deg, #f75a53, #f75a53 50%, transparent 50%, transparent);
+	font-size: 24rpx;
+	text-align: right;
+	padding-right: 5rpx;
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.couponSummary .extend .tag .used,
+.couponSummary .extend .tag .invalid{
+	display: none;
+}
+.couponSummary.used .extend .tag .used,
+.couponSummary.invalid .extend .tag .invalid{
+	width: 126rpx;
+	height: 126rpx;
+	margin-left: 15rpx;
+	margin-top: -15rpx;
+	display: block;
+}
+
+.couponSummary .main,
+.couponSummary.discount .main{
+	background: #ffb452;
+}
+.couponSummary.gift .main{
+	background: #8ba1ff;
+}
+.couponSummary.money .main{
+	background: #ff3838;
+}
+.couponSummary.free .main{
+	background: #ff5555;
+}
+.couponSummary.single .main{
+	background: #61b7ff;
+}
+.couponSummary.brand .main{
+	background: #50d6ff;
+}
+.couponSummary.ext1 .main{
+	background: #ff86d1;
+}
+.couponSummary.ext2 .main{
+	background: #ed9e3d;
+}
+.couponSummary.ext3 .main{
+	background: #3acec5;
+}
+.couponSummary.ext4 .main{
+	background: #ff5f97;
+}
+.couponSummary.used .main,
+.couponSummary.invalid .main{
+	background: #ccc;
+}
+.couponSummary.free .main .title{
+	font-size: 60rpx;
+	font-weight: normal;
+}
+.couponSummary.free .main .type{
+	text-decoration: line-through;
+}
+.couponSummary.single .main .title,
+.couponSummary.brand .main .title,
+.couponSummary.ext1 .main .title,
+.couponSummary.ext2 .main .title,
+.couponSummary.ext3 .main .title,
+.couponSummary.ext4 .main .title{
+	font-size: 45rpx;
+	font-weight: normal;
+}
+.couponSummary .extend > view{
+	width: 100%;
+}
+.couponSummary .extend > view text{
+	width: 80%;
+	font-size: 24rpx;
+	margin-top: 10rpx;
+	margin-left: 10%;
+	display: block;
+}
+.couponSummary .extend > view text.title{
+	font-size: 26rpx;
+	font-weight: bold;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+}
+.couponSummary .extend > view text.limit{
+	width: auto;
+	color: #f75a53;
+	background: #ffe2e1;
+	padding: 0 10rpx;
+	display: inline-block;
+}
+.couponSummary .extend > view text.date{
+	color: #9a9a9a;
+}
+/********* couponSummary End ********/
+
+/********* dialog ********/
+._dialog_layer{
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99999;
+}
+._dialog_layer ._dialog_bg{
+	width: 80%;
+	background: #fff;
+	border-radius: 8rpx;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	position: absolute;
+	left: 50%;
+	top: 50%;
+}
+._dialog_layer ._dialog_bg ._dialog_title{
+	color: #353535;
+	font-size: 33rpx;
+	font-weight: bold;
+	line-height: 77rpx;
+	margin: 22rpx;
+	text-align: center;
+}
+._dialog_layer ._dialog_bg ._dialog_content{
+	color: #353535;
+	font-size: 28rpx;
+	font-weight: normal;
+	line-height: 55rpx;
+	text-align: center;
+}
+._dialog_layer ._dialog_bg ._dialog_button_wrap{
+	-webkit-display: flex;
+	display: flex;
+}
+._dialog_layer ._dialog_bg ._dialog_button_wrap ._dialog_button{
+	-webkit-flex: 1;
+	flex: 1;
+	font-size: 28rpx;
+	line-height: 100rpx;
+	border-top: #dedede solid 1px;
+	text-align: center;
+}
+._dialog_layer ._dialog_bg ._dialog_button_wrap ._dialog_button:first-of-type{
+	border-right: #dedede solid 1px;
+}
+._dialog_layer ._dialog_bg ._dialog_button_wrap ._dialog_button.primary{
+	color: #337ab7;
+}
+._dialog_layer ._dialog_bg ._dialog_button_wrap ._dialog_button.success{
+	color: #4cae4c;
+}
+._dialog_layer ._dialog_bg ._dialog_button_wrap ._dialog_button.info{
+	color: #46b8da;
+}
+._dialog_layer ._dialog_bg ._dialog_button_wrap ._dialog_button.warning{
+	color: #f0ad4e;
+}
+._dialog_layer ._dialog_bg ._dialog_button_wrap ._dialog_button.danger{
+	color: #d9534f;
+}
+/********* dialog End ********/

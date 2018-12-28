@@ -1,0 +1,14 @@
+<view>
+    <view class="top-info">
+        <view class="detail-title">{{couponObj.poiName}}{{couponObj.mainInfo}}</view>
+        <view class="detail-info">{{couponObj.categoryDesc}}</view>
+        <view class="qr-code">
+             <canvas class="code" canvas-id="qrcCanvas"/> 
+        </view>
+        <view class="card-num">{{qrCode}}</view>
+    </view>
+     <view class="middle-info">
+        <view class="title">使用须知</view>
+        <rich-text nodes="{{useInfo}}"></rich-text>
+    </view>
+</view>

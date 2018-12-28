@@ -1,0 +1,24 @@
+<!--优惠券 标签-->
+<!-- <view class='coupon-tags'>
+    <view class='coupon-tag' wx:for="{{tags}}" wx:key="{{item.id}}" wx:for-item="tag">
+        <view class="coupon-tag-title{{ ' '+tag.typestr }}">
+            <text>{{ tag.title }}</text>
+        </view>
+        <text class='coupon-tag-description'>{{ tag.description }}</text>
+    </view>
+</view> -->
+
+<view class='coupon-tags'>
+    <view class='coupon-tag'>
+        <view class="coupon-tag-title limit">
+            <text>限</text>
+        </view>
+        <text class='coupon-tag-description'>限{{ buyType == 2 ?'购':'领' }}{{ limit }}件</text>
+    </view>
+    <view class='coupon-tag' wx:if="{{ buyType == 2 && refund}}">
+        <view class="coupon-tag-title return">
+            <text>退</text>
+        </view>
+        <text class='coupon-tag-description'>过期自动退</text>
+    </view>
+</view>

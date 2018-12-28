@@ -1,0 +1,101 @@
+@import "echoss/echossIcon.wxss";
+
+.ckitTemplate { position: fixed; width: 100%; height: 100%; top: 0; left: 0; display: none; z-index:999;}
+.ckitTemplate.on { display: block; }
+.ckit_template_background { position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
+.ckit_template_close_img { position: fixed; top: 20px; right: 15px;  width: 40px; height: 40px; }
+.ckit_template_center_view { position: absolute; top: 50%; width: 100%; margin-top: -80px; text-align: center; }
+.ckit_template_center_view.off { display: none; }
+.ckit_template_center_view_img_frame { position: relative; width: 100px; height: 100px; background-color: rgba(95,180,239,0.7); border-radius: 50%; margin: 0 auto; margin-bottom: 10px;
+  -webkit-animation: echossBgChange 7s linear infinite;
+  -moz-animation: echossBgChange 7s linear infinite;
+  -ms-animation: echossBgChange 7s linear infinite;
+  animation: echossBgChange 7s linear infinite;
+}
+.ckit_template_center_view_img_fr { width: 100%; height: 100%; }
+.ckit_template_center_view_img { width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0; }
+.ckit_template_center_view_img.on { opacity: 1; }
+.ckit_template_center_view_text { font-size: 0.983rem; font-weight: 300; letter-spacing: 0.5px; color: #FFFFFF; }
+
+.ckit_template_loading_view { position: fixed; width: 100%; height: 100%; top: 0; left: 0; display: none; z-index: 100000000; }
+.ckit_template_loading_view.on { display: block; }
+.ckit_template_loading_dim_view { position: absolute; width: 100%; height: 100%; top: 0; left: 0; background-color: #000000; opacity: 0.4; }
+.ckit_template_loading_frame_wrap { position: absolute; top: 50%; width: 100%; margin-top: -50px; text-align: center; }
+.ckit_template_loading_frame { position: relative; width: 100px; height: 100px; background-color: rgba(95,180,239,0.8); border-radius: 50%; margin: 0 auto; margin-bottom: 10px;
+  -webkit-animation: echossLoadingBgChange 1s linear infinite 0s;
+  -moz-animation: echossLoadingBgChange 1s linear infinite 0s;
+  -ms-animation: echossLoadingBgChange 1s linear infinite 0s;
+  animation: echossLoadingBgChange 1s linear infinite 0s;
+}
+.ckit_template_loading_img_fr { width: 100%; height: 100%; }
+.ckit_template_loading_gif { width: 100%; height: 100%; position: absolute; top: 0; left: 0;     
+  -webkit-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  transform: scale(0.5);
+}
+.ckit_template_loading_img_01, .ckit_template_success_img_01 { position: absolute; width: 100%; height: 100%; top: 0; left: 0;
+  -webkit-transform: scale(0.3);
+  -moz-transform: scale(0.3);
+  -ms-transform: scale(0.3);
+  transform: scale(0.3);
+  -webkit-animation: echossLoadingscaleUp 0.9s linear infinite 0s;
+  -moz-animation: echossLoadingscaleUp 0.9s linear infinite 0s;
+  -ms-animation: echossLoadingscaleUp 0.9s linear infinite 0s;
+  animation: echossLoadingscaleUp 0.9s linear infinite 0s;
+}
+.ckit_template_loading_img_02, .ckit_template_success_img_02 { position: absolute; width: 100%; height: 100%; top: 0; left: 0;
+  -webkit-transform: scale(0.3);
+  -moz-transform: scale(0.3);
+  -ms-transform: scale(0.3);
+  transform: scale(0.3);
+  -webkit-animation: echossLoadingscaleUp 0.9s linear infinite 0.2s;
+  -moz-animation: echossLoadingscaleUp 0.9s linear infinite 0.2s;
+  -ms-animation: echossLoadingscaleUp 0.9s linear infinite 0.2s;
+  animation: echossLoadingscaleUp 0.9s linear infinite 0.2s;
+}
+.ckit_template_loading_img_03, .ckit_template_success_img_03 { position: absolute; width: 100%; height: 100%; top: 0; left: 0;
+  -webkit-transform: scale(0.3);
+  -moz-transform: scale(0.3);
+  -ms-transform: scale(0.3);
+  transform: scale(0.3);
+  -webkit-animation: echossLoadingscaleUp 0.9s linear infinite 0.4s;
+  -moz-animation: echossLoadingscaleUp 0.9s linear infinite 0.4s;
+  -ms-animation: echossLoadingscaleUp 0.9s linear infinite 0.4s;
+  animation: echossLoadingscaleUp 0.9s linear infinite 0.4s;
+}
+
+.ckit_template_success_view { position: fixed; width: 100%; height: 100%; top: 0; left: 0; display: none; z-index: 100000000; }
+.ckit_template_success_view.on { display: block; }
+.ckit_template_success_frame_wrap { position: absolute; top: 50%; width: 100%; margin-top: -50px; text-align: center; }
+.ckit_template_success_frame { position: relative; width: 100px; height: 100px; border-radius: 50%; margin: 0 auto; margin-bottom: 10px; }
+.ckit_template_success_img_fr { width: 100%; height: 100%; }
+.ckit_template_success_img { width: 100%; height: 100%; position: absolute; top: 0; left: 0; }
+
+@keyframes echossBgChange {
+  0% {background-color: rgba(95,180,239,0.7);}
+  14.28% {background-color: rgba(136,72,233,0.7);}
+  28.56% {background-color: rgba(229,211,12,0.7);}
+  42.84% {background-color: rgba(242,76,76,0.7);}
+  57.12% {background-color: rgba(183,141,82,0.7);}
+  71.4% {background-color: rgba(77,214,118,0.7);}
+  85.68% {background-color: rgba(94,110,161,0.7);}
+  100% {background-color: rgba(95,180,239,0.7);}
+}
+
+@keyframes echossLoadingBgChange {
+  0% {background-color: rgba(95,180,239,0.8);}
+  14.28% {background-color: rgba(136,72,233,0.8);}
+  28.56% {background-color: rgba(229,211,12,0.8);}
+  42.84% {background-color: rgba(242,76,76,0.8);}
+  57.12% {background-color: rgba(183,141,82,0.8);}
+  71.4% {background-color: rgba(77,214,118,0.8);}
+  85.68% {background-color: rgba(94,110,161,0.8);}
+  100% {background-color: rgba(95,180,239,0.8);}
+}
+
+@keyframes echossLoadingscaleUp {
+  0% { transform: scale(0.3); opacity: 1; }
+  50% { opacity:0.74; }
+  100% { transform: scale(2.30); opacity: 0.2; }
+}

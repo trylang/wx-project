@@ -1,0 +1,99 @@
+/* *index.wxss*
+@import "../../components/band_con/index.wxss"; */
+::-webkit-scrollbar {
+     width: 0;
+     height: 0;
+     color: transparent;
+}
+.body{
+	width: 100%;
+	background-color: #FFF;
+	font-family:PingFangSC;
+	font-size: 30rpx;
+	color: #000;
+}
+.heand-con{
+	border-top: 2rpx solid #F5F5F5;
+}
+.con-record{
+	border-bottom: 2rpx solid #F5F5F5;
+	padding:32rpx;
+	position: relative;
+}
+.con-time{
+	font-size: 24rpx;
+	color: #ccc;
+	margin: 8rpx 0;
+}
+.con-check image{
+	width: 104rpx;
+	height: 82rpx;
+}
+.con-check{
+	position: absolute;
+	top: 0;
+	right: 30rpx;
+}
+.look-reason{
+	font-size: 24rpx;
+	color: #999;
+	border-bottom: 2rpx solid #999;
+}
+.con-ntegral{
+	line-height: 150rpx;
+	font-weight: 700;
+	color: #F21B7B;
+	font-size:36rpx;
+}
+.pop-up{
+}
+.fff-up{
+	width: 560rpx;
+	height: 492rpx;
+	text-align: center;
+	color: #000;
+	background-color: #fff;
+	z-index: 100;
+	position: absolute;
+	top: 382rpx;
+	left: 96rpx;
+	padding-top: 196rpx;
+	box-sizing: border-box;
+}
+.up-tit{
+	font-weight: 900;
+	font-size: 36rpx;
+}
+.up-con{
+	margin:16rpx 0 0;
+}
+.pop-up image{
+	z-index: 2000;
+	position: absolute;
+	top: 239rpx;
+	left: 268rpx;
+	height: 260rpx;
+	width: 192rpx;
+}
+.fff-up button{
+	color:#fff ;
+	background-color: #F21B7B ;
+	font-size: 30rpx;
+	height: 72rpx;
+	width: 220rpx;
+	line-height: 72rpx;
+	border-radius:36rpx;
+	margin: 40rpx 170rpx;
+}
+.black-up{
+	width: 100%;
+	height: 1334rpx;
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	background-color: #080000;
+	opacity: 0.4;
+}
+.up-hide{
+	display: none;
+}

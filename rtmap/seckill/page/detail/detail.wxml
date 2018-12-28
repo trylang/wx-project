@@ -1,0 +1,148 @@
+<!-- <couponheader-img
+    class='detail'
+    img="{{coupon.imgUrl}}"
+
+     bindtouchmove='onPageMove'
+> -->
+<view class='detail' touchstart='onPageMoveStart' bindtouchend='onPageMoveEnd'>
+    <image class='banner' src='{{coupon.couponImageList[0].imgUrl}}' mode='aspectFill' lazy-load></image>
+
+    <view class='message'>
+
+        <view class='title-content'>
+            <view class="main-c">
+                <text class='main'>{{coupon.mainInfo}}</text>
+                <button open-type="share" class='main-share'>
+                    <image src='http://res.rtmap.com/wx/seckill/share.png' bindtap="sharePage"></image>
+                </button>
+            </view>
+            <text class='extend'>{{coupon.extendInfo}}</text>
+        </view>
+        <view class="time_down">
+            <view wx:if="{{countdown.status==1}}" class="time_type">距结束</view>
+            <view wx:if="{{countdown.status==0}}" class="time_type">距开售</view>
+            <view wx:if="{{countdown.status==2}}" class="time_type">已结束</view>
+            <block wx:if="{{countdown.status!=2}}">
+                <view class="time_item">{{countdown.remainhour}}</view>:
+                <view class="time_item">{{countdown.remainminute}}</view>:
+                <view class="time_item">{{countdown.remainsecond}}</view>
+            </block>
+            <view wx:if="{{coupon.userType}}" class="usertype">
+                {{memberlist[coupon.userType]}}
+            </view>
+        </view>
+        <view class='tag'>
+            <view class='tag-xian'>限{{ coupon.payType == 1 ?'领':'购' }}{{ coupon.userLimit }}件</view>
+            <view hidden='{{coupon.refundType!=0}}' class='tag-xian'>过期自动退</view>
+            <view class="tag-rush">{{ coupon.count }}人已抢到</view>
+        </view>
+        <!-- <view class='title-status'>
+            <view style='title-left'>
+                <view class='title'>
+                    <view class='coupon-info-price'>
+                        <block wx:if="{{ coupon.buyType == 1 }}">
+                            <text class="coupon-info-discount">免费</text>
+                        </block>
+                        <block wx:elif="{{ coupon.buyType == 2 }}">
+                            <text style='font: medium; color: #f21b7b; font-size: 24rpx;'>￥</text>
+                            <text class="coupon-info-discount">{{coupon.buyPrice?coupon.buyPrice/100:''}}</text>
+                        </block>
+                        <text class='coupon-info-orginprice' hidden="{{!coupon.facePrice}}">价值￥{{coupon.facePrice?coupon.facePrice/100:''}}</text>
+                    </view>
+                </view>
+            </view>           
+
+            <label class='title-share'>
+                <image class='share' src='../../../integralMall/images/share.png' mode='widthFix'></image>
+                <button open-type='share'></button>
+            </label> 
+        </view>-->
+    </view>
+
+    <!-- <view class='line'></view>-->
+    <view class='kill_shops' hidden='{{coupon.couponApplyShopList.length==0}}'>
+        <view class='shop'>
+            <view class='shop-logo' bindtap='queryMoreShops'>
+                <image class='logo' src='{{coupon.couponApplyShopList[0]?coupon.couponApplyShopList[0].imgLogoUrl:""}}' mode='widthFix'></image>
+                <view class='kill_msg'>
+                    <text class='kill_title'>{{coupon.couponApplyShopList[0]?coupon.couponApplyShopList[0].shopName:''}}</text>
+                    <text class='kill_floor'>{{bbgFloor}}</text>
+                </view>
+            </view>
+
+            <view class='kill_shop-btn'>
+                <view class='kill_call' style='border-right:2rpx #eee solid;' bindtap='onCallClick'>
+                    <image src='http://res.rtmap.com/wx/seckill/phone.png' mode='widthFix'></image>
+                    <view class="kill_call_word">电话</view>
+                </view>
+
+                <view class='kill_call' bindtap='navigationToShop'>
+                    <image src='http://res.rtmap.com/wx/seckill/go.png' mode='widthFix'></image>
+                    <view class="kill_call_word">到这去</view>
+                </view>
+            </view>
+        </view>
+
+        <!-- <text class='showall' hidden='{{coupon.shops.length>1}}' bindtap='queryMoreShops'>查看全部适用店铺</text> -->
+    </view>
+
+    <view wx:if="{{coupon.descClause}}" class='line'></view>
+
+    <view wx:if="{{coupon.descClause}}" class='message'>
+        <text class="message_t">使用须知</text>
+        <text class="tip_content" hidden='{{!startTime&&!endTime}}'>有效期：{{startTime}} 至 {{endTime}}</text>
+        <rich-text nodes='{{coupon.descClause}}' style='font-size:28rpx;white-space:pre-wrap;'></rich-text>
+    </view>
+    <view wx:if="{{coupon.imgtxtInfo}}" class='line'></view>
+    <view wx:if="{{coupon.imgtxtInfo}}" class='message'>
+        <text class="message_t">图文详情</text>
+        <block wx:for="{{coupon.imgtxtInfo}}" wx:key="index">
+            <rich-text wx:if='{{item}}' nodes='{{item}}' class="message_content"></rich-text>
+            <!-- <view style='margin-top:20rpx;'>
+                <image mode="widthFix" class="descClauseImg" src="{{item.img}}"/>
+                <rich-text nodes='{{item.html}}' style='margin-top:40rpx;font-size:28rpx;'></rich-text>
+                <text style='margin-top:40rpx;font-size:28rpx;'>{{item.html}}</text>
+            </view> -->
+        </block>
+    </view>
+    <view style="height: 180rpx"></view>
+    <view wx:if="{{countdown.status!==''}}" class='excell'>
+        <view class='paymsg'>
+            <text class='conv' wx:if="{{coupon.payType===1}}">免费</text>
+            <text class='conv' wx:if="{{coupon.payType===3}}">{{coupon.score}}积分</text>
+            <text class='conv' wx:if="{{coupon.payType===2}}">￥{{coupon.price/100}}</text>
+            <text class='money' hidden="{{!coupon.facePrice}}">￥{{coupon.facePrice/100}}</text>
+        </view>
+        <block wx:if='{{countdown.status===0}}'>
+            <form class="pay {{coupon.notify?'cancal':''}}" bindsubmit="switchAlert" report-submit='true'>
+                <button class="paybutton" form-type="submit">
+                    <text>{{coupon.notify?'取消提醒':'开售提醒'}}</text>
+                </button>
+            </form>
+        </block>
+        <block wx:elif='{{countdown.status===1}}'>
+            <view wx:if="{{coupon.totalCount==coupon.count}}" class='pay disable'>
+                <text>已抢光</text>
+            </view>
+            <view wx:else class='pay' bindtap='prePay'>
+                <text wx:if="{{coupon.payType==1}}">免费领取</text>
+                <text wx:if="{{coupon.payType==2}}">立即购买</text>
+                <text wx:if="{{coupon.payType==3}}">立即兑换</text>
+            </view>
+        </block>
+        <block wx:else>
+            <view class='pay disable'>
+                <text>看看其他</text>
+            </view>
+        </block>
+    </view>
+    <navigator url="/pages/index/index" open-type="switchTab" wx:if="{{isfromshare}}">
+        <image class="{{isMove?'go-home-hide':'go-home'}}" src='/rtmap/coupons/images/go_home.png' mode='widthFix'></image>
+    </navigator>
+    <!-- </couponheader-img> -->
+
+    <navigator url="/pages/index/index" open-type="switchTab" wx:if="{{isFromShare == 'true'}}">
+        <image class="{{isMove?'go-home-hide':'go-home'}}" src='http://res.rtmap.com/wx/couponM/go_home.png' mode='widthFix'></image>
+    </navigator>
+
+</view>

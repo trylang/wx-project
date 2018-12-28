@@ -1,0 +1,2 @@
+<!--components/VerificationCode/VerificationCode.wxml-->
+<text class="common {{canClick?'normal':'disable'}}" bindtap='_startTimer'>{{residueTime >= 60 ? '获取验证码':residueTime + 1 +'s'}}</text>

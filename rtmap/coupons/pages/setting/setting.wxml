@@ -1,0 +1,34 @@
+<!--rtmap/coupons/pages/setting/setting.wxml-->
+<view class='container'>
+    <view class='list-head'>
+        <image src='../../../../images/logo.png'></image>
+        <text class='app-name'>{{projectMinTitle}}小程序</text>
+        <text class='app-version'>版本号 {{version}}</text>
+    </view>
+    <view class='list'>
+        <view class='cell' bindtap='feedback'>
+            <view class='cell-detail'>
+                <image src='../../static/images/setting_feedback.png'  mode='widthFix' style='width: 36rpx;height:42rpx;'></image>
+                <text>问题反馈</text>
+            </view>
+            <view class='cell-accessory'>
+                <text></text>
+                <image class='cell-accessory-icon' src='../../static/images/mine_apps_arrow.png'></image>
+            </view>
+        </view>
+        <view class='cell' bindtap='contactUs'>
+            <view class='cell-detail'>
+                <image src='../../static/images/setting_phone.png' mode='widthFix' style='width: 38rpx;height:38rpx;'></image>
+                <text>联系我们</text>
+            </view>
+            <view class='cell-accessory'>
+                <text>{{phone}}</text>
+                <image class='cell-accessory-icon' src='../../static/images/mine_apps_arrow.png'></image>
+            </view>
+        </view>
+    </view>
+
+    <view class='exit' bindtap='onExitClick' hidden='{{!isLogin}}'>
+        <text>退出登录</text>
+    </view>
+</view>

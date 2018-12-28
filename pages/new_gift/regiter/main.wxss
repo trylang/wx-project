@@ -1,0 +1,44 @@
+@import "../../components/modal_btn/modal.wxss";
+page{
+	background: #fff;
+}
+.container{
+	padding: 100rpx 50rpx;
+	background: #fff;
+}
+.name{
+	display: flex;
+	width: 100%;
+	font-size: 32rpx;
+	padding-bottom: 30rpx;
+	margin-bottom: 32rpx;
+	border-bottom: 1rpx solid #ddd;
+}
+.label{
+	width: 140rpx;
+}
+.write-name{
+	line-height: 1.5;
+	color: #666;
+	font-size: 30rpx;
+	padding-left: 25rpx;
+}
+.choose{
+	background: #fff;
+	line-height: 1.2;
+	color: #666;
+	font-size: 30rpx;
+}
+.choose::after{
+	border:none;
+	color: #333;
+}
+.submit{
+	background: #ff6559;
+	color: #fff;
+	width: 485rpx;
+	height: 88rpx;
+	border-radius: 44rpx;
+	font-size: 38rpx;
+	margin-top: 68rpx;
+}

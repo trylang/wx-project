@@ -1,0 +1,2 @@
+<!--rtmap/welfaremap/welfaremap.wxml-->
+<web-view wx:if="{{buildid}}" src="{{url}}"></web-view>
